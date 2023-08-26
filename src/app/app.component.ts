@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { rentalsList } from './mockdatas/mock-rentals-list';
+import { Rental } from './models/rental';
 
 @Component({
   selector: 'app-root', // tag name of this custom component
@@ -8,14 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'angularprj';
 
+  rentalsList = rentalsList
+
   // constructor method is not defined for most angular component
 
   ngOnInit(): void {
     console.log(this.title, "aaa")
   }
 
-  selectRental(rentalId : number){
-    console.log(`The rental with the following id has been selected : ${rentalId}`)
+  clickRental(rental : Rental){
+    console.log(`The rental with the following id has been clicked : ${rental.id}`)
   }
 }
 

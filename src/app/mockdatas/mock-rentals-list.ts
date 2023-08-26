@@ -1,4 +1,4 @@
-import { Rental } from "./models/rental";
+import { Rental } from "../models/rental";
 
 export const rentalsList : Array<Rental> = [
 	{
