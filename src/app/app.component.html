@@ -9,11 +9,28 @@
   margin:0 auto;
   align-items: center;
   padding:1rem 0;
+  row-gap: 2rem;
 }
 </style>
 
 <div class="main">
+  <!-- #input > ref -->
+  <!-- (keyup) = "0" > force change detection : autoupdate inputvalue -->
+  <!-- (click)="changeRental($event)" -->
+  <!-- (keyup.enter) : pseudo event -->
+  <input 
+    (keyup.enter)="enterRental(input.value)"
+    (blur)="enterRental(input.value)"
+    #input 
+    type="text"/>
+  <!-- *ngIf="" : directive structurelle -->
+  <p *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p>
   <p (click)="clickRental(rentalsList[0])">{{rentalsList[0].id}} : {{rentalsList[0].title}}</p>
+  <p (click)="clickRental(rentalsList[1])">{{rentalsList[1].id}} : {{rentalsList[1].title}}</p>
+  <p (click)="clickRental(rentalsList[2])">{{rentalsList[2].id}} : {{rentalsList[2].title}}</p>
+  <p (click)="clickRental(rentalsList[3])">{{rentalsList[3].id}} : {{rentalsList[3].title}}</p>
+  <p (click)="clickRental(rentalsList[4])">{{rentalsList[4].id}} : {{rentalsList[4].title}}</p>
+  <p (click)="clickRental(rentalsList[5])">{{rentalsList[5].id}} : {{rentalsList[5].title}}</p>
 </div>
 
 <router-outlet></router-outlet>
