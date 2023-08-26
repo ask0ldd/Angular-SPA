@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.title, "aaa")
   }
+
+  selectRental(rentalId : number){
+    console.log(`The rental with the following id has been selected : ${rentalId}`)
+  }
 }
 
 // https://angular.io/guide/lifecycle-hooks
