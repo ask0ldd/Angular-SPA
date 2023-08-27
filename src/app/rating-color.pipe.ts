@@ -5,8 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RatingColorPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  // transform(value: unknown, ...args: unknown[]): unknown {
+  transform(rating : string) : string {
+    if(parseInt(rating) > 4) return " [Recommanded]"
+    return ""
   }
 
 }

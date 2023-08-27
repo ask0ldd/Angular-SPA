@@ -121,7 +121,7 @@
     <div *ngFor="let rental of rentalsList" class="anchor">
       <article class="immocard" immocardHover="purple">
         <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
-        <p>{{rental.title}} [{{rental.rating | percent}}]</p> <!-- | pipe : transform data-->
+        <p>{{rental.title}}{{rental.rating | ratingColor}}</p> <!-- | pipe : transform data-->
       </article>
     </div>
   </div>
