@@ -1,0 +1,25 @@
+<div class="main">
+    <!-- #input > ref -->
+    <!-- (keyup) = "0" > force change detection : autoupdate inputvalue -->
+    <!-- (click)="changeRental($event)" -->
+    <!-- (keyup.enter) : pseudo event -->
+    <input 
+      (keyup.enter)="enterRental(input.value)"
+      (blur)="enterRental(input.value)"
+      #input 
+      type="text"/>
+    <!-- *ngIf="" : directive structurelle -->
+    <p class="oldp" *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p>
+    <p class="oldp" *ngIf="selectedRental == null">No rental found.</p>
+    <!-- <p *ngFor="let rental of rentalsList" (click)="clickRental(rental)">{{rental.id}} : {{rental.title}}</p>-->
+  
+    <div id="gallery">
+      <div *ngFor="let rental of rentalsList" class="anchor">
+        <article class="immocard" immocardHover="purple">
+          <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
+          <p>{{rental.title}}<span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span></p> <!-- | pipe : transform data-->
+        </article>
+      </div>
+    </div>
+    
+  </div>

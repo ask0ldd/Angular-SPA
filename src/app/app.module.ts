@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { immocardHoverDirective } from './immocard-hover.directive';
 import { RatingColorPipe } from './rating-color.pipe';
+import { RentalsGalleryComponent } from './rentals-gallery/rentals-gallery.component';
+import { RentalDetailsComponent } from './rental-details/rental-details.component';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
     AppComponent, 
-    immocardHoverDirective, RatingColorPipe
+    immocardHoverDirective, RatingColorPipe, RentalsGalleryComponent, RentalDetailsComponent
   ],
   imports: [ // other modules to import
     BrowserModule,
