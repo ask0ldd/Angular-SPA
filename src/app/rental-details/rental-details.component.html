@@ -2,9 +2,9 @@
     <section class='slideshow'>
         <img data-testid="slideshowImg" [src]="activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 
-            <div data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow-right.svg" alt="arrow previous" /></div>
+            <div (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow-right.svg" alt="arrow previous" /></div>
             <div (click)="nextImg()" data-testid="slideshowRightArrow"><img src="../../assets/arrow-right.svg" alt="arrow next" /></div>
-            <span class="index">1/1</span>
+            <span class="index">{{activeImg+1}}/{{activeRental.pictures.length}}</span>
         </div>
     </section>
     <section data-testid="rentalDetails" id="rentalDetails">

@@ -21,10 +21,12 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   nextImg() {
-    this.activeImg += 1 
+    if(this.activeImg + 1 >= this.activeRental.pictures.length) return
+    this.activeImg += 1
   }
 
   prevImg() {
+    if(this.activeImg <= 0) return
     this.activeImg -= 1 
   }
   
