@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { immocardHoverDirective } from './immocard-hover.directive';
+import { RatingColorPipe } from './rating-color.pipe';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
     AppComponent, 
-    immocardHoverDirective
+    immocardHoverDirective, RatingColorPipe
   ],
   imports: [ // other modules to import
     BrowserModule,

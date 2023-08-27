@@ -35,7 +35,7 @@
   width: 100%;
   height: 100%;
   border-radius: 0px;
-  border: 4px solid #ffffff;
+  /*border: 4px solid #ffffff;*/
   overflow: hidden;
   position: relative;
   color: #ffffff;
@@ -119,9 +119,9 @@
 
   <div id="gallery">
     <div *ngFor="let rental of rentalsList" class="anchor">
-      <article class="immocard">
+      <article class="immocard" immocardHover="purple">
         <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
-        <p>{{rental.title}}</p>
+        <p>{{rental.title}} [{{rental.rating | percent}}]</p> <!-- | pipe : transform data-->
       </article>
     </div>
   </div>
