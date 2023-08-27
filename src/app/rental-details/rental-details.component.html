@@ -11,7 +11,9 @@
         <div id="headingsNtags">
           <h1>{{activeRental.title}}</h1>
           <p>{{activeRental.location}}</p>
-          <span class="tag"></span>
+          <div class="tagsContainer">
+            <span class="tag" *ngFor="let tag of activeRental.tags">{{tag}}</span>
+          </div>
         </div>
         <div id="ownerNratings">
             <div class="hostContainer">
@@ -19,6 +21,8 @@
                 <img src={{activeRental.host.picture}} alt="host portrait" />
             </div>
             <div class="starsContainer">
+                <!--<img data-testid={props.src === "redstar" ? "redstar" : "greystar"} className={props.src === "redstar" ? "star-red" : "star-grey"} src={props.src === "redstar" ? redstar : greystar} alt="positive star" />-->
+                <img *ngFor="let _ of [].constructor(activeRentalRating)" class="redstar" src="../../assets/redstar.svg" alt="positive star" />
             </div>
         </div>
     </section>

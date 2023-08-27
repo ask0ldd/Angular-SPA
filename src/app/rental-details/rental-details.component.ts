@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
+import { Rental } from '../models/rental';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rental-details',
@@ -8,16 +10,22 @@ import { rentalsList } from '../mockdatas/mock-rentals-list';
 })
 export class RentalDetailsComponent implements OnInit {
 
-  title = 'angularprj';
-
-  activeRental = {...rentalsList[0]}
+  title = 'angularprj'
+  rentalId : string | null
+  activeRental : Rental
   activeImg : number = 0
-  rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
+  rentalOwner : {firstname : string, lastname : string}
+  activeRentalRating : number
 
-  // constructor method is not defined for most angular component
+  constructor(private route: ActivatedRoute){
+    
+  }
 
   ngOnInit(): void {
-    console.log(this.title, "aaa")
+    this.rentalId = this.route.snapshot.paramMap.get('id')
+    this.activeRental = rentalsList.find(rental => rental.id === this.rentalId) || {...rentalsList[0]}
+    this.rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
+    this.activeRentalRating = parseInt(this.activeRental.rating)
   }
 
   nextImg() {
