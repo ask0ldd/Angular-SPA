@@ -19,22 +19,6 @@ export class AppComponent implements OnInit {
     console.log(this.title, "aaa")
   }
 
-  clickRental(rental : Rental){
-    console.log(`The rental with the following id has been clicked : ${rental.id}`)
-  }
-
-  changeRental(event : MouseEvent){
-    const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
-    console.log(inputValue)
-  }
-
-  enterRental(value : string){
-    if(isNaN(parseInt(value)) === false) {
-      this.selectedRental = rentalsList[parseInt(value)]
-    }else{
-      this.selectedRental = undefined
-    }
-  }
 }
 
 // https://angular.io/guide/lifecycle-hooks

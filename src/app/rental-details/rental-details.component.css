@@ -1,0 +1,212 @@
+#collapsesContainer {
+  display: flex;
+  column-gap: 75px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.main-rental {
+  padding-bottom: 45px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* slideshow */
+
+.slideshow {
+  width: 100%;
+  height: 415px;
+  border-radius: 0px;
+  overflow: hidden;
+  margin-top: 50px;
+  position: relative;
+}
+
+.slideshow > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttons-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.buttons-container div {
+  color: white;
+  width: 100px;
+  height: 80px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buttons-container div img {
+  height: 80px;
+}
+
+#prevArrow {
+  transform: rotate(180deg);
+}
+
+.index {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 15px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+  .buttons-container div img {
+    height: 40px;
+  }
+
+  .buttons-container div {
+    height: 20px;
+    width: 60px;
+  }
+
+  .slideshow {
+    border-radius: 16px;
+    height: 325px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .slideshow {
+    height: 255px;
+  }
+
+  .index {
+    display: none;
+  }
+
+  .buttons-container div img {
+    height: 20px;
+  }
+
+  .buttons-container div {
+    height: 20px;
+    width: 40px;
+  }
+
+  .slideshow {
+    border-radius: 10px;
+  }
+}
+
+/* end slideshow */
+
+@media screen and (max-width: 800px) {
+  #collapsesContainer {
+    flex-direction: column;
+  }
+
+  .main-rental {
+    padding-bottom: 35px;
+  }
+}
+
+/* rentaldetails */
+
+#rentalDetails {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  padding: 0;
+  /*border: 1px solid blue;*/
+}
+
+#headingsNtags {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#headingsNtags p {
+  margin: 10px 0 0 0;
+}
+
+#ownerNratings {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+@media screen and (max-width: 920px) {
+  #ownerNratings {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #ownerNratings {
+    height: 34px;
+  }
+
+  #rentalDetails {
+    margin-top: 13px;
+    row-gap: 15px;
+  }
+  #headingsNtags h1 {
+    font-size: 18px;
+  }
+
+  #headingsNtags p {
+    font-size: 14px;
+  }
+}
+
+/* end rentaldetails */
+
+/* host */
+
+.hostContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 10px;
+  row-gap: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #5a6c52;
+  text-align: right;
+}
+
+.hostContainer img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+@media screen and (max-width: 400px) {
+  .hostContainer img {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+  }
+
+  .hostContainer {
+    font-size: 12px;
+  }
+}
+
+/* end of host */

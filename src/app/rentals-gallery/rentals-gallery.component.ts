@@ -11,7 +11,7 @@ export class RentalsGalleryComponent implements OnInit {
 
   title = 'angularprj';
 
-  rentalsList = rentalsList
+  rentalsList = [...rentalsList]
   selectedRental : Rental | undefined
 
   // constructor method is not defined for most angular component

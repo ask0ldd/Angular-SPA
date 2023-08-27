@@ -1,1 +1,25 @@
-<p>rental-details works!</p>
+<main class='main-rental'>
+    <section class='slideshow'>
+        <img data-testid="slideshowImg" src={{activeRental.pictures[0]}} alt="temp"/>
+        <div class="buttons-container"> 
+            <div data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow.png" alt="arrow previous" /></div>
+            <div data-testid="slideshowRightArrow"><img src="../../assets/arrow.png" alt="arrow next" /></div>
+            <span class="index">1/1</span>
+        </div>
+    </section>
+    <section data-testid="rentalDetails" id="rentalDetails">
+        <div id="headingsNtags">
+          <h1>{{activeRental.title}}</h1>
+          <p>{{activeRental.location}}</p>
+          <span class="tag"></span>
+        </div>
+        <div id="ownerNratings">
+            <div class="hostContainer">
+                <p>{{activeRental.host.name}}<br />{{activeRental.host.name}}</p>
+                <img src={{activeRental.host.picture}} alt="host portrait" />
+            </div>
+            <div class="starsContainer">
+            </div>
+        </div>
+    </section>
+</main>
