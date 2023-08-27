@@ -11,11 +11,21 @@ export class RentalDetailsComponent implements OnInit {
   title = 'angularprj';
 
   activeRental = {...rentalsList[0]}
+  activeImg : number = 0
+  rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
 
   // constructor method is not defined for most angular component
 
   ngOnInit(): void {
     console.log(this.title, "aaa")
+  }
+
+  nextImg() {
+    this.activeImg += 1 
+  }
+
+  prevImg() {
+    this.activeImg -= 1 
   }
   
 }

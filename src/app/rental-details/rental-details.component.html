@@ -1,9 +1,9 @@
 <main class='main-rental'>
     <section class='slideshow'>
-        <img data-testid="slideshowImg" src={{activeRental.pictures[0]}} alt="temp"/>
+        <img data-testid="slideshowImg" [src]="activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 
-            <div data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow.png" alt="arrow previous" /></div>
-            <div data-testid="slideshowRightArrow"><img src="../../assets/arrow.png" alt="arrow next" /></div>
+            <div data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow-right.svg" alt="arrow previous" /></div>
+            <div (click)="nextImg()" data-testid="slideshowRightArrow"><img src="../../assets/arrow-right.svg" alt="arrow next" /></div>
             <span class="index">1/1</span>
         </div>
     </section>
@@ -15,7 +15,7 @@
         </div>
         <div id="ownerNratings">
             <div class="hostContainer">
-                <p>{{activeRental.host.name}}<br />{{activeRental.host.name}}</p>
+                <p>{{rentalOwner.firstname}}<br><br>{{rentalOwner.lastname}}</p>
                 <img src={{activeRental.host.picture}} alt="host portrait" />
             </div>
             <div class="starsContainer">
