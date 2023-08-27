@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BorderImmocardDirective } from './border-immocard.directive';
+import { immocardHoverDirective } from './immocard-hover.directive';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
-    AppComponent, BorderImmocardDirective
+    AppComponent, 
+    immocardHoverDirective
   ],
   imports: [ // other modules to import
     BrowserModule,
