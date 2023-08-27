@@ -4,8 +4,9 @@ import { RentalsGalleryComponent } from './rentals-gallery/rentals-gallery.compo
 import { RentalDetailsComponent } from './rental-details/rental-details.component';
 
 const routes: Routes = [
-  {path:'/gallery', component:RentalsGalleryComponent},
-  {path:'/rental', component:RentalDetailsComponent},
+  {path: 'gallery', component: RentalsGalleryComponent},
+  {path: 'rental/:id', component: RentalDetailsComponent},
+  {path: '', redirectTo: 'gallery', pathMatch: 'full'}
 ];
 
 @NgModule({

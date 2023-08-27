@@ -9,8 +9,8 @@
       #input 
       type="text"/>
     <!-- *ngIf="" : directive structurelle -->
-    <p class="oldp" *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p>
-    <p class="oldp" *ngIf="selectedRental == null">No rental found.</p>
+    <p *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p>
+    <p *ngIf="selectedRental == null">No rental found.</p>
     <!-- <p *ngFor="let rental of rentalsList" (click)="clickRental(rental)">{{rental.id}} : {{rental.title}}</p>-->
   
     <div id="gallery">
