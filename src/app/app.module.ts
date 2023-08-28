@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page404Component } from './page404/page404.component';
@@ -14,8 +13,8 @@ import { RentalsModule } from './rentals/rentals.module';
   ],
   imports: [ // other modules to import
     BrowserModule,
-    AppRoutingModule,
     RentalsModule,
+    AppRoutingModule,
   ],
   providers: [], // for dependencies injection but a bit obsolete nowdays
   bootstrap: [AppComponent] // specific to the root module

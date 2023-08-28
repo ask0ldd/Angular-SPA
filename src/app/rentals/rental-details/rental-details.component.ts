@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './rental-details.component.html',
   styleUrls: ['./rental-details.component.css']
 })
+
 export class RentalDetailsComponent implements OnInit {
 
   title = 'angularprj'
