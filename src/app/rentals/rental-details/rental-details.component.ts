@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { rentalsList } from '../mockdatas/mock-rentals-list';
-import { Rental } from '../models/rental';
+import { rentalsList } from '../../mockdatas/mock-rentals-list';
+import { Rental } from '../../models/rental';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
