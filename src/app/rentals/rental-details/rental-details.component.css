@@ -253,6 +253,7 @@
   height: 30px;
 }
 .starsContainer {
+  width: fit-content;
   display: flex;
   column-gap: 10px;
 }

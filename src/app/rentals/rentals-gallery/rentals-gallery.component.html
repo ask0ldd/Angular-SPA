@@ -29,9 +29,10 @@
       <a routerLink="/rental/{{rental.id}}" *ngFor="let rental of rentalsList" class="anchor">
         <article class="immocard" immocardHover="#000"> <!-- immocardHover : directive -->
           <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
-          <p>{{rental.title}}
-            <!-- how to use pipes : <span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span>-->
-          </p> <!-- | pipe : transform data ; pipes can be chained -->
+          <p>{{rental.title}}</p>
+          <!-- how to use pipes : <span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span>-->
+          <!-- | pipe : transform data ; pipes can be chained -->
+          <img (click)="switchRentalLikeStatus($event, rental.id)" data-testid='favicon' class="favicon" [src]="isRentalLiked(rental.id)"/>
         </article>
         </a>
     </div>

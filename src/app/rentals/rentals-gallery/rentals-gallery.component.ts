@@ -16,6 +16,7 @@ export class RentalsGalleryComponent implements OnInit {
 
   rentalsList : Array<Rental>
   selectedRental : Rental | undefined
+  likedRentals : Array<string> = []
 
   // services are injected as parameters of the component constructor
   constructor(private router:Router, private rentalService : RentalsService){}
@@ -64,4 +65,17 @@ export class RentalsGalleryComponent implements OnInit {
       break;
     }
   }
+
+  switchRentalLikeStatus(e: MouseEvent, rentalId : string) : any {
+    e.preventDefault()
+    e.stopPropagation()
+    if(this.likedRentals.includes(rentalId) === false || this.likedRentals === undefined) return this.likedRentals.push(rentalId) 
+    this.likedRentals = this.likedRentals.filter(likedRental => !(likedRental === rentalId))
+  }
+
+  isRentalLiked(rentalId : string) : string {
+    if(this.likedRentals === undefined) return "../../../assets/favoutline.svg"
+    return this.likedRentals.includes(rentalId) ? "../../../assets/favfull.svg" : "../../../assets/favoutline.svg"
+  }
 }
+
