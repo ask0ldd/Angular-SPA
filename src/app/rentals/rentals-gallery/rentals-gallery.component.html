@@ -1,4 +1,7 @@
 <main class="main">
+    <section class="banner">
+      Chez vous, partout et ailleurs
+    </section>
     <!-- #input > ref -->
     <!-- (keyup) = "0" > force change detection : autoupdate inputvalue -->
     <!-- (click)="changeRental($event)" -->
@@ -17,7 +20,9 @@
       <a routerLink="/rental/{{rental.id}}" *ngFor="let rental of rentalsList" class="anchor">
         <article class="immocard" immocardHover="purple">
           <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
-          <p>{{rental.title}}<span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span></p> <!-- | pipe : transform data-->
+          <p>{{rental.title}}
+            <!-- how to use directives : <span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span>-->
+          </p> <!-- | pipe : transform data-->
         </article>
         </a>
     </div>
