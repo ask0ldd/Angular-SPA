@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
 import { Rental } from '../models/rental';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -15,6 +16,7 @@ export class RentalsGalleryComponent implements OnInit {
   selectedRental : Rental | undefined
 
   // constructor method is not defined for most angular component
+  constructor(private router:Router){}
 
   ngOnInit(): void {
     console.log(this.title, "aaa")
@@ -35,5 +37,9 @@ export class RentalsGalleryComponent implements OnInit {
     }else{
       this.selectedRental = undefined
     }
+  }
+
+  goToRentalPage(id : string){
+    this.router.navigateByUrl('/rental/'+id)
   }
 }
