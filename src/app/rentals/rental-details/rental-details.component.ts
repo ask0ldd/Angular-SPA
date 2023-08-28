@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../../mockdatas/mock-rentals-list';
 import { Rental } from '../../models/rental';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RentalsService } from '../rentals.service';
 
 @Component({
   selector: 'app-rental-details',
@@ -18,12 +19,19 @@ export class RentalDetailsComponent implements OnInit {
   rentalOwner : {firstname : string, lastname : string}
   activeRentalRating : number
 
-  constructor(private route: ActivatedRoute){ }
+  constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
 
   ngOnInit(): void {
-    this.rentalId = this.route.snapshot.paramMap.get('id') // error if non existing id or invalid id
-    this.activeRental = rentalsList.find(rental => rental.id === this.rentalId) // || {...rentalsList[0]}
-    if(this.activeRental == undefined) return
+    this.rentalId = this.route.snapshot.paramMap.get('id')
+    if(this.rentalId == undefined) {
+      this.router.navigateByUrl('/404') 
+      return
+    }
+    this.activeRental = this.rentalService.getRentalById(this.rentalId)
+    if(this.activeRental == undefined) {
+      this.router.navigateByUrl('/404') 
+      return
+    }
     this.rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
     this.activeRentalRating = parseInt(this.activeRental.rating)
   }

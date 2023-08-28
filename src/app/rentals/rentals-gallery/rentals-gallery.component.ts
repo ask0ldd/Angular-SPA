@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../../mockdatas/mock-rentals-list';
 import { Rental } from '../../models/rental';
 import { Router } from '@angular/router';
+import { RentalsService } from '../rentals.service';
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -12,17 +13,18 @@ export class RentalsGalleryComponent implements OnInit {
 
   title = 'angularprj';
 
-  rentalsList = [...rentalsList]
+  rentalsList : Array<Rental>
   selectedRental : Rental | undefined
 
-  // constructor method is not defined for most angular component
-  constructor(private router:Router){}
+  // services are injected as parameters of the component constructor
+  constructor(private router:Router, private rentalService : RentalsService){}
 
   ngOnInit(): void {
-    console.log(this.title, "aaa")
+    this.rentalsList = this.rentalService.getAllRentals()
   }
 
-  clickRental(rental : Rental){
+  /* kept as a learning reference
+  clickRental(rental : Rental) : void{
     console.log(`The rental with the following id has been clicked : ${rental.id}`)
   }
 
@@ -30,8 +32,9 @@ export class RentalsGalleryComponent implements OnInit {
     const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
     console.log(inputValue)
   }
+  */
 
-  enterRental(value : string) : void{
+  inputedRental(value : string) : void{
     if(isNaN(parseInt(value)) === false) {
       this.selectedRental = rentalsList[parseInt(value)]
     }else{
@@ -39,7 +42,7 @@ export class RentalsGalleryComponent implements OnInit {
     }
   }
 
-  goToRentalPage(id : string) : void{
-    this.router.navigateByUrl('/rental/'+id)
+  goToRentalPage(id : string) : void{ 
+    this.router.navigateByUrl('/rental/'+id) // programmatic nav
   }
 }

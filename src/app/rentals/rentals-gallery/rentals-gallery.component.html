@@ -7,8 +7,8 @@
     <!-- (click)="changeRental($event)" -->
     <!-- (keyup.enter) : pseudo event -->
     <input 
-      (keyup.enter)="enterRental(input.value)"
-      (blur)="enterRental(input.value)"
+      (keyup.enter)="inputedRental(input.value)"
+      (blur)="inputedRental(input.value)"
       #input 
       type="text"/>
     <!-- *ngIf="" : directive structurelle -->
@@ -22,7 +22,7 @@
           <img class='mainImg' src="../assets/{{rental.cover}}" alt="Appartement cosy"/>
           <p>{{rental.title}}
             <!-- how to use pipes : <span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span>-->
-          </p> <!-- | pipe : transform data-->
+          </p> <!-- | pipe : transform data ; pipes can be chained -->
         </article>
         </a>
     </div>
