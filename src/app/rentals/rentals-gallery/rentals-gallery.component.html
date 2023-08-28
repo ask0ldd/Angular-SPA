@@ -6,15 +6,24 @@
     <!-- (keyup) = "0" > force change detection : autoupdate inputvalue -->
     <!-- (click)="changeRental($event)" -->
     <!-- (keyup.enter) : pseudo event -->
-    <input 
-      (keyup.enter)="inputedRental(input.value)"
-      (blur)="inputedRental(input.value)"
-      #input 
-      type="text"/>
     <!-- *ngIf="" : directive structurelle -->
-    <p *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p>
-    <p (click)="goToRentalPage('b9123946')" *ngIf="selectedRental == null">No rental found.</p>
+    <!-- <p *ngIf="selectedRental != null">{{ selectedRental.id }} : {{ selectedRental.title }}</p> -->
+    <!-- <p (click)="goToRentalPage('b9123946')" *ngIf="selectedRental == null">No rental found.</p> -->
     <!-- <p *ngFor="let rental of rentalsList" (click)="clickRental(rental)">{{rental.id}} : {{rental.title}}</p>-->
+
+    <div id="filtersContainer">
+      <span style="margin-right:auto;">{{rentalsList.length}} logements temporaires satisfont vos critères.</span>
+      <label htmlFor="filtres">Filtres :</label>
+      <select #galleryFilter data-testid="select" (change)="onGalleryFilterChange(galleryFilter.value)" defaultValue="any:any" id="filtres" name="filtres">
+          <option value="any:any">Tous</option>
+          <option value="location:Paris">Paris</option>
+          <option value="location:HorsParis">Hors Paris</option>
+          <option value="tags:Appartement">Appartement</option>
+          <option value="tags:Studio">Studio</option>
+          <option value="rating:4">4 étoiles & plus</option>
+          <option value="rating:5">5 étoiles</option>
+      </select>          
+    </div>
   
     <div id="gallery">
       <a routerLink="/rental/{{rental.id}}" *ngFor="let rental of rentalsList" class="anchor">

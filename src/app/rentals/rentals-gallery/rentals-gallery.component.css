@@ -1,3 +1,5 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");*/
+
 .main {
   width: 100%;
   max-width: 1240px;
@@ -170,4 +172,47 @@
     justify-content: center;
     /*padding-left: 1.5ch;*/
   }
+}
+
+/* filter */
+
+#filtersContainer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-top: 40px;
+}
+
+#filtersContainer label {
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+#filtersContainer select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 30px;
+  width: 160px;
+  padding-left: 10px;
+  font-family: Montserrat;
+  color: #5a6c52;
+  outline-color: #5a6c52;
+  font-weight: 600;
+  background: #e3ecde;
+  border-radius: 5px;
+  border-width: 1px;
+  background-image: url("../../../assets/arrow.png");
+  background-repeat: no-repeat;
+  background-position: right 9px top 50%;
+  background-size: 1rem auto;
+  font-size: 14px;
+}
+
+#filtersContainer option {
+  height: 30px;
+  line-height: 200%;
+  background: #e3ecde;
 }

@@ -7,7 +7,8 @@ import { RentalsService } from '../rentals.service';
 @Component({
   selector: 'app-rentals-gallery',
   templateUrl: './rentals-gallery.component.html',
-  styleUrls: ['./rentals-gallery.component.css']
+  styleUrls: ['./rentals-gallery.component.css'],
+  // providers : possibility to pass a service, but new instance of the service that won't be share by other components
 })
 export class RentalsGalleryComponent implements OnInit {
 
@@ -32,7 +33,6 @@ export class RentalsGalleryComponent implements OnInit {
     const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
     console.log(inputValue)
   }
-  */
 
   inputedRental(value : string) : void{
     if(isNaN(parseInt(value)) === false) {
@@ -41,8 +41,27 @@ export class RentalsGalleryComponent implements OnInit {
       this.selectedRental = undefined
     }
   }
+  */
 
   goToRentalPage(id : string) : void{ 
-    this.router.navigateByUrl('/rental/'+id) // programmatic nav
+    // this.router.navigateByUrl('/rental/'+id) // programmatic nav
+  }
+
+  onGalleryFilterChange(activeOption : string) : void{
+    const [optionType , optionValue] = activeOption.split(':')
+    switch(optionType){
+      case 'any':
+        this.rentalsList = this.rentalService.getAllRentals()
+      break;
+      case 'location':
+        optionValue === 'Paris' ? this.rentalsList = this.rentalService.getRentalsByLocation('Paris') : this.rentalsList = this.rentalService.getRentalsByLocation('Outside Paris')
+      break;
+      case 'rating':
+        optionValue === '4' ? this.rentalsList = this.rentalService.getRentalsByRating(4) : this.rentalsList = this.rentalService.getRentalsByRating(5)
+      break;
+      case 'tags':
+        optionValue === 'Appartement' ? this.rentalsList = this.rentalService.getRentalsByType('appartement') : this.rentalsList = this.rentalService.getRentalsByType('studio')
+      break;
+    }
   }
 }
