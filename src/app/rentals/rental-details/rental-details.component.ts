@@ -28,13 +28,13 @@ export class RentalDetailsComponent implements OnInit {
     this.activeRentalRating = parseInt(this.activeRental.rating)
   }
 
-  nextImg() {
+  nextImg() : void {
     if(this.activeRental == undefined) return
     if(this.activeImg + 1 >= this.activeRental.pictures.length) return
     this.activeImg += 1
   }
 
-  prevImg() {
+  prevImg() : void {
     if(this.activeRental == undefined) return
     if(this.activeImg <= 0) return
     this.activeImg -= 1 

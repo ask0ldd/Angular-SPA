@@ -26,12 +26,12 @@ export class RentalsGalleryComponent implements OnInit {
     console.log(`The rental with the following id has been clicked : ${rental.id}`)
   }
 
-  changeRental(event : MouseEvent){
+  changeRental(event : MouseEvent) : void{
     const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
     console.log(inputValue)
   }
 
-  enterRental(value : string){
+  enterRental(value : string) : void{
     if(isNaN(parseInt(value)) === false) {
       this.selectedRental = rentalsList[parseInt(value)]
     }else{
@@ -39,7 +39,7 @@ export class RentalsGalleryComponent implements OnInit {
     }
   }
 
-  goToRentalPage(id : string){
+  goToRentalPage(id : string) : void{
     this.router.navigateByUrl('/rental/'+id)
   }
 }

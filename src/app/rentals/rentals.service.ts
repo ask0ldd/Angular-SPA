@@ -18,22 +18,27 @@ export class RentalsService {
   }
 
   getRentalById(rentalId : string) : Rental | undefined {
-    return this.rentalsList[0]
+    return this.rentalsList.find(rental => rental.id === rentalId)
   }
 
-  getRentalHost(rentalId : string){
-
+  getRentalHost(rentalId : string) : {name:string, picture: string} | undefined {
+    return this.rentalsList.find(rental => rental.id === rentalId)?.host
   }
 
-  getRentalsByRating(minRating : number){
-
+  getRentalsByRating(minRating : number) : Array<Rental> {
+    return this.rentalsList.filter(rental => parseInt(rental.rating) >= minRating) 
   }
 
-  getRentalsByType(type : 'studio' | 'appartement'){
-
+  getRentalsByType(type : 'studio' | 'appartement') : Array<Rental>{
+    return this.rentalsList.filter(rental => rental.tags.includes(type) || rental.tags.includes(capitalizeFirstLetter(type)) || rental.title.includes(type) || rental.title.includes(capitalizeFirstLetter(type)))
   }
 
-  getRentalsByLocation(location : 'paris' | 'outofparis'){
-
+  getRentalsByLocation(location : 'Paris' | 'Outside Paris') : Array<Rental>{
+    if(location == "Paris") return this.rentalsList.filter(rental => rental.location.includes("Paris"))
+    return this.rentalsList.filter(rental => !rental.location.includes("Paris"))
   }
+}
+
+function capitalizeFirstLetter(str : string) : string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
