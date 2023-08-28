@@ -7,11 +7,12 @@ import { immocardHoverDirective } from './immocard-hover.directive';
 import { RatingColorPipe } from './rating-color.pipe';
 import { RentalsGalleryComponent } from './rentals-gallery/rentals-gallery.component';
 import { RentalDetailsComponent } from './rental-details/rental-details.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
     AppComponent, 
-    immocardHoverDirective, RatingColorPipe, RentalsGalleryComponent, RentalDetailsComponent
+    immocardHoverDirective, RatingColorPipe, RentalsGalleryComponent, RentalDetailsComponent, Page404Component
   ],
   imports: [ // other modules to import
     BrowserModule,
