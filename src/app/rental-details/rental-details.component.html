@@ -1,4 +1,4 @@
-<main class='main-rental'>
+<main *ngIf="activeRental" class='main-rental'> <!-- only displayed if activeRental != undefined -->
     <section class='slideshow'>
         <img data-testid="slideshowImg" [src]="activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 

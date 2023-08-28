@@ -12,7 +12,7 @@ export class RentalDetailsComponent implements OnInit {
 
   title = 'angularprj'
   rentalId : string | null
-  activeRental : Rental
+  activeRental : Rental | undefined
   activeImg : number = 0
   rentalOwner : {firstname : string, lastname : string}
   activeRentalRating : number
@@ -21,17 +21,20 @@ export class RentalDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.rentalId = this.route.snapshot.paramMap.get('id') // error if non existing id or invalid id
-    this.activeRental = rentalsList.find(rental => rental.id === this.rentalId) || {...rentalsList[0]}
+    this.activeRental = rentalsList.find(rental => rental.id === this.rentalId) // || {...rentalsList[0]}
+    if(this.activeRental == undefined) return
     this.rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
     this.activeRentalRating = parseInt(this.activeRental.rating)
   }
 
   nextImg() {
+    if(this.activeRental == undefined) return
     if(this.activeImg + 1 >= this.activeRental.pictures.length) return
     this.activeImg += 1
   }
 
   prevImg() {
+    if(this.activeRental == undefined) return
     if(this.activeImg <= 0) return
     this.activeImg -= 1 
   }
