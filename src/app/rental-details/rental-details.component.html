@@ -23,6 +23,7 @@
             <div class="starsContainer">
                 <!--<img data-testid={props.src === "redstar" ? "redstar" : "greystar"} className={props.src === "redstar" ? "star-red" : "star-grey"} src={props.src === "redstar" ? redstar : greystar} alt="positive star" />-->
                 <img *ngFor="let _ of [].constructor(activeRentalRating)" class="redstar" src="../../assets/redstar.svg" alt="positive star" />
+                <img *ngFor="let _ of [].constructor(5-activeRentalRating)" class="greystar" src="../../assets/greystar.svg" alt="negative star" />
             </div>
         </div>
     </section>

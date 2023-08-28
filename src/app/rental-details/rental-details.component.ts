@@ -17,12 +17,10 @@ export class RentalDetailsComponent implements OnInit {
   rentalOwner : {firstname : string, lastname : string}
   activeRentalRating : number
 
-  constructor(private route: ActivatedRoute){
-    
-  }
+  constructor(private route: ActivatedRoute){ }
 
   ngOnInit(): void {
-    this.rentalId = this.route.snapshot.paramMap.get('id')
+    this.rentalId = this.route.snapshot.paramMap.get('id') // error if non existing id or invalid id
     this.activeRental = rentalsList.find(rental => rental.id === this.rentalId) || {...rentalsList[0]}
     this.rentalOwner = {firstname : this.activeRental.host.name.split('0')[0], lastname : this.activeRental.host.name.split('0')[1]}
     this.activeRentalRating = parseInt(this.activeRental.rating)
