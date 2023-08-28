@@ -4,9 +4,10 @@ import { rentalsList } from '../mockdatas/mock-rentals-list';
 
 // allows to inject this service in any component constructor
 // pipes / directives & components extends Injectable
-@Injectable({ 
-  providedIn: 'root'
-})
+@Injectable(/*{ 
+  providedIn: 'root' // service transmitted to root so it can be accessed anywhere into the app
+  // since we only want this service to be accessible by the rentals module, we will pass it as a provider into the module itself
+}*/)
 export class RentalsService {
 
   rentalsList = [...rentalsList]

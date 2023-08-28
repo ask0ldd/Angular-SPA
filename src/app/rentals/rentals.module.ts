@@ -6,6 +6,7 @@ import { RentalDetailsComponent } from './rental-details/rental-details.componen
 import { RentalsGalleryComponent } from './rentals-gallery/rentals-gallery.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { RentalsService } from './rentals.service';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
@@ -23,7 +24,10 @@ const rentalRoutes: Routes = [
     BrowserModule,
     // AppRoutingModule,
     RouterModule.forChild(rentalRoutes), // import the routes specific to this module 
-    CommonModule
+    CommonModule,
+  ],
+  providers: [
+    RentalsService, // import the service as a provider instead of passing it to the root module through the service file itself : @Injectable({providedIn: 'root'})
   ]
 })
 export class RentalsModule { }
