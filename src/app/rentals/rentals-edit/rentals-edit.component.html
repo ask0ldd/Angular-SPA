@@ -1,4 +1,6 @@
-<form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> <!-- ngif helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef -->
+<!-- ngif : helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef -->
+<!-- #rentalForm="ngform" : -->
+<form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> 
     
     <label for="title">title</label>
     <input id="title" name="title" pattern="^[a-zA-Zèéàèïîêôöùûç ]{1,40}$"

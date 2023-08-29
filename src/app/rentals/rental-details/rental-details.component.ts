@@ -18,6 +18,8 @@ export class RentalDetailsComponent implements OnInit {
   activeImg : number = 0
   rentalOwner : {firstname : string, lastname : string}
   activeRentalRating : number
+  equipementsCollapsed = false
+  descriptionCollapsed = false
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
 
