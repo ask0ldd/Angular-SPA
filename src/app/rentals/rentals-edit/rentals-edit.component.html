@@ -12,4 +12,7 @@
     <input id="location" name="location" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
     [(ngModel)]="editedRental.location" required/>
 
+    <label>equipements</label>
+    <input *ngFor="let equipment of editedRental.equipments; let i = index" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
+    [(ngModel)]="editedRental.equipments[i]" required/>
 </form>
