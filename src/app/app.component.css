@@ -61,6 +61,35 @@ a.active-link {
   text-underline-offset: 5px;
 }
 
+@media screen and (max-width: 550px) {
+  header {
+    margin-top: 20px;
+    height: 47px;
+  }
+  nav ul li {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  nav ul {
+    width: 140px;
+  }
+
+  header img {
+    height: 47px;
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 80px;
+    align-items: center;
+  }
+}
+
 /* footer */
 
 footer {
