@@ -69,8 +69,9 @@ export class RentalsGalleryComponent implements OnInit {
   switchRentalLikeStatus(e: MouseEvent, rentalId : string) : any {
     e.preventDefault()
     e.stopPropagation()
-    if(this.likedRentals.includes(rentalId) === false || this.likedRentals === undefined) return this.likedRentals.push(rentalId) 
-    this.likedRentals = this.likedRentals.filter(likedRental => !(likedRental === rentalId))
+    if(this.likedRentals.includes(rentalId) === false || this.likedRentals === undefined) return this.likedRentals.push(rentalId)
+    const indexOfRentalToUnlike = this.likedRentals.indexOf(rentalId)
+    this.likedRentals.splice(indexOfRentalToUnlike, 1)
   }
 
   isRentalLiked(rentalId : string) : string {

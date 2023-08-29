@@ -23,7 +23,7 @@ export class RentalDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.rentalId = this.route.snapshot.paramMap.get('id')
-    if(this.rentalId == undefined) {
+    if(this.rentalId == null) {
       this.router.navigateByUrl('/404') 
       return
     }

@@ -2,6 +2,8 @@ form {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  max-width: 1240px;
+  margin: 2rem auto;
 }
 
 input {

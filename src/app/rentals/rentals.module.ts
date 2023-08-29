@@ -12,7 +12,7 @@ import { RentalsEditComponent } from './rentals-edit/rentals-edit.component';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
-  {path: 'rental/edit/:id', component: RentalDetailsComponent},
+  {path: 'rental/edit/:id', component: RentalsEditComponent},
   {path: 'rental/:id', component: RentalDetailsComponent},
 ];
 
