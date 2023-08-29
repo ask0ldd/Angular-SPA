@@ -7,6 +7,7 @@ import { RentalsGalleryComponent } from './rentals-gallery/rentals-gallery.compo
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { RentalsService } from './rentals.service';
+import { FormsModule } from '@angular/forms';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
@@ -23,6 +24,7 @@ const rentalRoutes: Routes = [
   imports: [    
     BrowserModule,
     // AppRoutingModule,
+    FormsModule, // allows the whole app to access Angular Forms functionalities
     RouterModule.forChild(rentalRoutes), // import the routes specific to this module 
     CommonModule,
   ],

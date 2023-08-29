@@ -44,11 +44,11 @@ export class RentalsGalleryComponent implements OnInit {
   }
   */
 
-  goToRentalPage(id : string) : void{ 
+  goToRentalPage(id : string) : void { 
     // this.router.navigateByUrl('/rental/'+id) // programmatic nav
   }
 
-  onGalleryFilterChange(activeOption : string) : void{
+  onGalleryFilterChange(activeOption : string) : void {
     const [optionType , optionValue] = activeOption.split(':')
     switch(optionType){
       case 'any':
@@ -74,8 +74,7 @@ export class RentalsGalleryComponent implements OnInit {
   }
 
   isRentalLiked(rentalId : string) : string {
-    if(this.likedRentals === undefined) return "../../../assets/favoutline.svg"
-    return this.likedRentals.includes(rentalId) ? "../../../assets/favfull.svg" : "../../../assets/favoutline.svg"
+    return this.likedRentals === undefined || this.likedRentals.includes(rentalId) === false ? "../../../assets/favoutline.svg" : "../../../assets/favfull.svg"
   }
 }
 
