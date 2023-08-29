@@ -38,6 +38,13 @@ export class RentalsService {
     if(location == "Paris") return this.rentalsList.filter(rental => rental.location.includes("Paris"))
     return this.rentalsList.filter(rental => !rental.location.includes("Paris"))
   }
+
+  updateRentalById(updatedRental : Rental, targetRentalId : string) : boolean{
+    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false
+    this.rentalsList[targetRentalIndex] = updatedRental
+    return true
+  }
 }
 
 function capitalizeFirstLetter(str : string) : string {
