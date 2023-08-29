@@ -25,7 +25,7 @@ export class RentalsEditComponent {
     this.editedRental = this.rentalService.getRentalById(this.rentalId)
   }
 
-  onFormSubmit() : void {
+  onSubmit() : void {
     if(this.rentalId != null) this.router.navigateByUrl('/rental/'+this.rentalId) 
   }
 
