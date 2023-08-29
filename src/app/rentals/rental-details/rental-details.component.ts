@@ -49,5 +49,16 @@ export class RentalDetailsComponent implements OnInit {
     if(this.activeImg <= 0) return
     this.activeImg -= 1 
   }
+
+  switchCollapse(targetCollapse : string){
+    switch(targetCollapse){
+      case 'equipements':
+        this.equipementsCollapsed = !this.equipementsCollapsed
+      break;
+      case 'description':
+        this.descriptionCollapsed = !this.descriptionCollapsed
+      break;
+    }
+  }
   
 }

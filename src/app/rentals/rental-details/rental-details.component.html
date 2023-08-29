@@ -2,8 +2,8 @@
     <section class='slideshow'>
         <img data-testid="slideshowImg" [src]="activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 
-            <div (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow-right.svg" alt="arrow previous" /></div>
-            <div (click)="nextImg()" data-testid="slideshowRightArrow"><img src="../../assets/arrow-right.svg" alt="arrow next" /></div>
+            <div *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="../../assets/arrow-right.svg" alt="arrow previous" /></div>
+            <div *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="../../assets/arrow-right.svg" alt="arrow next" /></div>
             <span class="index">{{activeImg+1}}/{{activeRental.pictures.length}}</span>
         </div>
     </section>
@@ -29,18 +29,18 @@
     </section>
     <section id="collapsesContainer">
         <article class="collapse">
-            <div class="collapse__heading">
-                <div>Description</div><img src='../../assets/collapse-up.svg' alt="arrow" />
+            <div class="collapse__heading" (click)="switchCollapse('description')">
+                <div>Description</div><img [src]="descriptionCollapsed ? '../../assets/collapse-up.svg' : '../../assets/collapse-down.svg'" alt="arrow" />
             </div>
-            <div class='collapse__body '>
+            <div *ngIf="descriptionCollapsed" class='collapse__body'>
                 {{activeRental.description}}
             </div>
         </article>
         <article class="collapse">
-            <div class="collapse__heading">
-                <div>Equipements</div><img src='../../assets/collapse-up.svg' alt="arrow" />
+            <div class="collapse__heading" (click)="switchCollapse('equipements')">
+                <div>Equipements</div><img [src]="equipementsCollapsed ? '../../assets/collapse-up.svg' : '../../assets/collapse-down.svg'" alt="arrow" />
             </div>
-            <div class='collapse__body '>
+            <div *ngIf="equipementsCollapsed" class='collapse__body'>
                 {{activeRental.description}}
             </div>
         </article>
