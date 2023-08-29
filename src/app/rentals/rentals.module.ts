@@ -8,9 +8,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { RentalsService } from './rentals.service';
 import { FormsModule } from '@angular/forms';
+import { RentalsEditComponent } from './rentals-edit/rentals-edit.component';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
+  {path: 'rental/edit/:id', component: RentalDetailsComponent},
   {path: 'rental/:id', component: RentalDetailsComponent},
 ];
 
@@ -19,7 +21,7 @@ const rentalRoutes: Routes = [
     immocardHoverDirective, 
     RatingColorPipe, 
     RentalsGalleryComponent, 
-    RentalDetailsComponent,
+    RentalDetailsComponent, RentalsEditComponent,
   ],
   imports: [    
     BrowserModule,

@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page404Component } from './page404/page404.component';
 import { RentalsModule } from './rentals/rentals.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
@@ -13,6 +14,7 @@ import { RentalsModule } from './rentals/rentals.module';
   ],
   imports: [ // other modules to import
     BrowserModule,
+    FormsModule,
     RentalsModule,
     AppRoutingModule,
   ],
