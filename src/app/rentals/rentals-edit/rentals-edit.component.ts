@@ -29,4 +29,12 @@ export class RentalsEditComponent {
     if(this.rentalId != null) this.router.navigateByUrl('/rental/'+this.rentalId) 
   }
 
+  removeTag(tagValue : string){
+    if (this.rentalId!=null) this.rentalService.removeTag(tagValue, this.rentalId)
+  }
+
+  removeEquipment(equipmentValue : string){
+    if (this.rentalId!=null) this.rentalService.removeEquipment(equipmentValue, this.rentalId)
+  }
+
 }

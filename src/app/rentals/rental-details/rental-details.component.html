@@ -41,7 +41,11 @@
                 <div>Equipements</div><img [src]="equipementsCollapsed ? '../../assets/collapse-up.svg' : '../../assets/collapse-down.svg'" alt="arrow" />
             </div>
             <div *ngIf="equipementsCollapsed" class='collapse__body'>
-                {{activeRental.description}}
+                <ul>
+                    <li *ngFor="let equipment of activeRental.equipments">
+                        {{equipment}}
+                    </li>
+                </ul>
             </div>
         </article>
     </section>

@@ -6,15 +6,33 @@
     <input id="title" name="title" pattern="^[a-zA-Zèéàèïîêôöùûç ]{1,40}$"
     [(ngModel)]="editedRental.title" required/>
 
-    <label for="description">description</label>
-    <input id="description" name="description" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,400}$"
-    [(ngModel)]="editedRental.description" required/>
-
     <label for="location">location</label>
     <input id="location" name="location" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
     [(ngModel)]="editedRental.location" required/>
 
-    <label>equipements</label>
-    <input *ngFor="let equipment of editedRental.equipments; let i = index" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
-    [(ngModel)]="editedRental.equipments[i]" required/>
+    <label for="description">description</label>
+    <input id="description" name="description" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,400}$"
+    [(ngModel)]="editedRental.description" required/>
+
+    <div style="display: flex; flex-direction: row; column-gap: 4rem;">
+        <div style="display: flex; flex-direction: column; flex:1 1 50%; row-gap: 1rem;">
+            <label>equipements</label>
+            <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let equipment of editedRental.equipments; let i = index">
+                <input style="display:flex; width: 100%; flex-shrink: 1;" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
+                [(ngModel)]="editedRental.equipments[i]" required/>
+                <input type="button" (click)="removeEquipment(editedRental.tags[i])" value="x"/>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; flex:1 1 50%; row-gap: 1rem;">
+            <label>tags</label>
+            <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let tag of editedRental.tags; let i = index" id="{{'tag'+i.toString()}}">
+                <input style="display:flex; width: 100%; flex-shrink: 1;" name="{{'tag'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
+                [(ngModel)]="editedRental.tags[i]" required/>
+                <input type="button" (click)="removeTag(editedRental.tags[i])" value="x"/>
+            </div>
+        </div>
+    </div>
+
+    <input type="button" value="Modifier"/>
 </form>

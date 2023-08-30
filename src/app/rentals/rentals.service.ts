@@ -45,6 +45,26 @@ export class RentalsService {
     this.rentalsList[targetRentalIndex] = updatedRental
     return true
   }
+
+  removeTag(tagValue: string, targetRentalId : string) : boolean{
+    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false
+    const tagIndex = this.rentalsList[targetRentalIndex].tags.findIndex(tag => tag === tagValue)
+    if(tagIndex == null) return false
+    this.rentalsList[targetRentalIndex].tags.splice(tagIndex, 1)
+    console.log(this.rentalsList[targetRentalIndex].tags)
+    return true
+  }
+
+  removeEquipment(equipmentValue: string, targetRentalId : string) : boolean{
+    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false
+    const equipmentIndex = this.rentalsList[targetRentalIndex].equipments.findIndex(equipment => equipment === equipmentValue)
+    if(equipmentIndex == null) return false
+    this.rentalsList[targetRentalIndex].equipments.splice(equipmentIndex, 1)
+    console.log(this.rentalsList[targetRentalIndex].equipments)
+    return true
+  }
 }
 
 function capitalizeFirstLetter(str : string) : string {
