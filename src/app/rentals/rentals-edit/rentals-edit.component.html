@@ -1,7 +1,7 @@
 <!-- 
     ngif : helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef
     #rentalForm="ngform" : https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables
-    since #rentalForm="ngform" rentalForm template ref is not <form> but the ngForm directive 
+    since #rentalForm="ngform" rentalForm template reference is not <form> but the ngForm directive 
 -->
 <form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> 
     
@@ -23,6 +23,7 @@
 
     <!-- 
         the [(ngModel)] syntax is used to bind the value of the input field to the name property of the component. 
+        ie : bind input.value to component.property aka this.property
         The [] syntax is used for one-way data binding, while the () syntax is used for event binding. 
         The combination of [] and () is used for two-way data binding
     -->
@@ -55,5 +56,5 @@
         </div>
     </div>
 
-    <input type="button" value="Modifier"/>
+    <input type="button" value="Sauvegarder les Modifications"/>
 </form>
