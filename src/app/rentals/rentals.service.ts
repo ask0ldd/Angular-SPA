@@ -69,14 +69,16 @@ export class RentalsService {
   addEquipment(equipmentValue: string, targetRentalId : string) : boolean{
     const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
-    this.rentalsList[targetRentalIndex].equipments.push(capitalizeFirstLetter(equipmentValue)) // should verify not including before pushing
+    if(this.rentalsList[targetRentalIndex].equipments.includes(capitalizeFirstLetter(equipmentValue))) return false
+    this.rentalsList[targetRentalIndex].equipments.push(capitalizeFirstLetter(equipmentValue))
     return true
   }
 
   addTag(tagValue: string, targetRentalId : string) : boolean{
     const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
-    this.rentalsList[targetRentalIndex].tags.push(capitalizeFirstLetter(tagValue)) // should verify not including before pushing
+    if(this.rentalsList[targetRentalIndex].tags.includes(capitalizeFirstLetter(tagValue))) return false
+    this.rentalsList[targetRentalIndex].tags.push(capitalizeFirstLetter(tagValue))
     return true
   }
 }
