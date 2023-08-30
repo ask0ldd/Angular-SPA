@@ -12,6 +12,7 @@ export class RentalsEditComponent {
 
   rentalId : string | null
   editedRental : Rental | undefined
+  // newEquipment : string | null
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
 
@@ -37,4 +38,7 @@ export class RentalsEditComponent {
     if (this.rentalId!=null) this.rentalService.removeEquipment(equipmentValue, this.rentalId)
   }
 
+  addEquipment(equipmentValue : string){
+    if (this.rentalId!=null) this.rentalService.addEquipment(equipmentValue, this.rentalId)
+  }
 }

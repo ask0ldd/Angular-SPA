@@ -10,3 +10,16 @@ input {
   margin-bottom: 1rem;
   padding: 0.35rem 0.5rem;
 }
+
+label {
+  font-weight: 600;
+}
+
+p.errorMessage {
+  color: rgb(179, 47, 91);
+}
+
+.labelErrorContainer {
+  display: flex;
+  justify-content: space-between;
+}

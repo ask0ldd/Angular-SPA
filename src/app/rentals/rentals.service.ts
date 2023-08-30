@@ -65,6 +65,13 @@ export class RentalsService {
     console.log(this.rentalsList[targetRentalIndex].equipments)
     return true
   }
+
+  addEquipment(equipmentValue: string, targetRentalId : string) : boolean{
+    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false
+    this.rentalsList[targetRentalIndex].equipments.push(equipmentValue)
+    return true
+  }
 }
 
 function capitalizeFirstLetter(str : string) : string {
