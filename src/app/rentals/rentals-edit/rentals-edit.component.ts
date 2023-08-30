@@ -38,10 +38,12 @@ export class RentalsEditComponent {
   }
 
   addEquipment(equipmentValue : string){
+    // should verify if value is valid
     if (this.rentalId!=null) this.rentalService.addEquipment(equipmentValue, this.rentalId)
   }
 
   addTag(equipmentValue : string){
+    // should verify if value is valid
     if (this.rentalId!=null) this.rentalService.addTag(equipmentValue, this.rentalId)
   }
 }

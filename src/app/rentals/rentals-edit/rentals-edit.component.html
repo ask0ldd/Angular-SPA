@@ -1,6 +1,8 @@
-<!-- ngif : helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef -->
-<!-- #rentalForm="ngform" : https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables -->
-<!-- since #rentalForm="ngform" rentalForm template ref is not <form> but the ngForm directive -->
+<!-- 
+    ngif : helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef
+    #rentalForm="ngform" : https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables
+    since #rentalForm="ngform" rentalForm template ref is not <form> but the ngForm directive 
+-->
 <form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> 
     
     <!-- title.valid & title.pristine refer to #title -->
@@ -19,6 +21,12 @@
     [(ngModel)]="editedRental.description" 
     #description="ngModel" required/>
 
+    <!-- 
+        the [(ngModel)] syntax is used to bind the value of the input field to the name property of the component. 
+        The [] syntax is used for one-way data binding, while the () syntax is used for event binding. 
+        The combination of [] and () is used for two-way data binding
+    -->
+
     <div style="display: flex; flex-direction: row; column-gap: 4rem;">
         <div style="display: flex; flex-direction: column; flex:1 1 50%; row-gap: 1rem;">
             <label>Equipements</label>
@@ -28,7 +36,7 @@
                 <input type="button" (click)="removeEquipment(editedRental.tags[i])" value="x"/>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
-                <input id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$" #newEquipment/>
+                <input id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
                 <input type="button" (click)="addEquipment(newEquipment.value)" value="+"/>
             </div>
         </div>
@@ -41,7 +49,7 @@
                 <input type="button" (click)="removeTag(editedRental.tags[i])" value="x"/>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
-                <input id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$" #newTag>
+                <input id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
                 <input type="button" (click)="addTag(newTag.value)" value="+"/>
             </div>
         </div>

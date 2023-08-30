@@ -67,6 +67,7 @@ export class RentalsService {
   }
 
   addEquipment(equipmentValue: string, targetRentalId : string) : boolean{
+    if(equipmentValue.match(/^[a-zA-Zèéàèïîêôöùûç -]{1,30}$/) == null) return false
     const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
     if(this.rentalsList[targetRentalIndex].equipments.includes(capitalizeFirstLetter(equipmentValue))) return false
@@ -75,6 +76,7 @@ export class RentalsService {
   }
 
   addTag(tagValue: string, targetRentalId : string) : boolean{
+    if(tagValue.match(/^[a-zA-Zèéàèïîêôöùûç -]{1,30}$/) == null) return false
     const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
     if(this.rentalsList[targetRentalIndex].tags.includes(capitalizeFirstLetter(tagValue))) return false
