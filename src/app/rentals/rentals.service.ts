@@ -83,6 +83,16 @@ export class RentalsService {
     this.rentalsList[targetRentalIndex].tags.push(capitalizeFirstLetter(tagValue))
     return true
   }
+
+  deleteImg(imgPath : string, targetRentalId : string) : boolean{
+
+    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false
+    const imgIndex = this.rentalsList[targetRentalIndex].pictures.findIndex(pic => pic === imgPath)
+    if(imgIndex == null) return false
+    this.rentalsList[targetRentalIndex].equipments.splice(imgIndex, 1)
+    return true
+  }
 }
 
 function capitalizeFirstLetter(str : string) : string {

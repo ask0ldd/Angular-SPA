@@ -34,7 +34,7 @@ export class RentalsEditComponent {
   ngAfterViewInit() {}
 
   onSubmit() : void {
-    if(this.rentalId != null) this.router.navigateByUrl('/rental/'+this.rentalId) 
+    if(this.rentalId!=null) this.router.navigateByUrl('/rental/'+this.rentalId) 
   }
 
   removeTag(tagValue : string){
@@ -59,5 +59,9 @@ export class RentalsEditComponent {
       const isSuccessful = this.rentalService.addTag(equipmentValue, this.rentalId)
       if(isSuccessful) this.newTag.nativeElement.value=""
     }
+  }
+
+  deleteImg(imgPath : string){
+    if (this.rentalId!=null) this.rentalService.deleteImg(imgPath, this.rentalId)
   }
 }

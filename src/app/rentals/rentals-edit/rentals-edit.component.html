@@ -8,11 +8,12 @@
     <section class="galleryContainer">
         <label>Gallerie</label> <!-- switch to hx -->
         <div class="gallery">
-            <figure *ngFor="let img of editedRental.pictures">
+            <figure style="position:relative;" *ngFor="let img of editedRental.pictures">
                 <img [src]="img"/>
+                <div (click)="deleteImg(img)" class="delImgButton" role="button">X</div>
             </figure>
             <article>
-                <input class="delButton" type="button" value="+"/>
+                <input class="delButton" style="height:40px; width: 41px;" type="button" value="+"/>
                 <span>Click to Add</span>
                 <span>A new Picture</span>
             </article>
