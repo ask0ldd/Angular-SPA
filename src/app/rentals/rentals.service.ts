@@ -85,12 +85,11 @@ export class RentalsService {
   }
 
   deleteImg(imgPath : string, targetRentalId : string) : boolean{
-
     const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
     const imgIndex = this.rentalsList[targetRentalIndex].pictures.findIndex(pic => pic === imgPath)
     if(imgIndex == null) return false
-    this.rentalsList[targetRentalIndex].equipments.splice(imgIndex, 1)
+    this.rentalsList[targetRentalIndex].pictures.splice(imgIndex, 1)
     return true
   }
 }
