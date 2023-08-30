@@ -51,7 +51,7 @@
                 <input class="delButton" type="button" (click)="removeEquipment(editedRental.tags[i])" value="x"/>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
-                <input id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
+                <input (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
                 <input class="delButton" type="button" (click)="addEquipment(newEquipment.value)" value="+"/>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <input class="delButton" type="button" (click)="removeTag(editedRental.tags[i])" value="x"/>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
-                <input id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
+                <input (keyup.enter)="addTag(newTag.value)" id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
                 <input class="delButton" type="button" (click)="addTag(newTag.value)" value="+"/>
             </div>
         </div>
