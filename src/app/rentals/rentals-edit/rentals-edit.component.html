@@ -1,6 +1,6 @@
 <!-- ngif : helps to get rid of the alert thrown when trying to access editedRetal.description that could be undef -->
 <!-- #rentalForm="ngform" : https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables -->
-<!-- since #rentalForm="ngform" rentalForm ref is not <form> but the ngForm directive -->
+<!-- since #rentalForm="ngform" rentalForm template ref is not <form> but the ngForm directive -->
 <form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> 
     
     <!-- title.valid & title.pristine refer to #title -->
@@ -28,9 +28,8 @@
                 <input type="button" (click)="removeEquipment(editedRental.tags[i])" value="x"/>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
-                <input id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
-                [(ngModel)]="newEquipment" required #newEquipment="ngModel"/>
-                <input type="button" (click)="addEquipment('aaa')" value="+"/>
+                <input id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$" #newEquipment/>
+                <input type="button" (click)="addEquipment(newEquipment.value)" value="+"/>
             </div>
         </div>
 
@@ -40,6 +39,10 @@
                 <input style="display:flex; width: 100%; flex-shrink: 1;" name="{{'tag'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$"
                 [(ngModel)]="editedRental.tags[i]" required/>
                 <input type="button" (click)="removeTag(editedRental.tags[i])" value="x"/>
+            </div>
+            <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
+                <input id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" pattern="^[a-zA-Zèéàèïîêôöùûç -]{1,30}$" #newTag>
+                <input type="button" (click)="addTag(newTag.value)" value="+"/>
             </div>
         </div>
     </div>
