@@ -21,6 +21,7 @@
   overflow: hidden;
   margin-top: 50px;
   position: relative;
+  /*box-shadow: 0 8px 16px #5a6c5288;*/
 }
 
 .slideshow > img {

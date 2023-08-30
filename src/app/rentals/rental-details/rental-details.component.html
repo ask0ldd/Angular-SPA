@@ -7,6 +7,9 @@
             <span class="index">{{activeImg+1}}/{{activeRental.pictures.length}}</span>
         </div>
     </section>
+
+    <p style="display:flex; justify-content: flex-end;"><a routerLink="/rental/edit/{{rentalId}}">Editer cette Location</a></p>
+
     <section data-testid="rentalDetails" id="rentalDetails">
         <div id="headingsNtags">
           <h1>{{activeRental.title}}</h1>
