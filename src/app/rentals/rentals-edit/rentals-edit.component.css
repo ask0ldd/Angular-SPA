@@ -130,7 +130,7 @@ button.saveButton {
 }
 
 #cancelBtn {
-  background-color: #c5224b;
+  background-color: #495c58;
   padding: 0.35rem 1rem;
   color: #fff;
   font-weight: 600;
@@ -144,8 +144,8 @@ button.saveButton {
 }
 
 #cancelBtn:hover {
-  box-shadow: 0 4px 8px #941d4b66;
-  background-color: #df4055;
+  box-shadow: 0 4px 8px #70918966;
+  background-color: #58756f;
 }
 
 #submitBtn {

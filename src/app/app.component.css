@@ -31,10 +31,10 @@ nav {
 
 nav ul {
   display: flex;
-  width: 240px;
   list-style: none;
   justify-content: space-between;
   font-weight: 500;
+  column-gap: 3rem;
 }
 
 a:link,
