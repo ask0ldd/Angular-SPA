@@ -100,6 +100,7 @@ button {
   padding: 0.35rem 0.5rem;
   outline-color: #708a65;
   outline-width: 1px;
+  position: relative;
   /*background-color: #ffffffaa;*/
 }
 
@@ -187,3 +188,13 @@ p.errorMessage {
   overflow: hidden;
   border-right: 8px solid #c5224b;
 }
+
+/*.ng-valid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #78db4d;
+}*/

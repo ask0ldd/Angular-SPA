@@ -21,17 +21,26 @@
     </section>
     
     <!-- title.valid & title.pristine refer to #title -->
-    <div class="labelErrorContainer"><label for="title">Title</label><p [hidden]="title.valid || title.pristine" class="errorMessage">Error Message</p></div>
+    <div class="labelErrorContainer">
+        <label for="title">Title</label>
+        <p [hidden]="title.valid || title.pristine" class="errorMessage">Utilisation de caractères invalides</p>
+    </div>
     <input id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
     [(ngModel)]="editedRental.title" 
     #title="ngModel" required/>
 
-    <div class="labelErrorContainer"><label for="location">Location</label><p [hidden]="location.valid || location.pristine" class="errorMessage">Error Message</p></div>
+    <div class="labelErrorContainer">
+        <label for="location">Location</label>
+        <p [hidden]="location.valid || location.pristine" class="errorMessage">Utilisation de caractères invalides</p>
+    </div>
     <input id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
     [(ngModel)]="editedRental.location"
     #location="ngModel" required/>
 
-    <div class="labelErrorContainer"><label for="description">Description</label><p [hidden]="description.valid || description.pristine" class="errorMessage">Error Message</p></div>
+    <div class="labelErrorContainer">
+        <label for="description">Description</label>
+        <p [hidden]="description.valid || description.pristine" class="errorMessage">Utilisation de caractères invalides</p>
+    </div>
     <input id="description" name="description" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;.: ()?!-]{1,400}$"
     [(ngModel)]="editedRental.description" 
     #description="ngModel" required/>
