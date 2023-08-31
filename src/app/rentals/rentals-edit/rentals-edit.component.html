@@ -10,10 +10,10 @@
         <div class="gallery">
             <figure style="position:relative;" *ngFor="let img of editedRental.pictures">
                 <img [src]="img"/>
-                <div (click)="deleteImg(img)" class="delImgButton" role="button">X</div>
+                <button (click)="deleteImg(img)" class="delImgButton">X</button>
             </figure>
             <article>
-                <input class="delButton" style="height:40px; width: 41px;" type="button" value="+"/>
+                <button class="delButton" style="height:40px; width: 41px;">+</button>
                 <span>Click to Add</span>
                 <span>A new Picture</span>
             </article>
@@ -62,11 +62,11 @@
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let equipment of editedRental.equipments; let i = index">
                 <input readonly style="display:flex; width: 100%; flex-shrink: 1;" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -()']{1,30}$"
                 [(ngModel)]="editedRental.equipments[i]" required/>
-                <input class="delButton" type="button" (click)="removeEquipment(editedRental.tags[i])" value="x"/>
+                <button class="delButton" (click)="removeEquipment(editedRental.tags[i])">x</button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <input (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
-                <input class="delButton" type="button" (click)="addEquipment(newEquipment.value)" value="+"/>
+                <button class="delButton" (click)="addEquipment(newEquipment.value)">+</button>
             </div>
         </div>
 
@@ -75,14 +75,14 @@
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let tag of editedRental.tags; let i = index" id="{{'tag'+i.toString()}}">
                 <input readonly style="display:flex; width: 100%; flex-shrink: 1;" name="{{'tag'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -()']{1,30}$"
                 [(ngModel)]="editedRental.tags[i]" required/>
-                <input class="delButton" type="button" (click)="removeTag(editedRental.tags[i])" value="x"/>
+                <button class="delButton" (click)="removeTag(editedRental.tags[i])">x</button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <input (keyup.enter)="addTag(newTag.value)" id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
-                <input class="delButton" type="button" (click)="addTag(newTag.value)" value="+"/>
+                <button class="delButton" (click)="addTag(newTag.value)">+</button>
             </div>
         </div>
     </div>
 
-    <input type="button" class="saveButton" value="Sauvegarder les Modifications"/>
+    <button type="submit" class="saveButton">Sauvegarder les Modifications</button>
 </form>

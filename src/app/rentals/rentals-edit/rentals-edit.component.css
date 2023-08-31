@@ -71,9 +71,10 @@ form {
 .gallery figure:hover,
 .gallery article:hover {
   /*border: 1px solid #708a65;*/
-  box-shadow: 0 4px 8px #3e4b3933, 0 8px 16px #708a6566;
+  box-shadow: 0 16px 32px #3e4b3933, 0 8px 16px #708a6566;
   background-color: #ffffffff;
-  transform: scale(1.05);
+  transform: scale(1.025);
+  transition: all 0.2s ease-in;
   overflow: hidden;
 }
 
@@ -93,7 +94,8 @@ form {
   filter: brightness(110%);
 }
 
-input {
+input,
+button {
   margin-bottom: 1rem;
   padding: 0.35rem 0.5rem;
   outline-color: #708a65;
@@ -101,7 +103,8 @@ input {
   /*background-color: #ffffffaa;*/
 }
 
-input[type="button"] {
+input[type="button"],
+button {
   background-color: #5a6c52;
   color: #fff;
   font-weight: 600;
@@ -110,16 +113,16 @@ input[type="button"] {
   border-radius: 3px;
 }
 
-input[type="button"].delButton {
+button.delButton {
   width: 42px;
 }
 
-input[type="button"].saveButton {
+button.saveButton {
   height: 40px;
   margin-top: 2rem;
 }
 
-input[type="button"]:hover {
+button:hover {
   background-color: #708a65;
   box-shadow: 0 4px 8px #708a6566;
 }
