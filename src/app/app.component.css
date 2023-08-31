@@ -27,6 +27,7 @@ nav {
   align-items: center;
   color: #5a6c52;
   font-size: 22px;
+  width: fit-content;
 }
 
 nav ul {
@@ -71,9 +72,9 @@ a.active-link {
     text-transform: uppercase;
   }
 
-  nav ul {
+  /*nav ul {
     width: 140px;
-  }
+  }*/
 
   header img {
     height: 47px;
