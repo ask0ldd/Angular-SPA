@@ -19,6 +19,9 @@ export class RentalsEditComponent {
   @ViewChild('newEquipment') 
   newEquipment: ElementRef
 
+  @ViewChild('rentalForm') 
+  rentalForm: ElementRef
+
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
 
   ngOnInit(): void {
@@ -34,7 +37,8 @@ export class RentalsEditComponent {
   ngAfterViewInit() {}
 
   onSubmit() : void {
-    if(this.rentalId!=null) this.router.navigateByUrl('/rental/'+this.rentalId) 
+    // if(this.rentalId!=null) this.router.navigateByUrl('/rental/'+this.rentalId) 
+    console.log(this.rentalForm)
   }
 
   removeTag(tagValue : string){
@@ -64,4 +68,8 @@ export class RentalsEditComponent {
   deleteImg(imgPath : string){
     if (this.rentalId!=null) this.rentalService.deleteImg(imgPath, this.rentalId)
   }
+
+  /*logForm(form : any){
+    console.log(form)
+  }*/
 }

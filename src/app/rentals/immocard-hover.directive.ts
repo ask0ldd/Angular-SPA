@@ -9,6 +9,7 @@ export class immocardHoverDirective {
     this.setBoxShadow(false)
   }
 
+  // @Input equivalent to a react prop
   @Input('immocardHover') borderColor : string // allow to associate a value to the directive (into the template)
 
   @HostListener('mouseenter')

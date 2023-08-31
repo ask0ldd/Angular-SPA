@@ -22,17 +22,17 @@
     
     <!-- title.valid & title.pristine refer to #title -->
     <div class="labelErrorContainer"><label for="title">Title</label><p [hidden]="title.valid || title.pristine" class="errorMessage">Error Message</p></div>
-    <input id="title" name="title" pattern="^[a-zA-Z0-9èéàïîêôöùûç',;. -()]{1,50}$"
+    <input id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
     [(ngModel)]="editedRental.title" 
     #title="ngModel" required/>
 
     <div class="labelErrorContainer"><label for="location">Location</label><p [hidden]="location.valid || location.pristine" class="errorMessage">Error Message</p></div>
-    <input id="location" name="location" pattern="^[a-zA-Z0-9èéàïîêôöùûç',;. -()]{1,30}$"
+    <input id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
     [(ngModel)]="editedRental.location"
     #location="ngModel" required/>
 
     <div class="labelErrorContainer"><label for="description">Description</label><p [hidden]="description.valid || description.pristine" class="errorMessage">Error Message</p></div>
-    <input id="description" name="description" pattern="^[a-zA-Z0-9èéàïîêôöùûç',;. -()]{1,400}$"
+    <input id="description" name="description" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;.: ()?!-]{1,400}$"
     [(ngModel)]="editedRental.description" 
     #description="ngModel" required/>
 
@@ -60,8 +60,8 @@
         <div style="display: flex; flex-direction: column; flex:1 1 50%; row-gap: 1rem;">
             <label>Equipements</label> <!-- switch to hx -->
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let equipment of editedRental.equipments; let i = index">
-                <input readonly style="display:flex; width: 100%; flex-shrink: 1;" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -()']{1,30}$"
-                [(ngModel)]="editedRental.equipments[i]" required/>
+                <input readonly style="display:flex; width: 100%; flex-shrink: 1;" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ()'-]{1,30}$"
+                [(ngModel)]="editedRental.equipments[i]"/>
                 <button class="delButton" (click)="removeEquipment(editedRental.tags[i])">x</button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
@@ -73,8 +73,8 @@
         <div style="display: flex; flex-direction: column; flex:1 1 50%; row-gap: 1rem;">
             <label>Tags</label> <!-- switch to hx -->
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let tag of editedRental.tags; let i = index" id="{{'tag'+i.toString()}}">
-                <input readonly style="display:flex; width: 100%; flex-shrink: 1;" name="{{'tag'+i.toString()}}" pattern="^[a-zA-Zèéàèïîêôöùûç -()']{1,30}$"
-                [(ngModel)]="editedRental.tags[i]" required/>
+                <input readonly style="display:flex; width: 100%; flex-shrink: 1;" name="{{'tag'+i.toString()}}" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ()'-]{1,30}$"
+                [(ngModel)]="editedRental.tags[i]"/>
                 <button class="delButton" (click)="removeTag(editedRental.tags[i])">x</button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
@@ -84,5 +84,7 @@
         </div>
     </div>
 
-    <button type="submit" class="saveButton">Sauvegarder les Modifications</button>
+    <button type="submit" class="saveButton" [disabled]="!rentalForm.form.valid">Sauvegarder les Modifications</button>
 </form>
+
+<!-- [disabled]="!rentalForm.form.valid" -->
