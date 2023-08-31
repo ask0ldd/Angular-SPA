@@ -74,7 +74,7 @@ form {
   box-shadow: 0 16px 32px #3e4b3933, 0 8px 16px #708a6566;
   background-color: #ffffffff;
   transform: scale(1.025);
-  transition: all 0.2s ease-in;
+  transition: all 0.15s ease-in;
   overflow: hidden;
 }
 
@@ -91,7 +91,7 @@ form {
 }
 
 .gallery figure:hover img {
-  filter: brightness(110%);
+  filter: brightness(120%) saturate(90%);
 }
 
 input,
@@ -101,6 +101,13 @@ button {
   outline-color: #708a65;
   outline-width: 1px;
   /*background-color: #ffffffaa;*/
+}
+
+.cancelSubmitContainer {
+  display: flex;
+  column-gap: 2rem;
+  height: 40px;
+  margin-top: 2rem;
 }
 
 input[type="button"],
@@ -119,7 +126,32 @@ button.delButton {
 
 button.saveButton {
   height: 40px;
-  margin-top: 2rem;
+}
+
+#cancelBtn {
+  background-color: #c5224b;
+  padding: 0.35rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+#cancelBtn:hover {
+  box-shadow: 0 4px 8px #941d4b66;
+  background-color: #df4055;
+}
+
+#submitBtn {
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {

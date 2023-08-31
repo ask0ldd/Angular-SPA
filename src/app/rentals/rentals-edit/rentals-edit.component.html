@@ -84,7 +84,10 @@
         </div>
     </div>
 
-    <button type="submit" class="saveButton" [disabled]="!rentalForm.form.valid">Sauvegarder les Modifications</button>
+    <div class="cancelSubmitContainer">
+        <a role="button" id="cancelBtn" href='/rental/{{rentalId}}'>Retour à l'Annonce</a>
+        <button type="submit" id="submitBtn" class="saveButton" [disabled]="!rentalForm.form.valid">Sauvegarder les Modifications</button>
+    </div>
 </form>
 
 <!-- [disabled]="!rentalForm.form.valid" -->
