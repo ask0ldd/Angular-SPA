@@ -41,9 +41,9 @@
         <label for="description">Description</label>
         <p [hidden]="description.valid || description.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
-    <input id="description" name="description" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;.: ()?!-]{1,400}$"
+    <textarea id="description" name="description" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;.: ()?!-]{1,400}$"
     [(ngModel)]="editedRental.description" 
-    #description="ngModel" required/>
+    #description="ngModel" rows="6" required></textarea>
 
     <!-- 
         In this example, the #nameInput is a template reference variable that is bound to the ngModel directive. 

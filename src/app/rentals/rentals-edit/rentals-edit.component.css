@@ -11,6 +11,7 @@ form {
     ),
     #f7f7f7;
   padding: 3rem 5rem;
+  color: #58756f;
 }
 
 .galleryContainer {
@@ -60,7 +61,7 @@ form {
   right: 0.5rem;
   bottom: 0.5rem;
   margin: 0;
-  background-color: #5a6c52;
+  background-color: #58756f;
   color: #fff;
   font-weight: 600;
   border: none;
@@ -71,15 +72,15 @@ form {
 .gallery figure:hover,
 .gallery article:hover {
   /*border: 1px solid #708a65;*/
-  box-shadow: 0 16px 32px #3e4b3933, 0 8px 16px #708a6566;
+  box-shadow: 0 16px 32px #3e4b3933, 0 8px 16px #58756f66;
   background-color: #ffffffff;
-  transform: scale(1.025);
-  transition: all 0.15s ease-in;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in;
   overflow: hidden;
 }
 
 .gallery figure:hover .delImgButton {
-  background-color: #708a65;
+  background-color: #58756f;
   box-shadow: 0 2px 4px #00000066;
 }
 
@@ -101,7 +102,23 @@ button {
   outline-color: #708a65;
   outline-width: 1px;
   position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #263021aa;
+  border-radius: 4px;
+  color: rgba(90, 108, 82);
   /*background-color: #ffffffaa;*/
+}
+
+textarea {
+  resize: none;
+  padding: 0.35rem 0.5rem;
+  outline-color: #708a65;
+  outline-width: 1px;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #263021aa;
+  border-radius: 4px;
+  color: rgba(90, 108, 82);
 }
 
 .cancelSubmitContainer {
@@ -113,7 +130,7 @@ button {
 
 input[type="button"],
 button {
-  background-color: #5a6c52;
+  background-color: #495c58;
   color: #fff;
   font-weight: 600;
   border: none;
@@ -156,8 +173,8 @@ button.saveButton {
 }
 
 button:hover {
-  background-color: #708a65;
-  box-shadow: 0 4px 8px #708a6566;
+  box-shadow: 0 4px 8px #70918966;
+  background-color: #58756f;
 }
 
 label {

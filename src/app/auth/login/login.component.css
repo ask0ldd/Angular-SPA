@@ -1,3 +1,7 @@
+/*:root {
+  --main-green: #708a65;
+}*/
+
 form {
   display: flex;
   flex-direction: column;
@@ -10,7 +14,7 @@ form {
       rgba(176, 170, 170, 0.05) 100%
     ),
     #f7f7f7;
-  padding: 6rem 15rem;
+  padding: 3rem 15rem 3rem 15rem;
 }
 
 .loginBtn {
@@ -36,6 +40,16 @@ form {
   box-shadow: 0 4px 8px #708a6566;
 }
 
+input,
+button {
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.5rem;
+  outline-color: #708a65;
+  outline-width: 1px;
+  position: relative;
+  /*background-color: #ffffffaa;*/
+}
+
 .ng-valid:not(form) {
   border: 1px solid #506149;
   outline-width: 2px;
@@ -50,4 +64,15 @@ form {
   border-radius: 4px;
   overflow: hidden;
   border-right: 8px solid #c5224b;
+  position: relative;
 }
+
+/*.ng-invalid:not(form)::after {
+  content: "a";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  right: 0;
+  background-color: #000;
+}*/
