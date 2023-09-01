@@ -25,7 +25,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #5a6c52;
+  color: #58756f;
   font-size: 22px;
   width: fit-content;
 }
@@ -41,24 +41,24 @@ nav ul {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #5a6c52;
+  color: #58756f;
 }
 
 a:hover {
   text-decoration: underline;
-  color: rgb(35, 41, 33);
+  color: #364643;
   text-underline-offset: 5px;
 }
 
 a:active {
   text-decoration: underline;
-  color: #5a6c52;
+  color: #58756f;
   text-underline-offset: 5px;
 }
 
 a.active-link {
   text-decoration: underline;
-  color: #5a6c52;
+  color: #58756f;
   text-underline-offset: 5px;
 }
 
