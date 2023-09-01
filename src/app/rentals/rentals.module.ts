@@ -21,7 +21,8 @@ const rentalRoutes: Routes = [
     immocardHoverDirective, 
     RatingColorPipe, 
     RentalsGalleryComponent, 
-    RentalDetailsComponent, RentalsEditComponent,
+    RentalDetailsComponent, 
+    RentalsEditComponent,
   ],
   imports: [    
     BrowserModule,

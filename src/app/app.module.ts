@@ -6,14 +6,16 @@ import { Page404Component } from './page404/page404.component';
 import { RentalsModule } from './rentals/rentals.module';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [ // components, directives, pipes to import
     AppComponent, 
-    Page404Component, LoginComponent,
+    Page404Component, 
     // immocardHoverDirective, RatingColorPipe, RentalsGalleryComponent, RentalDetailsComponent, Page404Component
   ],
   imports: [ // other modules to import
+    AuthModule,
     BrowserModule,
     FormsModule,
     RentalsModule,

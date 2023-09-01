@@ -1,8 +1,8 @@
 <form #loginForm="ngForm">
     <h2 style="margin-bottom: 2rem;">Connexion Administration</h2>
     <label>Adresse Email</label>
-    <input id="login" name="login" type="text" #login/>
+    <input id="login" name="login" type="text" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #login="ngModel" [(ngModel)]="userEmail"/>
     <label>Password</label>
-    <input id="password" name="password" type="text" #password/>
+    <input id="password" name="password" type="text" pattern="^[a-zA-Z0-9]{8,16}$" #password="ngModel" [(ngModel)]="userPassword"/>
     <input class="loginBtn" type="submit" value="Se Connecter"/>
 </form>

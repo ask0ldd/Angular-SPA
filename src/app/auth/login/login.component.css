@@ -35,3 +35,19 @@ form {
   background-color: #708a65;
   box-shadow: 0 4px 8px #708a6566;
 }
+
+.ng-valid:not(form) {
+  border: 1px solid #506149;
+  outline-width: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  border-right: 8px solid #78db4d;
+}
+
+.ng-invalid:not(form) {
+  border: 1px solid #506149;
+  outline-width: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  border-right: 8px solid #c5224b;
+}
