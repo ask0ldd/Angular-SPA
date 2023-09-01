@@ -1,9 +1,9 @@
 <main *ngIf="activeRental" class='main-rental'> <!-- only displayed if activeRental != undefined -->
     <section class='slideshow'>
-        <img data-testid="slideshowImg" [src]="'/assets/'+activeRental.pictures[activeImg]" alt="temp"/>
+        <img data-testid="slideshowImg" [src]="'assets/'+activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 
-            <div *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="/assets/arrow-right.svg" alt="arrow previous" /></div>
-            <div *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="/assets/arrow-right.svg" alt="arrow next" /></div>
+            <div *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="assets/arrow-right.svg" alt="arrow previous" /></div>
+            <div *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="assets/arrow-right.svg" alt="arrow next" /></div>
             <span class="index">{{activeImg+1}}/{{activeRental.pictures.length}}</span>
         </div>
     </section>
@@ -27,15 +27,15 @@
             </div>
             <div class="starsContainer">
                 <!--<img data-testid={props.src === "redstar" ? "redstar" : "greystar"} className={props.src === "redstar" ? "star-red" : "star-grey"} src={props.src === "redstar" ? redstar : greystar} alt="positive star" />-->
-                <img *ngFor="let _ of [].constructor(activeRentalRating)" class="redstar" src="/assets/redstar.svg" alt="positive star" />
-                <img *ngFor="let _ of [].constructor(5-activeRentalRating)" class="greystar" src="/assets/greystar.svg" alt="negative star" />
+                <img *ngFor="let _ of [].constructor(activeRentalRating)" class="redstar" src="assets/redstar.svg" alt="positive star" />
+                <img *ngFor="let _ of [].constructor(5-activeRentalRating)" class="greystar" src="assets/greystar.svg" alt="negative star" />
             </div>
         </div>
     </section>
     <section id="collapsesContainer">
         <article class="collapse">
             <div class="collapse__heading" (click)="switchCollapse('description')">
-                <div>Description</div><img [src]="descriptionCollapsed ? '/assets/collapse-up.svg' : '/assets/collapse-down.svg'" alt="arrow" />
+                <div>Description</div><img [src]="descriptionCollapsed ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
             </div>
             <div *ngIf="descriptionCollapsed" class='collapse__body'>
                 {{activeRental.description}}
@@ -43,7 +43,7 @@
         </article>
         <article class="collapse">
             <div class="collapse__heading" (click)="switchCollapse('equipements')">
-                <div>Equipements</div><img [src]="equipementsCollapsed ? '/assets/collapse-up.svg' : '/assets/collapse-down.svg'" alt="arrow" />
+                <div>Equipements</div><img [src]="equipementsCollapsed ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
             </div>
             <div *ngIf="equipementsCollapsed" class='collapse__body'>
                 <ul>

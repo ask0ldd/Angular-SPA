@@ -9,7 +9,7 @@
         <label>Gallerie</label> <!-- switch to hx -->
         <div class="gallery">
             <figure style="position:relative;" *ngFor="let img of editedRental.pictures">
-                <img [src]="'/assets/'+img"/>
+                <img [src]="'assets/'+img"/>
                 <button (click)="deleteImg(img)" class="delImgButton">X</button>
             </figure>
             <article>

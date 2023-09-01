@@ -75,7 +75,7 @@ export class RentalsGalleryComponent implements OnInit {
   }
 
   isRentalLiked(rentalId : string) : string {
-    return this.likedRentals === undefined || this.likedRentals.includes(rentalId) === false ? "/assets/favoutline.svg" : "/assets/favfull.svg"
+    return this.likedRentals === undefined || this.likedRentals.includes(rentalId) === false ? "assets/favoutline.svg" : "assets/favfull.svg"
   }
 }
 
