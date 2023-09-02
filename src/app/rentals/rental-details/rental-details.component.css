@@ -291,8 +291,8 @@
 }
 
 .collapse__heading:hover {
-  box-shadow: 0 4px 8px #70918966;
-  background-color: #58756f;
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
 }
 
 .collapse__heading img {
@@ -310,14 +310,16 @@
 
 .collapse__body {
   /*background: #f6f6f6;*/
-  background: #e3ecde;
+  margin-top: 0.5rem;
+  background: #e3ecde88;
   /*background: #ebf1e7;*/
   border-radius: 5px;
   font-weight: 400;
   /*line-height: 142.6%;*/
-  line-height: 150%;
+  line-height: 160%;
   padding: 15px 20px;
-  color: #58756f;
+  color: #58756fcc;
+  border: 1px solid #58756f33;
 }
 
 .apropos-heading {

@@ -72,7 +72,7 @@ form {
 .gallery figure:hover,
 .gallery article:hover {
   /*border: 1px solid #708a65;*/
-  box-shadow: 0 16px 32px #3e4b3933, 0 8px 16px #58756f66;
+  box-shadow: 0 4px 8px #3e4b3933, 0 16px 32px #749c9255;
   background-color: #ffffffff;
   transform: scale(1.05);
   transition: all 0.2s ease-in;
@@ -80,8 +80,8 @@ form {
 }
 
 .gallery figure:hover .delImgButton {
-  background-color: #58756f;
-  box-shadow: 0 2px 4px #00000066;
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
 }
 
 .gallery img {
@@ -103,9 +103,9 @@ button {
   outline-width: 1px;
   position: relative;
   background-color: #f7f7f7;
-  border: 1px solid #263021aa;
+  border: 1px solid #58756f;
   border-radius: 4px;
-  color: rgba(90, 108, 82);
+  color: #58756f;
   /*background-color: #ffffffaa;*/
 }
 
@@ -116,7 +116,7 @@ textarea {
   outline-width: 1px;
   position: relative;
   background-color: #f7f7f7;
-  border: 1px solid #263021aa;
+  border: 1px solid #26302188;
   border-radius: 4px;
   color: rgba(90, 108, 82);
 }
@@ -130,7 +130,7 @@ textarea {
 
 input[type="button"],
 button {
-  background-color: #495c58;
+  background: #58756f;
   color: #fff;
   font-weight: 600;
   border: none;
@@ -147,7 +147,7 @@ button.saveButton {
 }
 
 #cancelBtn {
-  background-color: #495c58;
+  background: #58756f;
   padding: 0.35rem 1rem;
   color: #fff;
   font-weight: 600;
@@ -161,8 +161,8 @@ button.saveButton {
 }
 
 #cancelBtn:hover {
-  box-shadow: 0 4px 8px #70918966;
-  background-color: #58756f;
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
 }
 
 #submitBtn {
@@ -173,8 +173,8 @@ button.saveButton {
 }
 
 button:hover {
-  box-shadow: 0 4px 8px #70918966;
-  background-color: #58756f;
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
 }
 
 label {

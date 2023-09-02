@@ -17,12 +17,36 @@ form {
   padding: 3rem 15rem 3rem 15rem;
 }
 
+.inputnErrorContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.inputnErrorContainer .validMarker {
+  width: 8px;
+  height: 39px;
+  background: linear-gradient(#78f8c7 0%, #4af3b2 100%);
+  border-radius: 2px;
+  border: 1px solid #495c5888;
+}
+
+.inputnErrorContainer .errorMarker {
+  width: 8px;
+  height: 39px;
+  background: linear-gradient(#f35a62 0%, #f04b53 100%);
+  border-radius: 2px;
+  border: 1px solid #495c5888;
+}
+
 .loginBtn {
   display: flex;
   flex: 1 1 100%;
   justify-content: center;
   align-items: center;
-  background-color: #5a6c52;
+  background: #58756f;
   color: #fff;
   font-weight: 600;
   border: none;
@@ -30,28 +54,31 @@ form {
   border-radius: 3px;
   margin-bottom: 1rem;
   padding: 0.35rem 0.5rem;
-  outline-color: #708a65;
+  outline-color: #495c58;
   outline-width: 1px;
   margin-top: 2rem;
 }
 
 .loginBtn:hover {
-  background-color: #708a65;
-  box-shadow: 0 4px 8px #708a6566;
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
 }
 
 input,
 button {
-  margin-bottom: 1rem;
   padding: 0.35rem 0.5rem;
-  outline-color: #708a65;
+  outline-color: #58756f;
   outline-width: 1px;
   position: relative;
   /*background-color: #ffffffaa;*/
 }
 
-.ng-valid:not(form) {
-  border: 1px solid #506149;
+input[type="text"] {
+  flex: 1 1 100%;
+}
+
+/*.ng-valid:not(form) {
+  border: 1px solid #58756f;
   outline-width: 2px;
   border-radius: 4px;
   overflow: hidden;
@@ -59,20 +86,10 @@ button {
 }
 
 .ng-invalid:not(form) {
-  border: 1px solid #506149;
+  border: 1px solid #58756f;
   outline-width: 2px;
   border-radius: 4px;
   overflow: hidden;
   border-right: 8px solid #c5224b;
   position: relative;
-}
-
-/*.ng-invalid:not(form)::after {
-  content: "a";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 0;
-  right: 0;
-  background-color: #000;
 }*/

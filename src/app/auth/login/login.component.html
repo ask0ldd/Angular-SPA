@@ -1,8 +1,16 @@
 <form #loginForm="ngForm">
-    <h2 style="margin-bottom: 2rem;">Section Administrateur</h2>
+    <h2 style="margin-bottom: 2rem;">Portail Administrateur</h2>
     <label>Adresse Email</label>
-    <input id="login" name="login" type="text" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #login="ngModel" [(ngModel)]="userEmail"/>
+    <div class="inputnErrorContainer">
+        <input id="login" name="login" type="text" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #login="ngModel" [(ngModel)]="userEmail"/>
+        <div class="validMarker" [hidden]="login.invalid || login.pristine"></div>
+        <div class="errorMarker" [hidden]="login.valid || login.pristine"></div>
+    </div>
     <label style="margin-top: 1rem;">Password</label>
-    <input id="password" name="password" type="text" pattern="^[a-zA-Z0-9]{8,16}$" #password="ngModel" [(ngModel)]="userPassword"/>
+    <div class="inputnErrorContainer">
+        <input id="password" name="password" type="text" pattern="^[a-zA-Z0-9]{8,16}$" #password="ngModel" [(ngModel)]="userPassword"/>
+        <div class="validMarker" [hidden]="password.invalid || password.pristine"></div>
+        <div class="errorMarker" [hidden]="password.valid || password.pristine"></div>
+    </div>
     <input class="loginBtn" type="submit" value="Se Connecter"/>
 </form>
