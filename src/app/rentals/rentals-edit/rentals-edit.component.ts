@@ -32,6 +32,7 @@ export class RentalsEditComponent {
       return
     }
     this.editedRental = this.rentalService.getRentalById(this.rentalId)
+    this.rentalService.getAllOwners()
   }
 
   ngAfterViewInit() {}

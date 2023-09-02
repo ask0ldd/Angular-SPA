@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Rental } from '../models/rental';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
 
+const APIBaseUrl =  "http://127.0.0.1:5678/"
+
 // allows to inject this service in any component constructor
 // pipes / directives & components extends Injectable
 @Injectable(/*{ 
@@ -13,6 +15,28 @@ export class RentalsService {
   rentalsList = [...rentalsList]
 
   constructor() { }
+
+  async getAllOwners(){
+    try{
+
+      const response = await fetch(`${APIBaseUrl}owners`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },    
+            })
+
+      console.log(response.json())
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  /* 
+  endof
+  */
 
   getAllRentals() : Array<Rental>{
     return this.rentalsList
