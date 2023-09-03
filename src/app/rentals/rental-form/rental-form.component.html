@@ -19,6 +19,14 @@
             </article>
         </div>
     </section>
+
+    <div class="labelErrorContainer">
+        <label for="owner">Owner</label>
+        <p [hidden]="owner.valid || owner.pristine" class="errorMessage">Utilisation de caractères invalides</p>
+    </div>
+    <input id="owner" name="owner" pattern="^[0-9]{1,50}$"
+    [(ngModel)]="ownerId" 
+    #owner="ngModel" required/>
     
     <!-- title.valid & title.pristine refer to #title -->
     <div class="labelErrorContainer">

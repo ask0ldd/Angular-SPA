@@ -11,6 +11,7 @@ import { Rental } from 'src/app/models/rental';
 export class RentalFormComponent {
   @Input() editedRental ?: Rental
   @Input() rentalId ?: string
+  ownerId : string
 
   /*rentalId : string | null
   editedRental : Rental | undefined*/
