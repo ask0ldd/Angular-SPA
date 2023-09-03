@@ -14,6 +14,8 @@ export class RentalsService {
 
   rentalsList = [...rentalsList]
 
+  activeRental : Rental | undefined
+
   constructor() { }
 
   async getAllOwners() : Promise<Array<IOwner> | void>{ // define return value
@@ -73,7 +75,24 @@ export class RentalsService {
   }
 
   getRentalById(rentalId : string) : Rental | undefined {
-    return this.rentalsList.find(rental => rental.id === rentalId)
+    this.activeRental = this.rentalsList.find(rental => rental.id === rentalId)
+    return this.activeRental
+  }
+
+  newRental(){
+    this.activeRental = {
+      id : "",
+      title : "",
+      cover : "",
+      pictures : [],
+      description : "",
+      host : {name : "", picture : ""},
+      rating : "",
+      location : "",
+      equipments : [],
+      tags : []
+    }
+    return this.activeRental
   }
 
   getRentalHost(rentalId : string) : {name:string, picture: string} | undefined {
@@ -100,41 +119,42 @@ export class RentalsService {
     return true
   }
 
-  removeTag(tagValue: string, targetRentalId : string) : boolean{
-    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
-    if(targetRentalIndex == null) return false
-    const tagIndex = this.rentalsList[targetRentalIndex].tags.findIndex(tag => tag === tagValue)
+  removeTag(tagValue: string/*, targetRentalId : string*/) : boolean{
+    /*const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    if(targetRentalIndex == null) return false*/
+    if(this.activeRental == undefined) return false
+    const tagIndex = this.activeRental.tags.findIndex(tag => tag === tagValue)
     if(tagIndex == null) return false
-    this.rentalsList[targetRentalIndex].tags.splice(tagIndex, 1)
-    console.log(this.rentalsList[targetRentalIndex].tags)
+    this.activeRental.tags.splice(tagIndex, 1)
     return true
   }
 
-  removeEquipment(equipmentValue: string, targetRentalId : string) : boolean{
-    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
-    if(targetRentalIndex == null) return false
-    const equipmentIndex = this.rentalsList[targetRentalIndex].equipments.findIndex(equipment => equipment === equipmentValue)
+  removeEquipment(equipmentValue: string) : boolean{
+    if(this.activeRental == undefined) return false
+    const equipmentIndex = this.activeRental.equipments.findIndex(equipment => equipment === equipmentValue)
     if(equipmentIndex == null) return false
-    this.rentalsList[targetRentalIndex].equipments.splice(equipmentIndex, 1)
-    console.log(this.rentalsList[targetRentalIndex].equipments)
+    this.activeRental.equipments.splice(equipmentIndex, 1)
+    console.log(this.activeRental.equipments)
     return true
   }
 
-  addEquipment(equipmentValue: string, targetRentalId : string) : boolean{
+  addEquipment(equipmentValue: string) : boolean{
+    if(this.activeRental == undefined) return false
     if(equipmentValue.match(/^[a-zA-Zèéàèïîêôöùûç '-]{1,30}$/) == null) return false
-    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
-    if(targetRentalIndex == null) return false
-    if(this.rentalsList[targetRentalIndex].equipments.includes(capitalizeFirstLetter(equipmentValue))) return false
-    this.rentalsList[targetRentalIndex].equipments.push(capitalizeFirstLetter(equipmentValue))
+    if(this.activeRental.equipments.includes(capitalizeFirstLetter(equipmentValue))) return false
+    this.activeRental.equipments.push(capitalizeFirstLetter(equipmentValue))
     return true
   }
 
-  addTag(tagValue: string, targetRentalId : string) : boolean{
+  addTag(tagValue: string/*, targetRentalId : string*/) : boolean{
+    if(this.activeRental == undefined) return false
     if(tagValue.match(/^[a-zA-Zèéàèïîêôöùûç '-]{1,30}$/) == null) return false
-    const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
+    /*const targetRentalIndex = this.rentalsList.findIndex(rental => rental.id === targetRentalId)
     if(targetRentalIndex == null) return false
     if(this.rentalsList[targetRentalIndex].tags.includes(capitalizeFirstLetter(tagValue))) return false
-    this.rentalsList[targetRentalIndex].tags.push(capitalizeFirstLetter(tagValue))
+    this.rentalsList[targetRentalIndex].tags.push(capitalizeFirstLetter(tagValue))*/
+    if(this.activeRental.tags.includes(capitalizeFirstLetter(tagValue))) return false
+    this.activeRental.tags.push(capitalizeFirstLetter(tagValue))
     return true
   }
 

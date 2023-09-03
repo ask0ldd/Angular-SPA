@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Rental } from 'src/app/models/rental';
+import { RentalsService } from '../rentals.service';
 
 @Component({
   selector: 'app-rental-new',
@@ -8,20 +9,12 @@ import { Rental } from 'src/app/models/rental';
 })
 export class RentalNewComponent {
 
+  constructor(private rentalService : RentalsService){ }
+
   editedRental : Rental
 
   ngOnInit(): void {
-    this.editedRental = {
-      id : "",
-      title : "",
-      cover : "",
-      pictures : [],
-      description : "",
-      host : {name : "", picture : ""},
-      rating : "",
-      location : "",
-      equipments : [],
-      tags : []
-    }
+    this.editedRental = this.rentalService.newRental()
   }
+
 }

@@ -44,28 +44,26 @@ export class RentalFormComponent {
     console.log(this.rentalForm)
   }
 
-  removeTag(tagValue : string){
-    if (this.rentalId!=null) this.rentalService.removeTag(tagValue, this.rentalId)
+  removeTag(tagValue : string){ 
+    this.rentalService.removeTag(tagValue/*, this.rentalId*/)
   }
 
   removeEquipment(equipmentValue : string){
-    if (this.rentalId!=null) this.rentalService.removeEquipment(equipmentValue, this.rentalId)
+    this.rentalService.removeEquipment(equipmentValue)
   }
 
   addEquipment(equipmentValue : string){
     // should verify if value is valid
-    if (this.rentalId!=null) {
-      const isSuccessful = this.rentalService.addEquipment(equipmentValue, this.rentalId)
-      if(isSuccessful) this.newEquipment.nativeElement.value=""
-    }
+    const isSuccessful = this.rentalService.addEquipment(equipmentValue)
+    if(isSuccessful) this.newEquipment.nativeElement.value=""
   }
 
   addTag(equipmentValue : string){
     // should verify if value is valid
-    if (this.rentalId!=null) {
-      const isSuccessful = this.rentalService.addTag(equipmentValue, this.rentalId)
+    // if (this.rentalId!=null) {
+      const isSuccessful = this.rentalService.addTag(equipmentValue/*, this.rentalId*/)
       if(isSuccessful) this.newTag.nativeElement.value=""
-    }
+    // }
   }
 
   deleteImg(imgPath : string){

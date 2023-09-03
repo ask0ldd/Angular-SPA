@@ -71,7 +71,7 @@
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;" *ngFor="let equipment of editedRental.equipments; let i = index">
                 <input readonly style="display:flex; width: 100%; flex-shrink: 1;" id="{{'equipement'+i.toString()}}" name="{{'equipement'+i.toString()}}" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ()'-]{1,30}$"
                 [(ngModel)]="editedRental.equipments[i]"/>
-                <button class="delButton" (click)="removeEquipment(editedRental.tags[i])">x</button>
+                <button class="delButton" (click)="removeEquipment(editedRental.equipments[i])">x</button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <input (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
