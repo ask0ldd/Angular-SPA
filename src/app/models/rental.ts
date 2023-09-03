@@ -12,7 +12,8 @@ export interface Rental {
 }
 
 interface Host{
-    name : string
+    firstname : string
+    lastname: string
     picture : string
 }
 

@@ -9,8 +9,11 @@ import { Rental } from 'src/app/models/rental';
   styleUrls: ['./rental-form.component.css']
 })
 export class RentalFormComponent {
+
+  /* props equivalent */
   @Input() editedRental ?: Rental
   @Input() rentalId ?: string
+
   hostId : string
 
   /*rentalId : string | null

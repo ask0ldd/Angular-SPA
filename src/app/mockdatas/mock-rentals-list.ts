@@ -13,7 +13,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Votre maison loin de chez vous. Que vous veniez de l'autre bout du monde, ou juste de quelques stations de RER, vous vous sentirez chez vous dans notre appartement.",
 		"host": {
-			"name": "Nathalie Jean",
+			"firstname": "Nathalie",
+			"lastname": "Jean",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg"
 		},
 		"rating": "5",
@@ -42,7 +43,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Profitez du charme de la vie parisienne dans un magnifique appartement. A 3 minutes à pied du Canl Saint Martin, vous serez proche des transports, mais également de nombreux commerces. L'appartement est tout équipé, et possède également un parking pour ceux qui souhaitent se déplacer en voiture.",
 		"host": {
-			"name": "Della Case",
+			"firstname": "Della",
+			"lastname": "Case",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-1.jpg"
 		},
 		"rating": "4",
@@ -73,7 +75,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "À seulement deux pas des Buttes Chaumont, venez découvrir Paris dans ce studio tout équipé. Entièrement équipé pour votre confort et élégamment décoré, il vous permettra de vivre comme un Parisien le temps de votre séjour.",
 		"host": {
-			"name": "Franck Maher",
+			"firstname": "Franck",
+			"lastname": "Maher",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-2.jpg"
 		},
 		"rating": "3",
@@ -102,7 +105,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Venez découvrir Paris en séjournant dans ce nid douillet au coeur du 11ème. La vue sur le parc résidentiel saura vous reposer de vos longues journées de tourisme dans la capitale française. Et pour les plus fêtards d'entre vous, la rue Jean Pierre Timbaud vous permettra de découvrir la night-life parisienne à seulement 5 minutes de l'appartement.",
 		"host": {
-			"name": "Della Case",
+			"firstname": "Della",
+			"lastname": "Case",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-1.jpg"
 		},
 		"rating": "3",
@@ -133,7 +137,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Ce loft entièrement rénové, et équipé de meubles de luxe saura vous séduire. Idéalement situé dans le 10ème arrondissement, vous déplacer dans Paris sera un véritable jeu d'enfant.",
 		"host": {
-			"name": "Franck Maher",
+			"firstname": "Franck",
+			"lastname": "Maher",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-2.jpg"
 		},
 		"rating": "5",
@@ -162,7 +167,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Venez vous imprégner de la culture parisienne dans cet ancien studio d'artiste décoré avec goût, au coeur de Montmartre.",
 		"host": {
-			"name": "Line Rolland",
+			"firstname": "Line",
+			"lastname": "Rolland",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-3.jpg"
 		},
 		"rating": "5",
@@ -189,7 +195,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Ce Studio entièrement fonctionnel sera votre parfait pied à terre pour toutes vos excursions parisiennes. Idéalement situé près des lignes 2 et 4, vous accéderez très rapidement à tous les points touristiques de Paris.",
 		"host": {
-			"name": "Hugo Perrier",
+			"firstname": "Hugo",
+			"lastname": "Perrier",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-4.jpg"
 		},
 		"rating": "3",
@@ -220,7 +227,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Ce superbe appartement vous surprendra par son charme. Entièrement refait à neuf, il est équipé avec goût. La taille des pièces vous fera douter que vous êtes à Paris. Mais il vous suffit de sortir pour voir que vous êtes au coeur des plus belles attractions de Paris : le Louvre, la Tour Eiffel, le Grand Palais sont à deux pas. À vous de venir découvrir Paris !",
 		"host": {
-			"name": "Sébastien Fournier",
+			"firstname": "Sébastien",
+			"lastname": "Fournier",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-5.jpg"
 		},
 		"rating": "5",
@@ -251,7 +259,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Paris vous tend les bras ! En famille ou entre amis, venez découvrir la ville de l'amour dans un appartement de goût. Vous pourrez profiter de tous les commerces seulement à quelques minutes de l'appartement. Sa proximité avec la gare Montparnasse en fait également un choix idéal pour celles et ceux qui doivent prendre un train.",
 		"host": {
-			"name": "Adrien Chiran",
+			"firstname": "Adrien",
+			"lastname": "Chiran",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-6.jpg"
 		},
 		"rating": "4",
@@ -281,7 +290,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Respirer en plein coeur de Paris ? C'est possible ! Avec vue sur un parc résidentiel, vous pourrez ouvrir les fenêtres sans avoir à souffrir du bruit des voitures et de la pollution. Au contraire, vous pourrez écouter les oiseaux. Notre appartement est également idéalement situé au coeur du 11ème arrondissement. Proche des lignes 3 et 2, vous pourrez découvrir Paris sans effort !",
 		"host": {
-			"name": "Adrien Chiran",
+			"firstname": "Adrien",
+			"lastname": "Chiran",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-6.jpg"
 		},
 		"rating": "3",
@@ -313,7 +323,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Situé en plein coeur du Marais, notre studio est idéal pour les touristes en quête de découverte. Sa cuisine toute équipée est particulièrement pratique.",
 		"host": {
-			"name": "Victor Moran",
+			"firstname": "Victor",
+			"lastname": "Moran",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-7.jpg"
 		},
 		"rating": "4",
@@ -342,7 +353,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Idéalement situé à 2 pas de la place de la République, ce studio particulièrement fonctionnel est parfait pour découvrir Paris. Proche de tous les points d'intérêts grâce aux 5 lignes de métro qui sont à 5 minutes, vous pourrez rentabiliser votre temps passé à la capitale.",
 		"host": {
-			"name": "Sarah Devit",
+			"firstname": "Sarah",
+			"lastname": "Devit",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-8.jpg"
 		},
 		"rating": "3",
@@ -375,7 +387,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Quittez Paris pour vous mettre au vert. A seulement 30 minutes de la Gare du Nord, venez découvrir la forêt d'Ecouen directement depuis la fenêtre de votre bungalow. Entièrement équipé, ce logement saura vous accueillir dans le confort, tout en vous permettant de vous concentrer sur l'essentiel. Le matin, ouvrez les fenêtres, et profitez du chant des oiseaux.",
 		"host": {
-			"name": "Sarah Devit",
+			"firstname": "Sarah",
+			"lastname": "Devit",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-8.jpg"
 		},
 		"rating": "5",
@@ -404,7 +417,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Vous chercher un endroit pour fêter un anniversaire entre amis tout en restant proche de Paris ? Ne cherchez plus ! Entièrement équipée, cette maison est l'endroit idéal pour se regrouper.",
 		"host": {
-			"name": "Karen Guillet",
+			"firstname": "Karen",
+			"lastname": "Guillet",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-9.jpg"
 		},
 		"rating": "4",
@@ -437,7 +451,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Maison T5. Idéale pour grands groupes. 45 minutes de Paris Saint-Lazare.",
 		"host": {
-			"name": "Karen Guillet",
+			"firstname": "Karen",
+			"lastname": "Guillet",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-9.jpg"
 		},
 		"rating": "3",
@@ -472,7 +487,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Si vous êtes à la recherche de l'endroit idéal pour poser vos valises entre deux rdvs d'affaire, ne cherchez plus. Notre loft est l'endroit idéal. En plein coeur de la Défense, il dispose également de tous les équipements pour que vous soyez comme chez vous.",
 		"host": {
-			"name": "Julie Donatella",
+			"firstname": "Julie",
+			"lastname": "Donatella",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-10.jpg"
 		},
 		"rating": "3",
@@ -504,7 +520,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Ce charmant appartement offre des prestations de luxe, aux portes de Paris. À deux pas de la ligne 3, vous pourrez accéder à toutes les attractions touristiques dont vous avez toujours rêvées.",
 		"host": {
-			"name": "Julie Donatella",
+			"firstname": "Julie",
+			"lastname": "Donatella",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-10.jpg"
 		},
 		"rating": "4",
@@ -531,7 +548,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Cette chambre dispose de toutes les facilités nécessaires. Proche métro et commerces.",
 		"host": {
-			"name": "Hugo Perrier",
+			"firstname": "Hugo",
+			"lastname": "Perrier",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-4.jpg"
 		},
 		"rating": "2",
@@ -558,7 +576,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Ce studio décoré avec goût sera votre nid douillet après une longue journée passée à découvrir Paris.",
 		"host": {
-			"name": "Michel Romy",
+			"firstname": "Michel",
+			"lastname": "Romy",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-11.jpg"
 		},
 		"rating": "4",
@@ -585,7 +604,8 @@ export const rentalsList : Array<Rental> = [
 		],
 		"description": "Au coeur du quartier historique du Marais, cet appartement est idéal pour un couple à la découverte de Paris. Situé sur la rue de Rivoli, il est à 5 minutes du Louvre.",
 		"host": {
-			"name": "Nathalie Jean",
+			"firstname": "Nathalie",
+			"lastname": "Jean",
 			"picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg"
 		},
 		"rating": "4",
