@@ -86,7 +86,7 @@ export class RentalsService {
       cover : "",
       pictures : [],
       description : "",
-      host : {name : "", picture : ""},
+      host : {firstname : "", lastname: "", picture : ""},
       rating : "",
       location : "",
       equipments : [],
@@ -95,7 +95,7 @@ export class RentalsService {
     return this.activeRental
   }
 
-  getRentalHost(rentalId : string) : {name:string, picture: string} | undefined {
+  getRentalHost(rentalId : string) : {firstname:string, lastname:string, picture: string} | undefined {
     return this.rentalsList.find(rental => rental.id === rentalId)?.host
   }
 
