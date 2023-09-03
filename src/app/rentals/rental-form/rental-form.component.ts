@@ -24,7 +24,7 @@ export class RentalFormComponent {
   @ViewChild('rentalForm') 
   rentalForm: ElementRef
 
-  constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
+  constructor(private rentalService : RentalsService){ }
 
   ngOnInit(): void {
     /*this.rentalId = this.route.snapshot.paramMap.get('id')
