@@ -16,7 +16,7 @@ interface Host{
     picture : string
 }
 
-export interface IOwner{
+export interface IHost{
     id : number
     firstname : string
     lastname : string

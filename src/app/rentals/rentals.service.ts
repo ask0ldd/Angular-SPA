@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IOwner, Rental } from '../models/rental';
+import { IHost, Rental } from '../models/rental';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
 
 const APIBaseUrl =  "http://127.0.0.1:5678/"
@@ -18,7 +18,7 @@ export class RentalsService {
 
   constructor() { }
 
-  async getAllOwners() : Promise<Array<IOwner> | void>{ // define return value
+  async getAllOwners() : Promise<Array<IHost> | void>{ // define return value
     try{
       const response = await fetch(`${APIBaseUrl}owners`,
             {
