@@ -9,9 +9,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { RentalsService } from './rentals.service';
 import { FormsModule } from '@angular/forms';
 import { RentalsEditComponent } from './rentals-edit/rentals-edit.component';
+import { RentalNewComponent } from './rental-new/rental-new.component';
+import { RentalFormComponent } from './rental-form/rental-form.component';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
+  {path: 'rental/new', component: RentalNewComponent},
   {path: 'rental/edit/:id', component: RentalsEditComponent},
   {path: 'rental/:id', component: RentalDetailsComponent},
 ];
@@ -22,7 +25,7 @@ const rentalRoutes: Routes = [
     RatingColorPipe, 
     RentalsGalleryComponent, 
     RentalDetailsComponent, 
-    RentalsEditComponent,
+    RentalsEditComponent, RentalNewComponent, RentalFormComponent,
   ],
   imports: [    
     BrowserModule,

@@ -1,0 +1,225 @@
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-width: 1240px;
+  margin: 3rem auto;
+  background: linear-gradient(
+      180deg,
+      rgba(176, 170, 170, 0.15) -7.66%,
+      rgba(176, 170, 170, 0.04) 100%
+    ),
+    #f7f7f7;
+  padding: 3rem 5rem;
+  color: #58756f;
+}
+
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.gallery figure {
+  flex: 1 1 30%;
+  max-width: calc((100% - 48px) / 3);
+  height: 260px;
+  border: 1px solid #5a6c52;
+}
+
+.gallery article {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 30%;
+  max-width: calc((100% - 48px) / 3);
+  height: 260px;
+  border: 1px solid #5a6c52;
+  background-color: #ffffffaa;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery .delImgButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 1px 0 0 1px;
+  width: 32px;
+  height: 32px;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  margin: 0;
+  background-color: #58756f;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.gallery figure:hover,
+.gallery article:hover {
+  /*border: 1px solid #708a65;*/
+  box-shadow: 0 4px 8px #3e4b3933, 0 16px 32px #749c9255;
+  background-color: #ffffffff;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+
+.gallery figure:hover .delImgButton {
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
+}
+
+.gallery img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery figure:hover img {
+  filter: brightness(120%) saturate(90%);
+}
+
+input,
+button {
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.5rem;
+  outline-color: #708a65;
+  outline-width: 1px;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #58756f;
+  border-radius: 4px;
+  color: #58756f;
+  /*background-color: #ffffffaa;*/
+}
+
+textarea {
+  resize: none;
+  padding: 0.35rem 0.5rem;
+  outline-color: #708a65;
+  outline-width: 1px;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #26302188;
+  border-radius: 4px;
+  color: rgba(90, 108, 82);
+}
+
+.cancelSubmitContainer {
+  display: flex;
+  column-gap: 2rem;
+  height: 40px;
+  margin-top: 2rem;
+}
+
+input[type="button"],
+button {
+  background: #58756f;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button.delButton {
+  width: 42px;
+}
+
+button.saveButton {
+  height: 40px;
+}
+
+#cancelBtn {
+  background: #58756f;
+  padding: 0.35rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+#cancelBtn:hover {
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
+}
+
+#submitBtn {
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  box-shadow: 0 4px 8px #749c9266;
+  background: #688d86;
+}
+
+label {
+  font-weight: 600;
+}
+
+p.errorMessage {
+  color: rgb(179, 47, 91);
+}
+
+.labelErrorContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ng-valid:not(form) {
+  border: 1px solid #506149;
+  outline-width: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  border-right: 8px solid #78db4d;
+}
+
+.ng-invalid:not(form) {
+  border: 1px solid #506149;
+  outline-width: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  border-right: 8px solid #c5224b;
+}
+
+/*.ng-valid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #78db4d;
+  }*/
+
+.validityIndicator {
+  width: 8px;
+  height: 38px;
+  background-color: #78db4d;
+  border-radius: 4px;
+  border: 1px solid black;
+}
