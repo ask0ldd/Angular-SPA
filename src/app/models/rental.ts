@@ -15,3 +15,12 @@ interface Host{
     name : string
     picture : string
 }
+
+export interface IOwner{
+    id : number
+    firstname : string
+    lastname : string
+    picture : string
+    createdAt ?: Date
+    updatedAt ?: Date
+}

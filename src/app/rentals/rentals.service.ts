@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Rental } from '../models/rental';
+import { IOwner, Rental } from '../models/rental';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
 
 const APIBaseUrl =  "http://127.0.0.1:5678/"
@@ -16,9 +16,8 @@ export class RentalsService {
 
   constructor() { }
 
-  async getAllOwners(){
+  async getAllOwners() : Promise<Array<IOwner> | void>{ // define return value
     try{
-
       const response = await fetch(`${APIBaseUrl}owners`,
             {
                 method: 'GET',
@@ -27,7 +26,38 @@ export class RentalsService {
                 },    
             })
 
-      console.log(response.json())
+      if(response.ok && response.status === 200)
+      {            
+        return response.json()
+      }
+      else
+      {
+          console.log(response.statusText)
+      }
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  async getRental(id : string) : Promise<Rental | void>{  // define return value
+    try{
+      const response = await fetch(`${APIBaseUrl}rental/${id}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },    
+            })
+
+      if(response.ok && response.status === 200)
+      {            
+        return response.json()
+      }
+      else
+      {
+          console.log(response.statusText)
+      }
     }
     catch(error){
       console.log(error)
