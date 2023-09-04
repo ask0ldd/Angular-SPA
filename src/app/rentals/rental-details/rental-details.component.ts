@@ -34,7 +34,8 @@ export class RentalDetailsComponent implements OnInit {
       this.router.navigateByUrl('/404') 
       return
     }
-    this.rentalOwner = {firstname : this.activeRental.host.name.split(' ')[0], lastname : this.activeRental.host.name.split(' ')[1]}
+    // this.rentalOwner = {firstname : this.activeRental.host.name.split(' ')[0], lastname : this.activeRental.host.name.split(' ')[1]}
+    this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
     this.activeRentalRating = parseInt(this.activeRental.rating)
   }
 

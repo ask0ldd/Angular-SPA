@@ -18,58 +18,6 @@ export class RentalsService {
 
   constructor() { }
 
-  async getAllOwners() : Promise<Array<IHost> | void>{ // define return value
-    try{
-      const response = await fetch(`${APIBaseUrl}owners`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },    
-            })
-
-      if(response.ok && response.status === 200)
-      {            
-        return response.json()
-      }
-      else
-      {
-          console.log(response.statusText)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
-  }
-
-  async getRental(id : string) : Promise<Rental | void>{  // define return value
-    try{
-      const response = await fetch(`${APIBaseUrl}rental/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },    
-            })
-
-      if(response.ok && response.status === 200)
-      {            
-        return response.json()
-      }
-      else
-      {
-          console.log(response.statusText)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
-  }
-
-  /* 
-  endof
-  */
-
   getAllRentals() : Array<Rental>{
     return this.rentalsList
   }

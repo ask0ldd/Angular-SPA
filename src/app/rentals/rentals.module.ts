@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { RentalsEditComponent } from './rentals-edit/rentals-edit.component';
 import { RentalNewComponent } from './rental-new/rental-new.component';
 import { RentalFormComponent } from './rental-form/rental-form.component';
+import { ApiService } from './api.service';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
@@ -36,6 +37,7 @@ const rentalRoutes: Routes = [
   ],
   providers: [
     RentalsService, // import the service as a provider instead of passing it to the root module through the service file itself : @Injectable({providedIn: 'root'})
+    ApiService,
   ]
 })
 export class RentalsModule { }
