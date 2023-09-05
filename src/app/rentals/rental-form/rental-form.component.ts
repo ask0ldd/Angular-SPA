@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
-import { Rental } from 'src/app/models/rental';
+import { IRental, Rental } from 'src/app/models/rental';
 
 @Component({
   selector: 'app-rental-form',
@@ -11,8 +11,9 @@ import { Rental } from 'src/app/models/rental';
 export class RentalFormComponent {
 
   /* props equivalent */
-  @Input() editedRental ?: Rental
+  @Input() editedRental ?: Rental | IRental
   @Input() rentalId ?: string
+  @Input() APIAsSource : boolean
 
   hostId : string
 
