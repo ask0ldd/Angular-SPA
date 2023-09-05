@@ -4,6 +4,7 @@ import { IRental, Rental } from '../../models/rental';
 import { Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { ApiService } from '../api.service'
+import { APIAsSource } from 'src/main';
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -20,13 +21,13 @@ export class RentalsGalleryComponent implements OnInit {
   selectedRental : Rental | undefined
   likedRentals : Array<string | number> = []
 
-  rentals : Array< Rental | IRental>
+  rentals : Array<Rental | IRental> | void
 
   // services are injected as parameters of the component constructor
   constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService){}
 
   async ngOnInit(): Promise<void> {
-    this.APIAsSource = true
+    this.APIAsSource = APIAsSource
     this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
 

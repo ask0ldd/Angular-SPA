@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../../mockdatas/mock-rentals-list';
-import { Rental } from '../../models/rental';
+import { IRental, Rental } from '../../models/rental';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
+import { APIAsSource } from 'src/main';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-rental-details',
@@ -12,24 +14,26 @@ import { RentalsService } from '../rentals.service';
 
 export class RentalDetailsComponent implements OnInit {
 
-  title = 'angularprj'
-  rentalId : string | null
-  activeRental : Rental | undefined
+  rentalId : string | number | null
+  activeRental : Rental | IRental | undefined | void
   activeImg : number = 0
   rentalOwner : {firstname : string, lastname : string}
   activeRentalRating : number
   equipementsCollapsed = false
   descriptionCollapsed = false
+  APIAsSource : boolean
 
-  constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService){ }
+  constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.APIAsSource = APIAsSource
+
     this.rentalId = this.route.snapshot.paramMap.get('id')
     if(this.rentalId == null) {
       this.router.navigateByUrl('/404') 
       return
     }
-    this.activeRental = this.rentalService.getRentalById(this.rentalId)
+    this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
     if(this.activeRental == undefined) {
       this.router.navigateByUrl('/404') 
       return

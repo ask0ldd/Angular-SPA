@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IHost, Rental } from '../models/rental';
+import { IHost, IRental, Rental } from '../models/rental';
 
 const APIBaseUrl =  "http://127.0.0.1:5678/"
 
@@ -37,7 +37,7 @@ export class ApiService {
     }
   }
 
-  async getAllRentals() : Promise<any | void>{
+  async getAllRentals() : Promise<Array<IRental> | void>{
     try{
       const response = await fetch(`${APIBaseUrl}rentals`,
             {
