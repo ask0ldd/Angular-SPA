@@ -23,6 +23,6 @@ export class RentalsEditComponent {
       return
     }
     this.editedRental = this.rentalService.getRentalById(this.rentalId)
-    console.table(this.rentalService.getAllOwners())
+    // console.table(this.rentalService.getAllOwners())
   }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { rentalsList } from '../../mockdatas/mock-rentals-list';
-import { Rental } from '../../models/rental';
+import { IRental, Rental } from '../../models/rental';
 import { Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
+import { ApiService } from '../api.service'
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -12,17 +13,25 @@ import { RentalsService } from '../rentals.service';
 })
 export class RentalsGalleryComponent implements OnInit {
 
-  title = 'angularprj';
+  APIAsSource : boolean
 
-  rentalsList : Array<Rental>
+  /*rentalsList : Array<Rental>
+  APIRentalsList : Array<IRental>*/
   selectedRental : Rental | undefined
   likedRentals : Array<string> = []
 
-  // services are injected as parameters of the component constructor
-  constructor(private router:Router, private rentalService : RentalsService){}
+  rentals : Array< Rental | IRental>
 
-  ngOnInit(): void {
-    this.rentalsList = this.rentalService.getAllRentals()
+  // services are injected as parameters of the component constructor
+  constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService){}
+
+  async ngOnInit(): Promise<void> {
+    this.APIAsSource = true
+    if(this.APIAsSource) {
+      this.rentals = await this.apiService.getAllRentals()
+    }else{
+      this.rentals = this.rentalService.getAllRentals()
+    }
   }
 
   /* kept as a learning reference
@@ -52,16 +61,16 @@ export class RentalsGalleryComponent implements OnInit {
     const [optionType , optionValue] = activeOption.split(':')
     switch(optionType){
       case 'any':
-        this.rentalsList = this.rentalService.getAllRentals()
+        this.rentals = this.rentalService.getAllRentals()
       break;
       case 'location':
-        optionValue === 'Paris' ? this.rentalsList = this.rentalService.getRentalsByLocation('Paris') : this.rentalsList = this.rentalService.getRentalsByLocation('Outside Paris')
+        optionValue === 'Paris' ? this.rentals = this.rentalService.getRentalsByLocation('Paris') : this.rentals = this.rentalService.getRentalsByLocation('Outside Paris')
       break;
       case 'rating':
-        optionValue === '4' ? this.rentalsList = this.rentalService.getRentalsByRating(4) : this.rentalsList = this.rentalService.getRentalsByRating(5)
+        optionValue === '4' ? this.rentals = this.rentalService.getRentalsByRating(4) : this.rentals = this.rentalService.getRentalsByRating(5)
       break;
       case 'tags':
-        optionValue === 'Appartement' ? this.rentalsList = this.rentalService.getRentalsByType('appartement') : this.rentalsList = this.rentalService.getRentalsByType('studio')
+        optionValue === 'Appartement' ? this.rentals = this.rentalService.getRentalsByType('appartement') : this.rentals = this.rentalService.getRentalsByType('studio')
       break;
     }
   }

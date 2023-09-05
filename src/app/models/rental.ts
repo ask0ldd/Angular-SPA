@@ -25,3 +25,16 @@ export interface IHost{
     createdAt ?: Date
     updatedAt ?: Date
 }
+
+export interface IRental {
+    id : number
+    title : string
+    cover : string
+    pictures : Array<string>
+    description : string
+    host : Host
+    rating : number
+    location : string
+    equipments : Array<string>
+    tags : Array<string>
+}
