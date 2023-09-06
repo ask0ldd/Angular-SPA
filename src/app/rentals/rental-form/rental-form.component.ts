@@ -49,14 +49,12 @@ export class RentalFormComponent {
 
   ngAfterViewInit() {}
 
-  onSubmit() : void {
-    // if(this.rentalId!=null) this.router.navigateByUrl('/rental/'+this.rentalId) 
-    // console.log(this.rentalForm)
-    const formData = new FormData()
-    // formData.append("title", this.rentalForm.get("title").value)
-    // formData.append("title", this.titleInput.nativeElement.value)
-    console.log(formData)
-    
+  onSubmit(form: NgForm) : void {
+    /*const formData = new FormData();
+    for (let key in form.value) {
+      formData.append(key, form.value[key]);
+    }
+    console.log(form.value)  */  
   }
 
   removeTag(tagValue : string){ 
@@ -81,16 +79,16 @@ export class RentalFormComponent {
       const isSuccessful = this.rentalService.addEquipment(equipmentValue)
       if(isSuccessful) this.newEquipment.nativeElement.value=""
     }else{
-      // this.apiService
+      this.editedRental?.tags.push(equipmentValue) // add Maj
     }
   }
 
-  addTag(equipmentValue : string){
+  addTag(tagValue : string){
     if(this.APIAsSource === false) {
-      const isSuccessful = this.rentalService.addTag(equipmentValue)
+      const isSuccessful = this.rentalService.addTag(tagValue)
       if(isSuccessful) this.newTag.nativeElement.value=""
     }else{
-      // this.apiService
+      this.editedRental?.tags.push(tagValue) // add Maj
     }
   }
 

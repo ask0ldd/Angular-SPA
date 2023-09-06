@@ -3,7 +3,7 @@
     #rentalForm="ngform" : https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables
     since #rentalForm="ngform" rentalForm template reference is not <form> but the ngForm directive 
 -->
-<form *ngIf="editedRental" (ngSubmit)="onSubmit()" #rentalForm="ngForm"> 
+<form *ngIf="editedRental" (ngSubmit)="onSubmit(rentalForm)" #rentalForm="ngForm"> 
 
     <section class="galleryContainer">
         <label>Gallerie</label> <!-- switch to hx -->
