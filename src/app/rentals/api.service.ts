@@ -84,4 +84,29 @@ export class ApiService {
       console.log(error)
     }
   }
+
+  async updateRental(id : string){
+    try{
+      const response = await fetch(`${APIBaseUrl}rentals/${id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+
+      if(response.ok && response.status === 200)
+      {            
+        return response.json()
+      }
+      else
+      {
+          console.log(response.statusText)
+      }
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
 }

@@ -2,6 +2,8 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
+import { ApiService } from '../api.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-rental-form',
@@ -29,7 +31,10 @@ export class RentalFormComponent {
   @ViewChild('rentalForm') 
   rentalForm: ElementRef
 
-  constructor(private rentalService : RentalsService){ }
+  /*@ViewChild('title') 
+  titleInput: ElementRef*/
+
+  constructor(private rentalService : RentalsService, private apiService : ApiService){ }
 
   ngOnInit(): void {
     /*this.rentalId = this.route.snapshot.paramMap.get('id')
@@ -46,33 +51,55 @@ export class RentalFormComponent {
 
   onSubmit() : void {
     // if(this.rentalId!=null) this.router.navigateByUrl('/rental/'+this.rentalId) 
-    console.log(this.rentalForm)
+    // console.log(this.rentalForm)
+    const formData = new FormData()
+    // formData.append("title", this.rentalForm.get("title").value)
+    // formData.append("title", this.titleInput.nativeElement.value)
+    console.log(formData)
+    
   }
 
   removeTag(tagValue : string){ 
-    this.rentalService.removeTag(tagValue/*, this.rentalId*/)
+    if(this.APIAsSource === false) {
+      this.rentalService.removeTag(tagValue)
+    }else{
+      // this.apiService
+    }
   }
 
   removeEquipment(equipmentValue : string){
-    this.rentalService.removeEquipment(equipmentValue)
+    if(this.APIAsSource === false) {
+      this.rentalService.removeEquipment(equipmentValue)
+    }else{
+      // this.apiService
+    }
   }
 
   addEquipment(equipmentValue : string){
-    // should verify if value is valid
-    const isSuccessful = this.rentalService.addEquipment(equipmentValue)
-    if(isSuccessful) this.newEquipment.nativeElement.value=""
+    if(this.APIAsSource === false) {
+      // should verify if value is valid
+      const isSuccessful = this.rentalService.addEquipment(equipmentValue)
+      if(isSuccessful) this.newEquipment.nativeElement.value=""
+    }else{
+      // this.apiService
+    }
   }
 
   addTag(equipmentValue : string){
-    // should verify if value is valid
-    // if (this.rentalId!=null) {
-      const isSuccessful = this.rentalService.addTag(equipmentValue/*, this.rentalId*/)
+    if(this.APIAsSource === false) {
+      const isSuccessful = this.rentalService.addTag(equipmentValue)
       if(isSuccessful) this.newTag.nativeElement.value=""
-    // }
+    }else{
+      // this.apiService
+    }
   }
 
   deleteImg(imgPath : string){
-    if (this.rentalId!=null) this.rentalService.deleteImg(imgPath, this.rentalId)
+    if(this.APIAsSource === false) {
+      if (this.rentalId!=null) this.rentalService.deleteImg(imgPath, this.rentalId)
+    }else{
+      // this.apiService
+    }
   }
 
   /*logForm(form : any){

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "ghbuild": "ng build --base-href https://ask0ldd.github.io/Angular-SPA/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
