@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RentalsService } from '../rentals.service';
+import { RentalsService, capitalizeFirstLetter } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
 import { ApiService } from '../api.service';
 import { NgForm } from '@angular/forms';
@@ -13,8 +13,8 @@ import { NgForm } from '@angular/forms';
 export class RentalFormComponent {
 
   /* props equivalent */
-  @Input() editedRental ?: Rental | IRental
-  @Input() rentalId ?: string
+  @Input() editedRental : Rental | IRental
+  @Input() rentalId : string
   @Input() APIAsSource : boolean
 
   hostId : string
@@ -50,11 +50,37 @@ export class RentalFormComponent {
   ngAfterViewInit() {}
 
   onSubmit(form: NgForm) : void {
-    /*const formData = new FormData();
-    for (let key in form.value) {
-      formData.append(key, form.value[key]);
-    }
-    console.log(form.value)  */  
+    const formRental : IRental = {
+        id : parseInt(this.rentalId),
+        title : form.value["title"],
+        cover : form.value["cover"],
+        pictures : [],
+        description : form.value["description"],
+        host : {firstname:"", lastname:"", picture:""},
+        rating : this.editedRental.rating as number,
+        location : form.value["location"],
+        equipments : (() => { 
+          const equipments = []
+          let equipmentIndex = 0
+          while(form.value["equipment"+equipmentIndex] != null){
+            equipments.push(form.value["equipment"+equipmentIndex])
+            equipmentIndex++
+          }
+          return equipments
+        })(),
+        tags : (() => { 
+          const tags = []
+          let tagIndex = 0
+          while(form.value["tag"+tagIndex] != null){
+            tags.push(form.value["tag"+tagIndex])
+            tagIndex++
+          }
+          return tags
+        })()
+        ,
+    } 
+
+    console.log(formRental)
   }
 
   removeTag(tagValue : string){ 
@@ -79,7 +105,11 @@ export class RentalFormComponent {
       const isSuccessful = this.rentalService.addEquipment(equipmentValue)
       if(isSuccessful) this.newEquipment.nativeElement.value=""
     }else{
-      this.editedRental?.tags.push(equipmentValue) // add Maj
+      if(this.editedRental == null) return
+      if(!this.editedRental.equipments.includes(capitalizeFirstLetter(equipmentValue))) {
+        this.editedRental.equipments.push(capitalizeFirstLetter(equipmentValue))
+        this.newEquipment.nativeElement.value=""
+      }
     }
   }
 
@@ -88,7 +118,11 @@ export class RentalFormComponent {
       const isSuccessful = this.rentalService.addTag(tagValue)
       if(isSuccessful) this.newTag.nativeElement.value=""
     }else{
-      this.editedRental?.tags.push(tagValue) // add Maj
+      if(this.editedRental == null) return
+      if(!this.editedRental.tags.includes(capitalizeFirstLetter(tagValue))) {
+        this.editedRental.tags.push(capitalizeFirstLetter(tagValue))
+        this.newTag.nativeElement.value=""
+      }
     }
   }
 
@@ -104,3 +138,34 @@ export class RentalFormComponent {
     console.log(form)
   }*/
 }
+
+/*
+typescript
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
+})
+export class FormComponent {
+  constructor(private http: HttpClient) { }
+
+  onSubmit(form: NgForm) {
+    const formData = new FormData();
+    for (let key in form.value) {
+      formData.append(key, form.value[key]);
+    }
+    this.http.post('https://example.com/upload', formData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+}
+*/

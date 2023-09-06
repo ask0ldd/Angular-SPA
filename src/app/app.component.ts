@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   // constructor method is not defined for most angular component
 
   ngOnInit(): void {
-    console.log(this.title, "aaa")
   }
 
 }
