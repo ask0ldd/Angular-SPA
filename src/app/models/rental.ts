@@ -12,6 +12,7 @@ export interface Rental {
 }
 
 interface Host{
+    id : number | null
     firstname : string
     lastname: string
     picture : string

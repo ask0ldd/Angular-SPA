@@ -34,7 +34,7 @@ export class RentalsService {
       cover : "",
       pictures : [],
       description : "",
-      host : {firstname : "", lastname: "", picture : ""},
+      host : {id: null, firstname : "", lastname: "", picture : ""},
       rating : "",
       location : "",
       equipments : [],

@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { IHost, IRental, Rental } from '../models/rental';
-
-const APIBaseUrl =  "http://127.0.0.1:5678/"
+import { HttpClient } from '@angular/common/http';
 
 @Injectable(/*{
   providedIn: 'root'
 }*/)
 export class ApiService {
 
+  APIBaseUrl =  "http://127.0.0.1:5678/"
+
   activeRental : Rental | undefined
   rentalsList : Array<Rental>
 
-  constructor() { }
+  constructor(/*private httpClient : HttpClient*/) { }
 
   async getAllOwners() : Promise<Array<IHost> | void>{ // define return value
     try{
-      const response = await fetch(`${APIBaseUrl}owners`,
+      const response = await fetch(`${this.APIBaseUrl}owners`,
             {
                 method: 'GET',
                 headers: {
@@ -37,9 +38,9 @@ export class ApiService {
     }
   }
 
-  async getAllRentals() : Promise<Array<IRental> | void>{
+  async getAllRentals() : Promise<Array<IRental> | void> /* Observable<Object> */ {
     try{
-      const response = await fetch(`${APIBaseUrl}rentals`,
+      const response = await fetch(`${this.APIBaseUrl}rentals`,
             {
                 method: 'GET',
                 headers: {
@@ -59,11 +60,12 @@ export class ApiService {
     catch(error){
       console.log(error)
     }
+    // return this.httpClient.get(`${this.APIBaseUrl}rentals`)
   }
 
   async getRental(id : string) : Promise<Rental | void>{  // define return value
     try{
-      const response = await fetch(`${APIBaseUrl}rentals/${id}`,
+      const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
                 method: 'GET',
                 headers: {
@@ -87,7 +89,7 @@ export class ApiService {
 
   async updateRental(id : string){
     try{
-      const response = await fetch(`${APIBaseUrl}rentals/${id}`,
+      const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
                 method: 'PUT',
                 headers: {

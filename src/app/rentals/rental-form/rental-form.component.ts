@@ -56,7 +56,7 @@ export class RentalFormComponent {
         cover : form.value["cover"],
         pictures : [],
         description : form.value["description"],
-        host : {firstname:"", lastname:"", picture:""},
+        host : {id:0, firstname:"", lastname:"", picture:""},
         rating : this.editedRental.rating as number,
         location : form.value["location"],
         equipments : (() => { 
