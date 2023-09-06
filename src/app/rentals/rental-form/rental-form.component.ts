@@ -56,7 +56,7 @@ export class RentalFormComponent {
         cover : form.value["cover"],
         pictures : [],
         description : form.value["description"],
-        host : {id:0, firstname:"", lastname:"", picture:""},
+        host : {id:form.value["host"], firstname:"", lastname:"", picture:""}, // form.value["host"]
         rating : this.editedRental.rating as number,
         location : form.value["location"],
         equipments : (() => { 
@@ -79,8 +79,8 @@ export class RentalFormComponent {
         })()
         ,
     } 
-
     console.log(formRental)
+    this.apiService.updateRental(this.rentalId, formRental)
   }
 
   removeTag(tagValue : string){ 

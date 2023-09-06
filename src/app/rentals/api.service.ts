@@ -87,7 +87,7 @@ export class ApiService {
     }
   }
 
-  async updateRental(id : string){
+  async updateRental(id : string, rental : IRental){
     try{
       const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
@@ -95,7 +95,7 @@ export class ApiService {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({})
+                body: JSON.stringify(rental)
             })
 
       if(response.ok && response.status === 200)

@@ -25,7 +25,7 @@
         <p [hidden]="host.valid || host.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
     <input id="host" name="host" pattern="^[0-9]{1,50}$"
-    [(ngModel)]="hostId" 
+    [(ngModel)]="editedRental.host.id" 
     #host="ngModel" required/>
     
     <!-- title.valid & title.pristine refer to #title -->
