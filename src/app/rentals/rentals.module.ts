@@ -12,6 +12,7 @@ import { RentalsEditComponent } from './rentals-edit/rentals-edit.component';
 import { RentalNewComponent } from './rental-new/rental-new.component';
 import { RentalFormComponent } from './rental-form/rental-form.component';
 import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
@@ -34,6 +35,7 @@ const rentalRoutes: Routes = [
     FormsModule, // allows the whole app to access Angular Forms functionalities
     RouterModule.forChild(rentalRoutes), // import the routes specific to this module 
     CommonModule,
+    HttpClientModule,
   ],
   providers: [
     RentalsService, // import the service as a provider instead of passing it to the root module through the service file itself : @Injectable({providedIn: 'root'})

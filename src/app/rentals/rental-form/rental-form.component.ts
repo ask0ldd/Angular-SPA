@@ -134,9 +134,10 @@ export class RentalFormComponent {
     }
   }
 
-  /*logForm(form : any){
-    console.log(form)
-  }*/
+  addPicture(){
+    
+  }
+
 }
 
 /*

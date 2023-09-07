@@ -28,7 +28,12 @@ export class RentalsGalleryComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.APIAsSource = APIAsSource
-    this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
+    if(this.APIAsSource){
+      this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
+    }else{
+      this.rentals = this.rentalService.getAllRentals()
+    }
+    // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
 
   /* kept as a learning reference
