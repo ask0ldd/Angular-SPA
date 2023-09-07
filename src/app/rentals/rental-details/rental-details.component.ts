@@ -35,18 +35,32 @@ export class RentalDetailsComponent implements OnInit {
     }
 
     if(this.APIAsSource){
-      this.apiService.getRental(this.rentalId).subscribe(datas => this.activeRental = datas)
+      this.apiService.getRental(this.rentalId).subscribe({
+        next : (datas : any) => {
+          this.activeRental = datas
+        },
+        error : (error: any) => {
+          console.error(error);
+        },
+        complete : () => {
+          if(this.activeRental == undefined) {
+            this.router.navigateByUrl('/404') 
+            return
+          }
+          this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
+          this.activeRentalRating = +this.activeRental.rating
+        }
+      })
     }else{
       this.activeRental = this.rentalService.getRentalById(this.rentalId)
+      if(this.activeRental == undefined) {
+        this.router.navigateByUrl('/404') 
+        return
+      }
+      this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
+      this.activeRentalRating = +this.activeRental.rating
     }
     // this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
-    if(this.activeRental == undefined) {
-      this.router.navigateByUrl('/404') 
-      return
-    }
-    
-    this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
-    this.activeRentalRating = +this.activeRental.rating
   }
 
   nextImg() : void {

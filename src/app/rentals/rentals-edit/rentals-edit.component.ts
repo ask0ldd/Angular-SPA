@@ -29,14 +29,20 @@ export class RentalsEditComponent {
     // this.editedRental = this.APIAsSource? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
     // console.table(this.rentalService.getAllOwners())
     if(this.APIAsSource){
-      this.apiService.getRental(this.rentalId).subscribe(datas => this.editedRental = datas)
+      this.apiService.getRental(this.rentalId).subscribe(datas => {
+        this.editedRental = datas
+        if(this.editedRental == undefined) {
+          this.router.navigateByUrl('/404') 
+          return
+        }
+      })
     }else{
       this.editedRental = this.rentalService.getRentalById(this.rentalId)
+      if(this.editedRental == undefined) {
+        this.router.navigateByUrl('/404') 
+        return
+      }
     }
     // this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
-    if(this.editedRental == undefined) {
-      this.router.navigateByUrl('/404') 
-      return
-    }
   }
 }
