@@ -43,35 +43,12 @@ export class ApiService {
     })*/
   }
 
-  getAllRentals() : /*Promise<Array<IRental> | void*>*/  Observable<any> {
+  getAllRentals() : /*Promise<Array<IRental> | void*>*/  Observable<Array<IRental>> {
     return this.httpClient.get<Array<IRental>>(`${this.APIBaseUrl}rentals`)
-    /*try{
-      const response = await fetch(`${this.APIBaseUrl}rentals`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },    
-            })
-
-      if(response.ok && response.status === 200)
-      {            
-        return response.json()
-      }
-      else
-      {
-        console.log(response.statusText)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
-    // return this.httpClient.get(`${this.APIBaseUrl}rentals`)
-    */
   }
 
-  async getRental(id : string) : Promise<Rental | void>{  // define return value
-    try{
+  getRental(id : string) : Observable<IRental> /*Promise<Rental | void>*/{  // define return value
+    /*try{
       const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
                 method: 'GET',
@@ -91,7 +68,8 @@ export class ApiService {
     }
     catch(error){
       console.log(error)
-    }
+    }*/
+    return this.httpClient.get<IRental>(`${this.APIBaseUrl}rentals/${id}`)
   }
 
   async updateRental(id : string, rental : IRental){
@@ -132,3 +110,29 @@ function handleError(error: HttpErrorResponse) {
   // Return an observable with a user-facing error message.
   // return throwError(() => new Error('Something bad happened; please try again later.'))
 }
+
+
+
+/*try{
+  const response = await fetch(`${this.APIBaseUrl}rentals`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },    
+        })
+
+  if(response.ok && response.status === 200)
+  {            
+    return response.json()
+  }
+  else
+  {
+    console.log(response.statusText)
+  }
+}
+catch(error){
+  console.log(error)
+}
+// return this.httpClient.get(`${this.APIBaseUrl}rentals`)
+*/

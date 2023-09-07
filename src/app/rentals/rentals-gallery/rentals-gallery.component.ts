@@ -36,25 +36,6 @@ export class RentalsGalleryComponent implements OnInit {
     // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
 
-  /* kept as a learning reference
-  clickRental(rental : Rental) : void{
-    console.log(`The rental with the following id has been clicked : ${rental.id}`)
-  }
-
-  changeRental(event : MouseEvent) : void{
-    const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
-    console.log(inputValue)
-  }
-
-  inputedRental(value : string) : void{
-    if(isNaN(parseInt(value)) === false) {
-      this.selectedRental = rentalsList[parseInt(value)]
-    }else{
-      this.selectedRental = undefined
-    }
-  }
-  */
-
   goToRentalPage(id : string) : void { 
     // this.router.navigateByUrl('/rental/'+id) // programmatic nav
   }
@@ -90,3 +71,22 @@ export class RentalsGalleryComponent implements OnInit {
   }
 }
 
+ /* 
+ kept as a learning reference
+  clickRental(rental : Rental) : void{
+    console.log(`The rental with the following id has been clicked : ${rental.id}`)
+  }
+
+  changeRental(event : MouseEvent) : void{
+    const inputValue = (event.target as HTMLInputElement).value// + : convert to a number. example : +(event.target as HTMLInputElement).value
+    console.log(inputValue)
+  }
+
+  inputedRental(value : string) : void{
+    if(isNaN(parseInt(value)) === false) {
+      this.selectedRental = rentalsList[parseInt(value)]
+    }else{
+      this.selectedRental = undefined
+    }
+  }
+*/

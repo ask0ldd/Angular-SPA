@@ -26,7 +26,17 @@ export class RentalsEditComponent {
       this.router.navigateByUrl('/404') 
       return
     }
-    this.editedRental = this.APIAsSource? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
+    // this.editedRental = this.APIAsSource? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
     // console.table(this.rentalService.getAllOwners())
+    if(this.APIAsSource){
+      this.apiService.getRental(this.rentalId).subscribe(datas => this.editedRental = datas)
+    }else{
+      this.editedRental = this.rentalService.getRentalById(this.rentalId)
+    }
+    // this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
+    if(this.editedRental == undefined) {
+      this.router.navigateByUrl('/404') 
+      return
+    }
   }
 }
