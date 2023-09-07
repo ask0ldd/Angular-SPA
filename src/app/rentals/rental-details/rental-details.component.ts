@@ -25,7 +25,8 @@ export class RentalDetailsComponent implements OnInit {
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 
-  async ngOnInit(): Promise<void> {
+  // retrieve the target rental datas 
+  ngOnInit(): void {
     this.APIAsSource = APIAsSource
 
     this.rentalId = this.route.snapshot.paramMap.get('id')
@@ -35,23 +36,26 @@ export class RentalDetailsComponent implements OnInit {
     }
 
     if(this.APIAsSource){
+      // retrieve the target rental through the API
       this.apiService.getRental(this.rentalId).subscribe({
-        next : (datas : any) => {
+        next : (datas : IRental) => {
           this.activeRental = datas
         },
         error : (error: any) => {
-          console.error(error);
-        },
-        complete : () => {
+          console.error(error)
           if(this.activeRental == undefined) {
             this.router.navigateByUrl('/404') 
             return
           }
+        },
+        complete : () => {
+          if(this.activeRental == undefined) return
           this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
           this.activeRentalRating = +this.activeRental.rating
         }
       })
     }else{
+      // retrieve the target rental through the mockAPI
       this.activeRental = this.rentalService.getRentalById(this.rentalId)
       if(this.activeRental == undefined) {
         this.router.navigateByUrl('/404') 
@@ -60,21 +64,23 @@ export class RentalDetailsComponent implements OnInit {
       this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
       this.activeRentalRating = +this.activeRental.rating
     }
-    // this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
   }
 
+  // slideshow : next image
   nextImg() : void {
     if(this.activeRental == undefined) return
     if(this.activeImg + 1 >= this.activeRental.pictures.length) return
     this.activeImg += 1
   }
 
+  // slideshow : previous image
   prevImg() : void {
     if(this.activeRental == undefined) return
     if(this.activeImg <= 0) return
     this.activeImg -= 1 
   }
 
+  // collapses : open / close
   switchCollapse(targetCollapse : string){
     switch(targetCollapse){
       case 'equipements':
