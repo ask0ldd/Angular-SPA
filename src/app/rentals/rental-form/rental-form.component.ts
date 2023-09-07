@@ -79,7 +79,7 @@ export class RentalFormComponent {
         })()
         ,
     } 
-    console.log(formRental)
+    // console.log(formRental)
     this.apiService.updateRental(this.rentalId, formRental)
   }
 
@@ -87,7 +87,7 @@ export class RentalFormComponent {
     if(this.APIAsSource === false) {
       this.rentalService.removeTag(tagValue)
     }else{
-      // this.apiService
+      this.editedRental.tags = this.editedRental.tags.filter(tag => tag != tagValue)
     }
   }
 
@@ -95,7 +95,7 @@ export class RentalFormComponent {
     if(this.APIAsSource === false) {
       this.rentalService.removeEquipment(equipmentValue)
     }else{
-      // this.apiService
+      this.editedRental.equipments = this.editedRental.equipments.filter(equipment => equipment != equipmentValue)
     }
   }
 
