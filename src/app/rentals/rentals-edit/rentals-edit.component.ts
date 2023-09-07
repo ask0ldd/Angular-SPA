@@ -21,20 +21,24 @@ export class RentalsEditComponent {
   async ngOnInit(): Promise<void> {
     this.APIAsSource = APIAsSource
     this.rentalId = this.route.snapshot.paramMap.get('id')
-    // console.log(this.route.snapshot.url)
+    
     if(this.rentalId == null) {
       this.router.navigateByUrl('/404') 
       return
     }
-    // this.editedRental = this.APIAsSource? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
-    // console.table(this.rentalService.getAllOwners())
+
     if(this.APIAsSource){
-      this.apiService.getRental(this.rentalId).subscribe(datas => {
+      this.apiService.getRental(this.rentalId).subscribe({
+        next : (datas : IRental) => {
         this.editedRental = datas
-        if(this.editedRental == undefined) {
-          this.router.navigateByUrl('/404') 
-          return
-        }
+        },
+        error : (error: any) => {
+          console.error(error)
+          if(this.editedRental == undefined) {
+            this.router.navigateByUrl('/404') 
+            return
+          }
+        },
       })
     }else{
       this.editedRental = this.rentalService.getRentalById(this.rentalId)
