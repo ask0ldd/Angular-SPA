@@ -14,39 +14,43 @@ export class RentalsEditComponent {
 
   rentalId : string | null
   editedRental : Rental | IRental | undefined | void
-  APIAsSource : boolean
+  
+  APIAsSource : boolean = APIAsSource
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 
-  async ngOnInit(): Promise<void> {
-    this.APIAsSource = APIAsSource
+  ngOnInit(): void {
     this.rentalId = this.route.snapshot.paramMap.get('id')
-    
+    // if the url is missing the rental id
     if(this.rentalId == null) {
       this.router.navigateByUrl('/404') 
       return
     }
 
-    if(this.APIAsSource){
-      this.apiService.getRental(this.rentalId).subscribe({
-        next : (datas : IRental) => {
-        this.editedRental = datas
-        },
-        error : (error: any) => {
-          console.error(error)
-          if(this.editedRental == undefined) {
-            this.router.navigateByUrl('/404') 
-            return
-          }
-        },
-      })
-    }else{
+    // if the mockAPI has been chosen as a source
+    if(!this.APIAsSource){
+      // retrieve the target rental datas through the mockAPI
       this.editedRental = this.rentalService.getRentalById(this.rentalId)
       if(this.editedRental == undefined) {
         this.router.navigateByUrl('/404') 
-        return
       }
+      return
     }
-    // this.activeRental = this.APIAsSource ? await this.apiService.getRental(this.rentalId) : this.rentalService.getRentalById(this.rentalId)
+
+    // if not : retrieve the target rental datas through the API
+    this.apiService.getRental(this.rentalId).subscribe({
+      next : (datas : IRental) => {
+      this.editedRental = datas
+      },
+      error : (error: any) => {
+        console.error(error)
+        if(this.editedRental == undefined) {
+          this.router.navigateByUrl('/404') 
+          return
+        }
+      },
+    })
+
   }
+
 }

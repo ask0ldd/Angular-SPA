@@ -14,10 +14,8 @@ import { APIAsSource } from 'src/main';
 })
 export class RentalsGalleryComponent implements OnInit {
 
-  APIAsSource : boolean
+  APIAsSource : boolean = APIAsSource
 
-  /*rentalsList : Array<Rental>
-  APIRentalsList : Array<IRental>*/
   selectedRental : Rental | undefined
   likedRentals : Array<string | number> = []
 
@@ -26,8 +24,7 @@ export class RentalsGalleryComponent implements OnInit {
   // services are injected as parameters of the component constructor
   constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService){}
 
-  async ngOnInit(): Promise<void> {
-    this.APIAsSource = APIAsSource
+  ngOnInit(): void {
     if(this.APIAsSource){
       this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
     }else{

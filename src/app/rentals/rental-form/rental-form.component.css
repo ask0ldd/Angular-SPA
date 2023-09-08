@@ -43,11 +43,12 @@ form {
   flex: 1 1 30%;
   max-width: calc((100% - 48px) / 3);
   height: 260px;
-  border: 1px solid #5a6c52;
+  border: 1px solid #f1f1f1;
   background-color: #ffffffaa;
   justify-content: center;
   align-items: center;
   text-align: center;
+  box-shadow: 0 2px 4px #3e4b3911, 0 4px 8px #749c9233;
 }
 
 .gallery .delImgButton {

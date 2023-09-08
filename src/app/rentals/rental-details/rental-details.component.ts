@@ -21,41 +21,21 @@ export class RentalDetailsComponent implements OnInit {
   activeRentalRating : number
   equipementsCollapsed = false
   descriptionCollapsed = false
-  APIAsSource : boolean
+
+  APIAsSource : boolean = APIAsSource
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 
   // retrieve the target rental datas 
   ngOnInit(): void {
-    this.APIAsSource = APIAsSource
-
     this.rentalId = this.route.snapshot.paramMap.get('id')
     if(this.rentalId == null) {
       this.router.navigateByUrl('/404') 
       return
     }
 
-    if(this.APIAsSource){
-      // retrieve the target rental through the API
-      this.apiService.getRental(this.rentalId).subscribe({
-        next : (datas : IRental) => {
-          this.activeRental = datas
-        },
-        error : (error: any) => {
-          console.error(error)
-          if(this.activeRental == undefined) {
-            this.router.navigateByUrl('/404') 
-            return
-          }
-        },
-        complete : () => {
-          if(this.activeRental == undefined) return
-          this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
-          this.activeRentalRating = +this.activeRental.rating
-        }
-      })
-    }else{
-      // retrieve the target rental through the mockAPI
+    if(!this.APIAsSource){
+      // retrieve the target rental datas through the mockAPI
       this.activeRental = this.rentalService.getRentalById(this.rentalId)
       if(this.activeRental == undefined) {
         this.router.navigateByUrl('/404') 
@@ -63,7 +43,27 @@ export class RentalDetailsComponent implements OnInit {
       }
       this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
       this.activeRentalRating = +this.activeRental.rating
+      return
     }
+
+    // retrieve the target rental datas through the API
+    this.apiService.getRental(this.rentalId).subscribe({
+      next : (datas : IRental) => {
+        this.activeRental = datas
+      },
+      error : (error: any) => {
+        console.error(error)
+        if(this.activeRental == undefined) {
+          this.router.navigateByUrl('/404') 
+          return
+        }
+      },
+      complete : () => {
+        if(this.activeRental == undefined) return
+        this.rentalOwner = {firstname : this.activeRental.host.firstname, lastname : this.activeRental.host.lastname}
+        this.activeRentalRating = +this.activeRental.rating
+      }
+    })
   }
 
   // slideshow : next image

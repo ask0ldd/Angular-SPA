@@ -135,7 +135,7 @@ export class RentalFormComponent {
   }
 
   addPicture(){
-    
+
   }
 
 }
