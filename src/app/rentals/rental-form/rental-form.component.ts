@@ -54,7 +54,7 @@ export class RentalFormComponent {
         id : parseInt(this.rentalId),
         title : form.value["title"],
         cover : form.value["cover"],
-        pictures : [],
+        pictures : this.editedRental.pictures,
         description : form.value["description"],
         host : {id:form.value["host"], firstname:"", lastname:"", picture:""}, // form.value["host"]
         rating : this.editedRental.rating as number,
@@ -126,11 +126,12 @@ export class RentalFormComponent {
     }
   }
 
-  deleteImg(imgPath : string){
+  deleteImg(filename : string){
     if(this.APIAsSource === false) {
-      if (this.rentalId!=null) this.rentalService.deleteImg(imgPath, this.rentalId)
+      if (this.rentalId!=null) this.rentalService.deleteImg(filename, this.rentalId)
     }else{
-      // this.apiService
+      if(this.editedRental == null) return
+      this.editedRental.pictures = this.editedRental.pictures.filter(picture => picture != filename)
     }
   }
 

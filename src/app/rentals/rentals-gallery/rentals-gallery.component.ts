@@ -25,11 +25,11 @@ export class RentalsGalleryComponent implements OnInit {
   constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService){}
 
   ngOnInit(): void {
-    if(this.APIAsSource){
-      this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
-    }else{
+    if(!this.APIAsSource){
       this.rentals = this.rentalService.getAllRentals()
+      return 
     }
+    this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
     // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
 
