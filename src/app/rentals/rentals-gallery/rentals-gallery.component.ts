@@ -4,7 +4,7 @@ import { IRental, Rental } from '../../models/rental';
 import { Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { ApiService } from '../api.service'
-import { APIAsSource } from 'src/main';
+import { APIAsSource, serverBaseUrl } from 'src/main';
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -15,6 +15,7 @@ import { APIAsSource } from 'src/main';
 export class RentalsGalleryComponent implements OnInit {
 
   APIAsSource : boolean = APIAsSource
+  serverBaseUrl : string = serverBaseUrl
 
   selectedRental : Rental | undefined
   likedRentals : Array<string | number> = []

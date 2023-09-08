@@ -3,7 +3,7 @@ import { rentalsList } from '../../mockdatas/mock-rentals-list';
 import { IRental, Rental } from '../../models/rental';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
-import { APIAsSource } from 'src/main';
+import { APIAsSource, serverBaseUrl } from 'src/main';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class RentalDetailsComponent implements OnInit {
   descriptionCollapsed = false
 
   APIAsSource : boolean = APIAsSource
+  serverBaseUrl : string = serverBaseUrl
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 

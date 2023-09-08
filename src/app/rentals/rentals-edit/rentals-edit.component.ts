@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
-import { APIAsSource } from 'src/main';
+import { APIAsSource, serverBaseUrl } from 'src/main';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class RentalsEditComponent {
   editedRental : Rental | IRental | undefined | void
   
   APIAsSource : boolean = APIAsSource
+  serverBaseUrl : string = serverBaseUrl
 
   constructor(private router:Router, private route: ActivatedRoute, private rentalService : RentalsService, private apiService : ApiService){ }
 

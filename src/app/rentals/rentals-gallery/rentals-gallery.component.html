@@ -28,7 +28,7 @@
     <div id="gallery">
       <a routerLink="/rental/{{rental.id}}" *ngFor="let rental of rentals" class="anchor">
         <article class="immocard" immocardHover="#FFF"> <!-- immocardHover : directive -->
-          <img class='mainImg' [src]="APIAsSource ? 'assets/locs/'+rental.cover : 'assets/'+rental.cover" alt="Appartement cosy"/>
+          <img class='mainImg' [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+rental.cover : 'assets/'+rental.cover" alt="Appartement cosy"/>
           <p>{{rental.title}}</p>
           <!-- how to use pipes : <span [ngStyle]="{ 'background-color': rental.rating | ratingColor, 'padding' : '6px 9px', 'margin-left' : '1rem', 'border-radius' : '6px', 'opacity' : '0.8' }">{{rental.rating}}</span>-->
           <!-- | pipe : transform data ; pipes can be chained -->

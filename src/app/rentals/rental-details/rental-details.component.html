@@ -1,6 +1,6 @@
 <main *ngIf="activeRental" class='main-rental'> <!-- only displayed if activeRental != undefined -->
     <section class='slideshow'>
-        <img data-testid="slideshowImg" [src]="APIAsSource ? 'assets/locs/'+activeRental.pictures[activeImg] : 'assets/'+activeRental.pictures[activeImg]" alt="temp"/>
+        <img data-testid="slideshowImg" [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+activeRental.pictures[activeImg] : 'assets/'+activeRental.pictures[activeImg]" alt="temp"/>
         <div class="buttons-container"> 
             <div *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="assets/arrow-right.svg" alt="arrow previous" /></div>
             <div *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="assets/arrow-right.svg" alt="arrow next" /></div>

@@ -16,6 +16,7 @@ export class RentalFormComponent {
   @Input() editedRental : Rental | IRental
   @Input() rentalId : string
   @Input() APIAsSource : boolean
+  @Input() serverBaseUrl : string
 
   hostId : string
 

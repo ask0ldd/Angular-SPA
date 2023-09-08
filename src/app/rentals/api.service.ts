@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { IHost, IRental, Rental } from '../models/rental';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { serverBaseUrl } from 'src/main';
 
 @Injectable(/*{
   providedIn: 'root'
 }*/)
 export class ApiService {
 
-  APIBaseUrl =  "http://127.0.0.1:5678/"
+  APIBaseUrl =  serverBaseUrl
 
   activeRental : IRental | undefined
   rentalsList : Array<IRental>
