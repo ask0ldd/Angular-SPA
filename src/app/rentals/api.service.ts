@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IHost, IRental, Rental } from '../models/rental';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { serverBaseUrl } from 'src/main';
 
@@ -97,7 +97,20 @@ export class ApiService {
       console.log(error)
     }
   }
+
+  postPicture(file : File): Observable<HttpEvent<any>>{
+    const formData: FormData = new FormData()
+    formData.append('file', file)
+    return this.httpClient.post<any>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
+  }
+
 }
+
+
+
+
+
+
 
 function handleError(error: HttpErrorResponse) {
   if (error.status === 0) {
