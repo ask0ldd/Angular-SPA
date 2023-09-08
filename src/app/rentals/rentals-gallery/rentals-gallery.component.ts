@@ -12,7 +12,7 @@ import { APIAsSource, serverBaseUrl } from 'src/main';
   styleUrls: ['./rentals-gallery.component.css'],
   // providers : possibility to pass a service, but new instance of the service that won't be share by other components
 })
-export class RentalsGalleryComponent implements OnInit {
+export class RentalsGalleryComponent implements OnInit{
 
   APIAsSource : boolean = APIAsSource
   serverBaseUrl : string = serverBaseUrl

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService, capitalizeFirstLetter } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './rental-form.component.html',
   styleUrls: ['./rental-form.component.css']
 })
-export class RentalFormComponent {
+export class RentalFormComponent implements OnInit {
 
   /* props equivalent */
   @Input() editedRental : Rental | IRental

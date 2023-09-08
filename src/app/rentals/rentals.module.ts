@@ -13,6 +13,7 @@ import { RentalNewComponent } from './rental-new/rental-new.component';
 import { RentalFormComponent } from './rental-form/rental-form.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
@@ -27,7 +28,10 @@ const rentalRoutes: Routes = [
     RatingColorPipe, 
     RentalsGalleryComponent, 
     RentalDetailsComponent, 
-    RentalsEditComponent, RentalNewComponent, RentalFormComponent,
+    RentalsEditComponent, 
+    RentalNewComponent, 
+    RentalFormComponent, 
+    FileUploadComponent,
   ],
   imports: [    
     BrowserModule,

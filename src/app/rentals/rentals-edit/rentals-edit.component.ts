@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
@@ -10,7 +10,7 @@ import { ApiService } from '../api.service';
   templateUrl: './rentals-edit.component.html',
   styleUrls: ['./rentals-edit.component.css']
 })
-export class RentalsEditComponent {
+export class RentalsEditComponent implements OnInit {
 
   rentalId : string | null
   editedRental : Rental | IRental | undefined | void
