@@ -96,6 +96,13 @@ form {
   filter: brightness(120%) saturate(90%);
 }
 
+app-file-upload {
+  display: flex;
+  flex: 1 1 30%;
+  max-width: calc((100% - 48px) / 3);
+  height: 260px;
+}
+
 input,
 button {
   margin-bottom: 1rem;

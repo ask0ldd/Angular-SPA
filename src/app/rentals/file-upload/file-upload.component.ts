@@ -17,6 +17,8 @@ export class FileUploadComponent implements OnInit {
   fileSelected(event : Event){
     const fileInput = (event.target as HTMLInputElement)
     if(fileInput.files?.length) this.currentFile = fileInput.files[0]
-    this.apiService.postPicture(this.currentFile).subscribe()
+    this.apiService.postPicture(this.currentFile).subscribe( datas => {
+      console.log(datas)
+    })
   }
 }

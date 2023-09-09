@@ -12,15 +12,14 @@
                 <img [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+img : 'assets/'+img"/>
                 <button (click)="deleteImg(img)" class="delImgButton">X</button>
             </figure>
-            <article>
+            <!--<article>
                 <button class="delButton" style="height:40px; width: 41px;">+</button>
                 <span>Click to Add</span>
                 <span>A new Picture</span>
-            </article>
+            </article>-->
+            <app-file-upload></app-file-upload>
         </div>
     </section>
-
-    <app-file-upload></app-file-upload>
 
     <div class="labelErrorContainer">
         <label for="host">Host</label>
