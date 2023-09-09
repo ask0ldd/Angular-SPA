@@ -20,9 +20,7 @@ export class RentalFormComponent implements OnInit {
 
   hostId : string
 
-  /*rentalId : string | null
-  editedRental : Rental | undefined*/
-
+  // equivalent to useRef
   @ViewChild('newTag'/*, { static: true }*/) 
   newTag: ElementRef
 
@@ -32,21 +30,9 @@ export class RentalFormComponent implements OnInit {
   @ViewChild('rentalForm') 
   rentalForm: ElementRef
 
-  /*@ViewChild('title') 
-  titleInput: ElementRef*/
-
   constructor(private rentalService : RentalsService, private apiService : ApiService){ }
 
-  ngOnInit(): void {
-    /*this.rentalId = this.route.snapshot.paramMap.get('id')
-    console.log(this.route.snapshot.url)
-    if(this.rentalId == null) {
-      this.router.navigateByUrl('/404') 
-      return
-    }
-    this.editedRental = this.rentalService.getRentalById(this.rentalId)
-    console.table(this.rentalService.getAllOwners())*/
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit() {}
 
@@ -80,7 +66,6 @@ export class RentalFormComponent implements OnInit {
         })()
         ,
     } 
-    // console.log(formRental)
     this.apiService.updateRental(this.rentalId, formRental)
   }
 
@@ -134,6 +119,10 @@ export class RentalFormComponent implements OnInit {
       if(this.editedRental == null) return
       this.editedRental.pictures = this.editedRental.pictures.filter(picture => picture != filename)
     }
+  }
+
+  whenFileUploaded(){
+
   }
 
   addPicture(){

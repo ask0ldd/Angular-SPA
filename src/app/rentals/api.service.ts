@@ -98,10 +98,10 @@ export class ApiService {
     }
   }
 
-  postPicture(file : File): Observable<HttpEvent<any>>{
+  postPicture(file : File): Observable<{message:string, filename:string}>{
     const formData: FormData = new FormData()
     formData.append('image', file)
-    return this.httpClient.post<any>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
+    return this.httpClient.post<{message:string, filename:string}>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
   }
 
 }

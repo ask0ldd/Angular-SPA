@@ -20,3 +20,11 @@ input[type="file"] {
   width: 0.1px;
   height: 0.1px;
 }
+
+label {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
