@@ -121,12 +121,8 @@ export class RentalFormComponent implements OnInit {
     }
   }
 
-  whenFileUploaded(){
-
-  }
-
-  addPicture(){
-
+  whenFileUploaded(filename : string){
+    this.editedRental.pictures.push(filename)
   }
 
 }
