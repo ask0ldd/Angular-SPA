@@ -6,7 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 const routes: Routes = [
   /*{path: 'gallery', component: RentalsGalleryComponent},
   {path: 'rental/:id', component: RentalDetailsComponent},*/
-  {path: 'login', component: LoginComponent},
+  // {path: 'login', component: LoginComponent},
   {path: '', redirectTo: 'gallery', pathMatch: 'full'}, // page by default
   {path: '**', component: Page404Component}, // non existing url
 ];

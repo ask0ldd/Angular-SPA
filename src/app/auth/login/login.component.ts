@@ -18,17 +18,18 @@ export class LoginComponent {
   userEmail : string
   userPassword : string
 
+  constructor(private cookieManager : CookiesService, private apiService : ApiService){ }
+
   ngOnInit(): void {
     this.userEmail = "john.doe@email.com"
     this.userPassword = "genericpassword"
   }
 
-  constructor(private cookieManager : CookiesService, apiService : ApiService){ }
-
   onSubmit(form: NgForm) : void {
-    this.userEmail = form.value["login"]
-    this.userPassword = form.value["password"]
-    
+    /*this.userEmail = form.value["login"]
+    this.userPassword = form.value["password"]*/
+    const response = this.apiService.login({userId:form.value["login"], password:form.value["password"]}).subscribe()
+    console.log(response)
   }
 
 }
