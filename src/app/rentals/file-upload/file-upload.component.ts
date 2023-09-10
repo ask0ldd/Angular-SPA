@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../api.service';
+import { APIAsSource } from 'src/main';
 
 @Component({
   selector: 'app-file-upload',
@@ -18,6 +19,7 @@ export class FileUploadComponent implements OnInit {
   constructor(private apiService : ApiService){ }
 
   fileSelected(event : Event){
+    if(!APIAsSource) return
     const fileInput = (event.target as HTMLInputElement)
     if(fileInput.files?.length) this.currentFile = fileInput.files[0]
     this.apiService.postPicture(this.currentFile).subscribe( datas => {
