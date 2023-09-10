@@ -73,7 +73,8 @@ button {
   /*background-color: #ffffffaa;*/
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   flex: 1 1 100%;
 }
 

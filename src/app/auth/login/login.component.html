@@ -1,4 +1,4 @@
-<form #loginForm="ngForm">
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
     <h2 style="margin-bottom: 2rem;">Portail Administrateur</h2>
     <label>Adresse Email</label>
     <div class="inputnErrorContainer">
@@ -8,7 +8,7 @@
     </div>
     <label style="margin-top: 1rem;">Password</label>
     <div class="inputnErrorContainer">
-        <input id="password" name="password" type="text" pattern="^[a-zA-Z0-9]{8,16}$" #password="ngModel" [(ngModel)]="userPassword"/>
+        <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{8,16}$" #password="ngModel" [(ngModel)]="userPassword"/>
         <div class="validMarker" [hidden]="password.invalid || password.pristine"></div>
         <div class="errorMarker" [hidden]="password.valid || password.pristine"></div>
     </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CookiesService } from './cookies.service';
+import { ApiService } from '../rentals/api.service';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CookiesService } from './cookies.service';
   ],
   providers: [
     CookiesService,
+    ApiService,
   ],
 })
 export class AuthModule { }
