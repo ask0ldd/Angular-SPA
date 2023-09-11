@@ -104,6 +104,14 @@ export class ApiService {
     return this.httpClient.post<{message:string, filename:string}>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
   }
 
+  getLikesList(userId : string) : Observable<Array<string | number>>{
+    return this.httpClient.get<Array<string | number>>(`${this.APIBaseUrl}likesList/${userId}`)
+  }
+
+  setUnsetLike(userId : string, rentalId : string) : Observable<{likeId : string}>{
+    return this.httpClient.post<{likeId : string}>(`${this.APIBaseUrl}likesList/`, {userId, rentalId}, { responseType: 'json' })
+  }
+
   login(credentials : {userEmail: string, password : string}) : Observable<{userId:string, token:string}>{
     return this.httpClient.post<{userId:string, token:string}>(`${this.APIBaseUrl}auth/login/`, credentials)
   }

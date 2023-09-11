@@ -35,6 +35,7 @@ export class RentalsGalleryComponent implements OnInit{
       this.rentals = this.rentalService.getAllRentals()
       return 
     }
+    // if(this.isLogged) this.apiService.getLikesList(userId).subscribe(datas => this.likedRentals = datas)
     this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
     // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
@@ -68,7 +69,7 @@ export class RentalsGalleryComponent implements OnInit{
   switchRentalLikeStatus(e: MouseEvent, rentalId : string | number) : any {
     e.preventDefault()
     e.stopPropagation()
-    if(this.likedRentals.includes(rentalId) === false || this.likedRentals === undefined) return this.likedRentals.push(rentalId)
+    if(this.likedRentals.includes(rentalId) === false || this.likedRentals === undefined) return this.likedRentals.push(rentalId) // !!! must set to local storage
     const indexOfRentalToUnlike = this.likedRentals.indexOf(rentalId)
     this.likedRentals.splice(indexOfRentalToUnlike, 1)
   }
