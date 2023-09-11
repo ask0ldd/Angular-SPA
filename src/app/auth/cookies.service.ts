@@ -16,6 +16,7 @@ export class CookiesService {
   eraseCookie(){
     document.cookie = "token=; Max-Age=0;"
     document.cookie = "id=; Max-Age=0;"
+    document.cookie = "email=; Max-Age=0;"
   }
 
   isTokenAlive(){
