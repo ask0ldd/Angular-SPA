@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'angularprj'
 
-  isConnected = false
+  isConnected : boolean
   rentalsList = rentalsList
   selectedRental : Rental | undefined
 
