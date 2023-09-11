@@ -23,8 +23,13 @@ export class AppComponent implements OnInit {
     this.isConnected = this.cookieManager.isTokenAlive()
   }
 
+  ngDoCheck() {
+    if(this.cookieManager.isTokenAlive() != this.isConnected) this.isConnected = this.cookieManager.isTokenAlive()
+  }
+
   disconnect() : void{
     this.cookieManager.eraseCookie()
+    this.isConnected = false
     this.router.navigateByUrl('/gallery')
   }
 
