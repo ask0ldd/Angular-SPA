@@ -104,8 +104,8 @@ export class ApiService {
     return this.httpClient.post<{message:string, filename:string}>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
   }
 
-  login(credentials : {userId: string, password : string}) : Observable<{userId:string, token:string}>{
-    return this.httpClient.post<{userId:string, token:string}>(`${this.APIBaseUrl}login/`, credentials)
+  login(credentials : {userEmail: string, password : string}) : Observable<{userId:string, token:string}>{
+    return this.httpClient.post<{userId:string, token:string}>(`${this.APIBaseUrl}auth/login/`, credentials)
   }
 
 }

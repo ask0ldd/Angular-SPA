@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CookiesService } from '../cookies.service';
 import { ApiService } from 'src/app/rentals/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +11,10 @@ import { ApiService } from 'src/app/rentals/api.service';
 })
 export class LoginComponent {
 
-  /*@ViewChild("login")
-  login:ElementRef*/
-  /*login : any
-  password : any*/
-
   userEmail : string
   userPassword : string
 
-  constructor(private cookieManager : CookiesService, private apiService : ApiService){ }
+  constructor(private cookieManager : CookiesService, private apiService : ApiService, private router:Router){ }
 
   ngOnInit(): void {
     this.userEmail = "john.doe@email.com"
@@ -26,10 +22,11 @@ export class LoginComponent {
   }
 
   onSubmit(form: NgForm) : void {
-    /*this.userEmail = form.value["login"]
-    this.userPassword = form.value["password"]*/
-    const response = this.apiService.login({userId:form.value["login"], password:form.value["password"]}).subscribe()
-    console.log(response)
+    this.apiService.login({userEmail:form.value["login"], password:form.value["password"]}).subscribe(data => {
+      // !! should handle error
+      this.cookieManager.setCookie({userId : +data.userId, email : form.value["login"], token: data.token})
+      this.router.navigateByUrl('/gallery') 
+    })
   }
 
 }

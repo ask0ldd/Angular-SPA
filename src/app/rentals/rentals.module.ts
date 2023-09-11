@@ -20,7 +20,7 @@ const rentalRoutes: Routes = [
   {path: 'rental/new', component: RentalNewComponent},
   {path: 'rental/edit/:id', component: RentalsEditComponent},
   {path: 'rental/:id', component: RentalDetailsComponent},
-];
+]
 
 @NgModule({
   declarations: [ 

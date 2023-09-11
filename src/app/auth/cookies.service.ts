@@ -7,8 +7,9 @@ export class CookiesService {
 
   constructor() { }
 
-  setCookie(cookieDatas : {userId : string, token : string}){
+  setCookie(cookieDatas : {userId : number, email : string, token : string}){
     document.cookie = `id=${cookieDatas.userId}; Secure`
+    document.cookie = `email=${cookieDatas.email}; Secure`
     document.cookie = `token=${cookieDatas.token}; Secure`
   }
 
@@ -18,7 +19,6 @@ export class CookiesService {
   }
 
   isTokenAlive(){
-    const cookie = document.cookie
-    return cookie.search("token")===-1 ? false : true
+    return document.cookie.search("token")===-1 ? false : true
   }
 }
