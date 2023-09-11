@@ -6,6 +6,6 @@ export const authGuard: CanActivateFn = (route, state) => {
   const cookiesManager = inject(CookiesService)
   if(cookiesManager.isTokenAlive()) return true
   const router = inject(Router)
-  router.navigateByUrl('/gallery')
+  router.navigateByUrl('/login')
   return false
 }

@@ -4,8 +4,8 @@
       <ul>
           <li><a routerLink="/">Accueil</a></li>
           <li><a routerLink="/apropos">Services</a></li>
-          <li *ngIf="!isConnected"><a routerLink="/login">Connexion</a></li>
-          <li style="cursor: pointer;" *ngIf="isConnected" (click)="disconnect()">Déconnexion</li>
+          <li *ngIf="!isLogged"><a routerLink="/login">Connexion</a></li>
+          <li style="cursor: pointer;" *ngIf="isLogged" (click)="disconnect()">Déconnexion</li>
       </ul>
   </nav>
 </header>

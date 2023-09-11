@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './rental-form.component.html',
   styleUrls: ['./rental-form.component.css']
 })
-export class RentalFormComponent implements OnInit {
+export class RentalFormComponent {
 
   /* props equivalent */
   @Input() editedRental : Rental | IRental
@@ -31,8 +31,6 @@ export class RentalFormComponent implements OnInit {
   rentalForm: ElementRef
 
   constructor(private rentalService : RentalsService, private apiService : ApiService){ }
-
-  ngOnInit(): void { }
 
   ngAfterViewInit() {}
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';
 import { ApiService } from '../api.service'
 import { APIAsSource, serverBaseUrl } from 'src/main';
+import { CookiesService } from 'src/app/auth/cookies.service';
 
 @Component({
   selector: 'app-rentals-gallery',
@@ -22,16 +23,24 @@ export class RentalsGalleryComponent implements OnInit{
 
   rentals : Array<Rental | IRental> | void
 
+  isLogged : boolean
+
   // services are injected as parameters of the component constructor
-  constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService){}
+  constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService, private cookieManager : CookiesService){}
 
   ngOnInit(): void {
+    this.isLogged = this.cookieManager.isTokenAlive()
+
     if(!this.APIAsSource){
       this.rentals = this.rentalService.getAllRentals()
       return 
     }
     this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
     // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
+  }
+
+  ngDoCheck() {
+    if(this.cookieManager.isTokenAlive() != this.isLogged) this.isLogged = this.cookieManager.isTokenAlive()
   }
 
   goToRentalPage(id : string) : void { 

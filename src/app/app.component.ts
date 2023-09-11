@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'angularprj'
 
-  isConnected : boolean
+  isLogged : boolean
   rentalsList = rentalsList
   selectedRental : Rental | undefined
 
@@ -20,16 +20,16 @@ export class AppComponent implements OnInit {
   constructor(private cookieManager : CookiesService, private router : Router){}
 
   ngOnInit() : void {
-    this.isConnected = this.cookieManager.isTokenAlive()
+    this.isLogged = this.cookieManager.isTokenAlive()
   }
 
   ngDoCheck() {
-    if(this.cookieManager.isTokenAlive() != this.isConnected) this.isConnected = this.cookieManager.isTokenAlive()
+    if(this.cookieManager.isTokenAlive() != this.isLogged) this.isLogged = this.cookieManager.isTokenAlive()
   }
 
   disconnect() : void{
     this.cookieManager.eraseCookie()
-    this.isConnected = false
+    this.isLogged = false
     this.router.navigateByUrl('/gallery')
   }
 
