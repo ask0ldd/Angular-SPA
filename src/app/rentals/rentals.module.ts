@@ -14,11 +14,12 @@ import { RentalFormComponent } from './rental-form/rental-form.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { authGuard } from '../auth/auth.guard';
 
 const rentalRoutes: Routes = [
   {path: 'gallery', component: RentalsGalleryComponent},
-  {path: 'rental/new', component: RentalNewComponent},
-  {path: 'rental/edit/:id', component: RentalsEditComponent},
+  {path: 'rental/new', component: RentalNewComponent, canActivate:[authGuard]},
+  {path: 'rental/edit/:id', component: RentalsEditComponent, canActivate:[authGuard]},
   {path: 'rental/:id', component: RentalDetailsComponent},
 ]
 

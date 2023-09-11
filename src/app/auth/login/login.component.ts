@@ -25,7 +25,7 @@ export class LoginComponent {
     this.apiService.login({userEmail:form.value["login"], password:form.value["password"]}).subscribe(data => {
       // !! should handle error
       this.cookieManager.setCookie({userId : +data.userId, email : form.value["login"], token: data.token})
-      this.router.navigateByUrl('/gallery') 
+      this.router.navigateByUrl('/gallery')
     })
   }
 

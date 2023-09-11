@@ -1,7 +1,11 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { CookiesService } from './cookies.service';
+import { inject } from '@angular/core';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  
-  return true;
-};
+  const cookiesManager = inject(CookiesService)
+  if(cookiesManager.isTokenAlive()) return true
+  const router = inject(Router)
+  router.navigateByUrl('/gallery')
+  return false
+}
