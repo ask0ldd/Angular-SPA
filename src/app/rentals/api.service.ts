@@ -84,7 +84,7 @@ export class ApiService {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(rental)
+                body: JSON.stringify({rental, userId : this.cookiesManager.getUserId()})
             })
 
       if(response.ok && response.status === 200)
