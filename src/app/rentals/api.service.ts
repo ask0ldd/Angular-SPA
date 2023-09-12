@@ -105,6 +105,7 @@ export class ApiService {
   }
 
   getLikesList(userId : string) : Observable<Array<string | number>>{
+    console.log('getLikesList id ', userId)
     return this.httpClient.get<Array<string | number>>(`${this.APIBaseUrl}likesList/${userId}`)
   }
 
@@ -117,10 +118,6 @@ export class ApiService {
   }
 
 }
-
-
-
-
 
 
 

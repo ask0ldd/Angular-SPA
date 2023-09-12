@@ -23,19 +23,25 @@ export class RentalsGalleryComponent implements OnInit{
 
   rentals : Array<Rental | IRental> | void
 
-  isLogged : boolean
+  isLogged : boolean = false
+  activeUserId : string | undefined
 
   // services are injected as parameters of the component constructor
   constructor(private router:Router, private rentalService : RentalsService, private apiService : ApiService, private cookieManager : CookiesService){}
 
   ngOnInit(): void {
+    // get log status / active user id
     this.isLogged = this.cookieManager.isTokenAlive()
+    console.log('logged ', this.isLogged)
+    if(this.isLogged) this.activeUserId = this.cookieManager.getUserId()
+    console.log('user ', this.activeUserId)
 
     if(!this.APIAsSource){
       this.rentals = this.rentalService.getAllRentals()
       return 
     }
-    // if(this.isLogged) this.apiService.getLikesList(userId).subscribe(datas => this.likedRentals = datas)
+
+    if(this.activeUserId != null) this.apiService.getLikesList(this.activeUserId).subscribe(datas =>  this.likedRentals = datas)
     this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
     // this.rentals = this.APIAsSource ? await this.apiService.getAllRentals() : this.rentalService.getAllRentals()
   }
