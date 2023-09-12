@@ -108,8 +108,8 @@ export class ApiService {
     return this.httpClient.get<Array<string | number>>(`${this.APIBaseUrl}likesList/${userId}`)
   }
 
-  setUnsetLike(userId : string, rentalId : string) : Observable<{likeId : string}>{
-    return this.httpClient.post<{likeId : string}>(`${this.APIBaseUrl}likesList/`, {userId, rentalId}, { responseType: 'json' })
+  setUnsetLike(userId : string, rentalId : string) : Observable<{liked : boolean}>{
+    return this.httpClient.post<{liked : boolean}>(`${this.APIBaseUrl}like/`, {userId, rentalId}, { responseType: 'json' })
   }
 
   login(credentials : {userEmail: string, password : string}) : Observable<{userId:string, token:string}>{

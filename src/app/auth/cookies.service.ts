@@ -22,4 +22,9 @@ export class CookiesService {
   isTokenAlive(){
     return document.cookie.search("token")===-1 ? false : true
   }
+
+  getUserId() : string | undefined {
+    const user = document.cookie.split('; ').find((cookie) => cookie.startsWith('id='))?.split('=')[1]
+    return user
+  }
 }
