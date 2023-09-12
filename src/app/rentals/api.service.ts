@@ -3,6 +3,7 @@ import { IHost, IRental, Rental } from '../models/rental';
 import { HttpClient, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { serverBaseUrl } from 'src/main';
+import { CookiesService } from '../auth/cookies.service';
 
 @Injectable(/*{
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ApiService {
   activeRental : IRental | undefined
   rentalsList : Array<IRental>
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient, private cookiesManager : CookiesService) { }
 
   async getAllOwners() : Promise<Array<IHost> | void>{ // define return value
     try{
@@ -75,11 +76,13 @@ export class ApiService {
 
   async updateRental(id : string, rental : IRental){
     try{
+      const token = this.cookiesManager.getToken()
       const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(rental)
             })
