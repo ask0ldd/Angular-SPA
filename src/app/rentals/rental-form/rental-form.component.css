@@ -103,7 +103,25 @@ app-file-upload {
   height: 260px;
 }
 
-input,
+.inputContainer {
+  outline-color: #708a65;
+  outline-width: 1px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  color: #58756f;
+}
+
+input {
+  background-color: none;
+  border: none;
+  outline: none;
+  padding: 0.35rem 0.5rem;
+  width: 100%;
+  flex: 1 1 100%;
+}
+
 button {
   margin-bottom: 1rem;
   padding: 0.35rem 0.5rem;
@@ -115,6 +133,14 @@ button {
   border-radius: 4px;
   color: #58756f;
   /*background-color: #ffffffaa;*/
+}
+
+.inputStatus {
+  height: 100%;
+  width: 0.5rem;
+  min-width: 0.5rem;
+  background-color: #78db4d;
+  flex-shrink: 0;
 }
 
 textarea {

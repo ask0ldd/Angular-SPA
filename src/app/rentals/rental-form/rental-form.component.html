@@ -12,11 +12,6 @@
                 <img [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+img : 'assets/'+img" [crossOrigin]="APIAsSource ? 'anonymous' : ''"/>
                 <button (click)="deleteImg(img)" class="delImgButton">X</button>
             </figure>
-            <!--<article>
-                <button class="delButton" style="height:40px; width: 41px;">+</button>
-                <span>Click to Add</span>
-                <span>A new Picture</span>
-            </article>-->
             <app-file-upload (fileUploaded)="whenFileUploaded($event.data)"></app-file-upload>
         </div>
     </section>
@@ -42,9 +37,12 @@
         <label for="location">Location</label>
         <p [hidden]="location.valid || location.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
-    <input id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
-    [(ngModel)]="editedRental.location"
-    #location="ngModel" required/>
+    <div class="inputContainer">
+        <input style="border:none; outline: none;" id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
+        [(ngModel)]="editedRental.location"
+        #location="ngModel" required/>
+        <div class="inputStatus"></div>
+    </div>
 
     <div class="labelErrorContainer">
         <label for="description">Description</label>

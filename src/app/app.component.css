@@ -112,6 +112,9 @@ footer {
   /*margin-top: 45px;*/
   margin-top: 3rem;
   text-align: center;
+  /*justify-self: flex-end;
+  align-self: flex-end;*/
+  margin-top: auto;
 }
 
 footer img {
