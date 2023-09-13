@@ -45,38 +45,20 @@ export class ApiService {
     })*/
   }
 
-  getAllRentals() : /*Promise<Array<IRental> | void*>*/  Observable<Array<IRental>> {
+  getAllRentals(rules ?: { sort?: {column : string, value : string}, order?:{direction : 'asc' | 'desc', column : string } }) : /*Promise<Array<IRental> | void*>*/  Observable<Array<IRental>> {
+    if(rules != null) return this.httpClient.post<Array<IRental>>(`${this.APIBaseUrl}rentals/withRules`, rules)
     return this.httpClient.get<Array<IRental>>(`${this.APIBaseUrl}rentals`)
   }
 
   getRental(id : string) : Observable<IRental> /*Promise<Rental | void>*/{  // define return value
-    /*try{
-      const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },    
-            })
-
-      if(response.ok && response.status === 200)
-      {            
-        return response.json()
-      }
-      else
-      {
-          console.log(response.statusText)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }*/
     return this.httpClient.get<IRental>(`${this.APIBaseUrl}rentals/${id}`)
   }
 
   async updateRental(id : string, rental : IRental){
     try{
       const token = this.cookiesManager.getToken()
+      const cookieUserId = this.cookiesManager.getUserId()
+      if(cookieUserId == null || token == null) return console.log("Cookies corrupted. Please relog.")
       const response = await fetch(`${this.APIBaseUrl}rentals/${id}`,
             {
                 method: 'PUT',
@@ -84,7 +66,7 @@ export class ApiService {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify({rental, userId : this.cookiesManager.getUserId()})
+                body: JSON.stringify({rental, userId : +cookieUserId})
             })
 
       if(response.ok && response.status === 200)
@@ -104,11 +86,11 @@ export class ApiService {
   postPicture(file : File): Observable<{message:string, filename:string}>{
     const formData: FormData = new FormData()
     formData.append('image', file)
-    return this.httpClient.post<{message:string, filename:string}>(`${this.APIBaseUrl}upload/`, formData, { reportProgress: true, responseType: 'json' })
+    return this.httpClient.post<{message:string, filename:string}>(`${this.APIBaseUrl}upload/picture`, formData, { reportProgress: true, responseType: 'json' })
   }
 
   getLikesList(userId : string) : Observable<Array<string | number>>{
-    console.log('getLikesList id ', userId)
+    // console.log('getLikesList id ', userId)
     return this.httpClient.get<Array<string | number>>(`${this.APIBaseUrl}likesList/${userId}`)
   }
 
@@ -130,8 +112,7 @@ function handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.error)
   } else {
     // The backend returned an unsuccessful response code.
-    console.error(
-      `Backend returned code ${error.status}, body was: `, error.error)
+    console.error(`Backend returned code ${error.status}, body was: `, error.error)
   }
   // Return an observable with a user-facing error message.
   // return throwError(() => new Error('Something bad happened; please try again later.'))

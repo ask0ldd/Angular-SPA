@@ -32,9 +32,7 @@ export class RentalsGalleryComponent implements OnInit{
   ngOnInit(): void {
     // get log status / active user id
     this.isLogged = this.cookieManager.isTokenAlive()
-    console.log('logged ', this.isLogged)
     if(this.isLogged) this.activeUserId = this.cookieManager.getUserId()
-    console.log('user ', this.activeUserId)
 
     if(!this.APIAsSource){
       this.rentals = this.rentalService.getAllRentals()
@@ -56,18 +54,36 @@ export class RentalsGalleryComponent implements OnInit{
 
   onGalleryFilterChange(activeOption : string) : void {
     const [optionType , optionValue] = activeOption.split(':')
+
+    if(this.APIAsSource){
+      switch(optionType){
+        case 'any':
+          this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
+        break;
+        case 'location':
+          optionValue === 'Paris' ? this.rentals = this.rentalService.getRentalsByLocation('Paris') : this.rentals = this.rentalService.getRentalsByLocation('Outside Paris')
+        break;
+        case 'rating':
+          optionValue === '4' ? this.rentals = this.rentalService.getRentalsByRating(4) : this.rentals = this.rentalService.getRentalsByRating(5)
+        break;
+        case 'tags':
+          optionValue === 'Appartement' ? this.rentals = this.rentalService.getRentalsByType('appartement') : this.rentals = this.rentalService.getRentalsByType('studio')
+        break;
+      }
+      return
+    }
     switch(optionType){
       case 'any':
         this.rentals = this.rentalService.getAllRentals()
       break;
       case 'location':
-        optionValue === 'Paris' ? this.rentals = this.rentalService.getRentalsByLocation('Paris') : this.rentals = this.rentalService.getRentalsByLocation('Outside Paris')
+        this.rentals = optionValue === 'Paris' ? this.rentalService.getRentalsByLocation('Paris') : this.rentalService.getRentalsByLocation('Outside Paris')
       break;
       case 'rating':
-        optionValue === '4' ? this.rentals = this.rentalService.getRentalsByRating(4) : this.rentals = this.rentalService.getRentalsByRating(5)
+        this.rentals = optionValue === '4' ? this.rentalService.getRentalsByRating(4) : this.rentalService.getRentalsByRating(5)
       break;
       case 'tags':
-        optionValue === 'Appartement' ? this.rentals = this.rentalService.getRentalsByType('appartement') : this.rentals = this.rentalService.getRentalsByType('studio')
+        this.rentals = optionValue === 'Appartement' ? this.rentalService.getRentalsByType('appartement') : this.rentalService.getRentalsByType('studio')
       break;
     }
   }

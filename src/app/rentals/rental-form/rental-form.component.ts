@@ -84,6 +84,7 @@ export class RentalFormComponent {
   }
 
   addEquipment(equipmentValue : string){
+    if(equipmentValue === "") return
     if(this.APIAsSource === false) {
       // should verify if value is valid
       const isSuccessful = this.rentalService.addEquipment(equipmentValue)
@@ -98,6 +99,7 @@ export class RentalFormComponent {
   }
 
   addTag(tagValue : string){
+    if(tagValue === "") return
     if(this.APIAsSource === false) {
       const isSuccessful = this.rentalService.addTag(tagValue)
       if(isSuccessful) this.newTag.nativeElement.value=""
