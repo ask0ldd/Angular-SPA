@@ -56,21 +56,11 @@ export class RentalsGalleryComponent implements OnInit{
     const [optionType , optionValue] = activeOption.split(':')
 
     if(this.APIAsSource){
-      switch(optionType){
-        case 'any':
-          this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
-        break;
-        case 'location':
-          optionValue === 'Paris' ? this.rentals = this.rentalService.getRentalsByLocation('Paris') : this.rentals = this.rentalService.getRentalsByLocation('Outside Paris')
-        break;
-        case 'rating':
-          optionValue === '4' ? this.rentals = this.rentalService.getRentalsByRating(4) : this.rentals = this.rentalService.getRentalsByRating(5)
-        break;
-        case 'tags':
-          optionValue === 'Appartement' ? this.rentals = this.rentalService.getRentalsByType('appartement') : this.rentals = this.rentalService.getRentalsByType('studio')
-        break;
+      if(optionType === 'any'){
+        this.apiService.getAllRentals().subscribe(datas => this.rentals = datas)
+        return
       }
-      return
+      this.apiService.getFilteredRentals({column : optionType, value : optionValue}).subscribe(datas => this.rentals = datas)
     }
     switch(optionType){
       case 'any':

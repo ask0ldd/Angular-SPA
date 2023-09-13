@@ -45,9 +45,13 @@ export class ApiService {
     })*/
   }
 
-  getAllRentals(rules ?: { sort?: {column : string, value : string}, order?:{direction : 'asc' | 'desc', column : string } }) : /*Promise<Array<IRental> | void*>*/  Observable<Array<IRental>> {
-    if(rules != null) return this.httpClient.post<Array<IRental>>(`${this.APIBaseUrl}rentals/withRules`, rules)
+  getAllRentals(/*rules ?: { sort?: {column : string, value : string}, order?:{direction : 'asc' | 'desc', column : string } }*/) : /*Promise<Array<IRental> | void*>*/  Observable<Array<IRental>> {
+    // if(rules != null) return this.httpClient.post<Array<IRental>>(`${this.APIBaseUrl}rentals/withRules`, rules)
     return this.httpClient.get<Array<IRental>>(`${this.APIBaseUrl}rentals`)
+  }
+
+  getFilteredRentals(filter : {column : string, value : string | number}) : Observable<Array<IRental>> {
+    return this.httpClient.post<Array<IRental>>(`${this.APIBaseUrl}rentals/filtered`, {column : filter.column, value : filter.value})
   }
 
   getRental(id : string) : Observable<IRental> /*Promise<Rental | void>*/{  // define return value
