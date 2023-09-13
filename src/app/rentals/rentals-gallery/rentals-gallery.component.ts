@@ -61,6 +61,7 @@ export class RentalsGalleryComponent implements OnInit{
         return
       }
       this.apiService.getFilteredRentals({column : optionType, value : optionValue}).subscribe(datas => this.rentals = datas)
+      return
     }
     switch(optionType){
       case 'any':

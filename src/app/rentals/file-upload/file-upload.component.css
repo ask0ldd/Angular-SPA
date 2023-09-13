@@ -27,4 +27,18 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  row-gap: 0.75rem;
+  font-weight: 600;
+}
+
+label svg {
+  height: 48px;
+}
+
+article:hover {
+  box-shadow: 0 4px 8px #3e4b3933, 0 16px 32px #749c9255;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in;
+  overflow: hidden;
 }
