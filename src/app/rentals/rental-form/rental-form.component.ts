@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RentalsService, capitalizeFirstLetter } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
 import { ApiService } from '../api.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-rental-form',
@@ -123,6 +123,16 @@ export class RentalFormComponent {
 
   whenFileUploaded(filename : string){
     this.editedRental.pictures.push(filename)
+  }
+
+  setInputContainerAsFocused(event : Event, onOff : boolean){
+    const input = event.target as HTMLInputElement
+    if(input.parentElement)
+      if(onOff){
+        input.parentElement.style.border="1px solid #58756f"
+      }else{
+        input.parentElement.style.border="none"
+      }
   }
 
 }

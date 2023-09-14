@@ -113,6 +113,10 @@ app-file-upload {
   height: 40px;
 }
 
+.inputContainer .active {
+  border: 1px solid #58756f;
+}
+
 input {
   background-color: none;
   border: none;

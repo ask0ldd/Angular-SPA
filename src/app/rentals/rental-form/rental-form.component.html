@@ -21,7 +21,7 @@
         <p [hidden]="host.valid || host.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
     <div class="inputContainer">
-        <input style="border:none; outline: none;" id="host" name="host" pattern="^[0-9]{1,50}$"
+        <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" style="border:none; outline: none;" id="host" name="host" pattern="^[0-9]{1,50}$"
         [(ngModel)]="editedRental.host.id" 
         #host="ngModel" required/>
         <div [hidden]="host.valid || host.pristine" class="inputValidStatus"></div>
