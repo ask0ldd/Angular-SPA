@@ -10,7 +10,9 @@
         <div class="gallery" #gallery>
             <figure style="position:relative;" *ngFor="let img of editedRental.pictures">
                 <img [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+img : 'assets/'+img" [crossOrigin]="APIAsSource ? 'anonymous' : ''"/>
-                <button (click)="deleteImg(img)" class="delImgButton">X</button>
+                <button (click)="deleteImg(img)" class="delImgButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#FFFFFF"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                </button>
             </figure>
             <app-file-upload (fileUploaded)="whenFileUploaded($event.data)"></app-file-upload>
         </div>
@@ -87,14 +89,18 @@
                     <input readonly style="border:none; outline: none; display:flex; width: 100%; flex-shrink: 1;" id="{{'equipment'+i.toString()}}" name="{{'equipment'+i.toString()}}" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ()'-]{1,30}$"
                     [(ngModel)]="editedRental.equipments[i]"/>
                 </div>
-                <button class="delButton" type="button" (click)="removeEquipment(editedRental.equipments[i])">x</button>
+                <button class="delButton" type="button" (click)="removeEquipment(editedRental.equipments[i])">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#FFFFFF"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                </button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <div style="width: 100%; flex-shrink: 1;" class="inputContainer">
                     <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
                     <!--<div class="inputValidStatus"></div>-->
                 </div>
-                <button class="delButton" type="button" (click)="addEquipment(newEquipment.value)">+</button>
+                <button class="delButton" type="button" (click)="addEquipment(newEquipment.value)">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#FFFFFF"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                </button>
             </div>
         </div>
 
@@ -106,13 +112,17 @@
                     [(ngModel)]="editedRental.tags[i]"/>
                 </div>
                 <!--<div class="validityIndicator"></div>-->
-                <button class="delButton" type="button" (click)="removeTag(editedRental.tags[i])">x</button>
+                <button class="delButton" type="button" (click)="removeTag(editedRental.tags[i])">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#FFFFFF"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                </button>
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <div style="width: 100%; flex-shrink: 1;" class="inputContainer">
                     <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" (keyup.enter)="addTag(newTag.value)" id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
                 </div>
-                <button class="delButton" type="button" (click)="addTag(newTag.value)">+</button>
+                <button class="delButton" type="button" (click)="addTag(newTag.value)">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#FFFFFF"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                </button>
             </div>
         </div>
     </div>

@@ -56,7 +56,6 @@ form {
   justify-content: center;
   align-items: center;
   position: absolute;
-  padding: 1px 0 0 1px;
   width: 32px;
   height: 32px;
   right: 0.5rem;
@@ -182,6 +181,9 @@ button.delButton {
   width: 42px;
   height: 40px;
   outline: 1px solid #58756f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button.saveButton {
