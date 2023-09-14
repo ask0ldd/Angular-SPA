@@ -33,7 +33,7 @@
         <p [hidden]="title.valid || title.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
     <div class="inputContainer">
-        <input style="border:none; outline: none;" id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
+        <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" style="border:none; outline: none;" id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
         [(ngModel)]="editedRental.title" 
         #title="ngModel" required/>
         <div [hidden]="title.valid || title.pristine" class="inputValidStatus"></div>
@@ -44,7 +44,7 @@
         <p [hidden]="location.valid || location.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
     <div class="inputContainer">
-        <input style="border:none; outline: none;" id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
+        <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" style="border:none; outline: none;" id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
         [(ngModel)]="editedRental.location"
         #location="ngModel" required/>
         <div [hidden]="location.valid || location.pristine" class="inputValidStatus"></div>
@@ -91,7 +91,7 @@
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <div style="width: 100%; flex-shrink: 1;" class="inputContainer">
-                    <input (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
+                    <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" (keyup.enter)="addEquipment(newEquipment.value)" id="newEquipment" name="newEquipment" style="display:flex; width: 100%; flex-shrink: 1;" #newEquipment/>
                     <!--<div class="inputValidStatus"></div>-->
                 </div>
                 <button class="delButton" type="button" (click)="addEquipment(newEquipment.value)">+</button>
@@ -110,7 +110,7 @@
             </div>
             <div style="display:flex; width: 100%; flex-direction: row; column-gap: 1rem;">
                 <div style="width: 100%; flex-shrink: 1;" class="inputContainer">
-                    <input (keyup.enter)="addTag(newTag.value)" id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
+                    <input (focus)="setInputContainerAsFocused($event, true)" (blur)="setInputContainerAsFocused($event, false)" (keyup.enter)="addTag(newTag.value)" id="newTag" name="newTag" style="display:flex; width: 100%; flex-shrink: 1;" #newTag>
                 </div>
                 <button class="delButton" type="button" (click)="addTag(newTag.value)">+</button>
             </div>
