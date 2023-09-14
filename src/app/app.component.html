@@ -5,7 +5,7 @@
           <li><a routerLink="/">Accueil</a></li>
           <li><a routerLink="/apropos">Services</a></li>
           <li *ngIf="!isLogged"><a routerLink="/login">Connexion</a></li>
-          <li style="cursor: pointer;" *ngIf="isLogged" (click)="disconnect()"><a href="javascript:void(0);">Déconnexion</a></li>
+          <li style="cursor: pointer;" *ngIf="isLogged"><a role="button" (click)="disconnect()">Déconnexion</a></li>
       </ul>
   </nav>
 </header>
