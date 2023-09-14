@@ -382,3 +382,15 @@
     font-size: 12px;
   }
 }
+
+@media screen and (max-width: 1320px) {
+  .main-rental {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-rental {
+    padding: 0 20px;
+  }
+}

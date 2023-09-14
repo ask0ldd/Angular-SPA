@@ -68,9 +68,16 @@ a.active-link {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   header {
     padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  nav ul li {
+    font-size: 12px;
+    text-transform: uppercase;
   }
 }
 
@@ -79,14 +86,6 @@ a.active-link {
     margin-top: 20px;
     height: 47px;
   }
-  nav ul li {
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  /*nav ul {
-    width: 140px;
-  }*/
 
   header img {
     height: 47px;
