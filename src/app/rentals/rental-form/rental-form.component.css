@@ -109,7 +109,6 @@ app-file-upload {
   display: flex;
   flex-direction: row;
   border-radius: 4px;
-  color: #58756f;
   overflow: hidden;
   height: 40px;
 }
@@ -122,6 +121,7 @@ input {
   height: 100%;
   width: 100%;
   flex: 1 1 100%;
+  color: rgba(90, 108, 82);
 }
 
 button {
@@ -176,6 +176,8 @@ button {
 
 button.delButton {
   width: 42px;
+  height: 40px;
+  outline: 1px solid #58756f;
 }
 
 button.saveButton {
