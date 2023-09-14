@@ -20,18 +20,24 @@
         <label for="host">Host</label>
         <p [hidden]="host.valid || host.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
-    <input id="host" name="host" pattern="^[0-9]{1,50}$"
-    [(ngModel)]="editedRental.host.id" 
-    #host="ngModel" required/>
+    <div class="inputContainer">
+        <input style="border:none; outline: none;" id="host" name="host" pattern="^[0-9]{1,50}$"
+        [(ngModel)]="editedRental.host.id" 
+        #host="ngModel" required/>
+        <div [hidden]="host.valid || host.pristine" class="inputValidStatus"></div>
+    </div>
     
     <!-- title.valid & title.pristine refer to #title -->
     <div class="labelErrorContainer">
         <label for="title">Title</label>
         <p [hidden]="title.valid || title.pristine" class="errorMessage">Utilisation de caractères invalides</p>
     </div>
-    <input id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
-    [(ngModel)]="editedRental.title" 
-    #title="ngModel" required/>
+    <div class="inputContainer">
+        <input style="border:none; outline: none;" id="title" name="title" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,50}$"
+        [(ngModel)]="editedRental.title" 
+        #title="ngModel" required/>
+        <div [hidden]="title.valid || title.pristine" class="inputValidStatus"></div>
+    </div>
 
     <div class="labelErrorContainer">
         <label for="location">Location</label>
@@ -41,7 +47,7 @@
         <input style="border:none; outline: none;" id="location" name="location" pattern="^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ',;. ()-]{1,30}$"
         [(ngModel)]="editedRental.location"
         #location="ngModel" required/>
-        <div class="inputStatus"></div>
+        <div [hidden]="location.valid || location.pristine" class="inputValidStatus"></div>
     </div>
 
     <div class="labelErrorContainer">
