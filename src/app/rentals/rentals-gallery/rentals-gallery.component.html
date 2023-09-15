@@ -13,16 +13,18 @@
 
     <div id="filtersContainer">
       <span style="margin-right:auto;">{{rentals.length}} logements temporaires satisfont vos critères.</span>
-      <label htmlFor="filtres">Filtres :</label>
-      <select #galleryFilter data-testid="select" (change)="onGalleryFilterChange(galleryFilter.value)" defaultValue="any:any" id="filtres" name="filtres">
-          <option value="any:any">Tous</option>
-          <option value="location:Paris">Paris</option>
-          <option value="location:HorsParis">Hors Paris</option>
-          <option value="tags:Appartement">Appartement</option>
-          <option value="tags:Studio">Studio</option>
-          <option value="rating:4">4 étoiles & plus</option>
-          <option value="rating:5">5 étoiles</option>
-      </select>          
+      <div>
+        <label htmlFor="filtres">Filtres :</label>
+        <select #galleryFilter data-testid="select" (change)="onGalleryFilterChange(galleryFilter.value)" defaultValue="any:any" id="filtres" name="filtres">
+            <option value="any:any">Tous</option>
+            <option value="location:Paris">Paris</option>
+            <option value="location:HorsParis">Hors Paris</option>
+            <option value="tags:Appartement">Appartement</option>
+            <option value="tags:Studio">Studio</option>
+            <option value="rating:4">4 étoiles & plus</option>
+            <option value="rating:5">5 étoiles</option>
+        </select>
+      </div>
     </div>
   
     <div id="gallery">

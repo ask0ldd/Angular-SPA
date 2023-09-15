@@ -85,6 +85,10 @@
     border-radius: 16px;
     height: 325px;
   }
+
+  .slideshow > img {
+    border: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -111,16 +115,6 @@
 }
 
 /* end slideshow */
-
-@media screen and (max-width: 800px) {
-  #collapsesContainer {
-    flex-direction: column;
-  }
-
-  .main-rental {
-    padding-bottom: 35px;
-  }
-}
 
 /* rentaldetails */
 
@@ -389,8 +383,18 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  #collapsesContainer {
+    flex-direction: column;
+  }
+
+  .main-rental {
+    padding: 0 20px 35px 20px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .main-rental {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
   }
 }

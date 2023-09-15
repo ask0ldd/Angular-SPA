@@ -259,3 +259,14 @@
     height: 255px;
   }
 }
+
+@media screen and (max-width: 720px) {
+  #filtersContainer {
+    height: fit-content;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    row-gap: 15px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+}
