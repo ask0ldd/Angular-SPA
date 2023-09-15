@@ -268,5 +268,10 @@
     row-gap: 15px;
     margin-bottom: 0px;
     margin-top: 20px;
+    font-size: 14px;
   }
+
+  /*.filters {
+    align-self: flex-end;
+  }*/
 }

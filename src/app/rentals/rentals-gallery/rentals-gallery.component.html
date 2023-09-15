@@ -13,7 +13,7 @@
 
     <div id="filtersContainer">
       <span style="margin-right:auto;">{{rentals.length}} logements temporaires satisfont vos critères.</span>
-      <div>
+      <div class="filters">
         <label htmlFor="filtres">Filtres :</label>
         <select #galleryFilter data-testid="select" (change)="onGalleryFilterChange(galleryFilter.value)" defaultValue="any:any" id="filtres" name="filtres">
             <option value="any:any">Tous</option>
