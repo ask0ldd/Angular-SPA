@@ -32,23 +32,21 @@ form {
 
 .gallery figure {
   flex: 1 1 30%;
-  max-width: calc((100% - 48px) / 3);
+  max-width: calc((100% - 24px) / 2);
   height: 260px;
   border: 1px solid #5a6c52;
+  min-width: 260px;
 }
 
 .gallery article {
   display: flex;
   flex-direction: column;
-  flex: 1 1 30%;
-  max-width: calc((100% - 48px) / 3);
+  width: 100%;
   height: 260px;
-  border: 1px solid #f1f1f1;
-  background-color: #ffffffaa;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 2px 4px #3e4b3911, 0 4px 8px #749c9233;
+  /*box-shadow: 0 2px 4px #3e4b3911, 0 4px 8px #749c9233;*/
 }
 
 .gallery .delImgButton {
@@ -85,7 +83,7 @@ form {
 }
 
 .gallery img {
-  object-fit: fill;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -98,8 +96,33 @@ form {
 app-file-upload {
   display: flex;
   flex: 1 1 30%;
-  max-width: calc((100% - 48px) / 3);
+  max-width: calc((100% - 24px) / 2);
   height: 260px;
+  box-shadow: 0 2px 4px #3e4b3911, 0 4px 8px #749c9233;
+  border: 1px solid #f1f1f1;
+  background-color: #ffffffaa;
+}
+
+@media screen and (max-width: 1020px) {
+  .gallery figure {
+    flex: 1 1 30%;
+    max-width: calc((100% - 24px) / 2);
+    min-width: 260px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .gallery figure {
+    flex: 1 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  app-file-upload {
+    flex: 1 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .inputContainer {
