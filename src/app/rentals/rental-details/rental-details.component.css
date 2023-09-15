@@ -101,7 +101,7 @@
   row-gap: 15px;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 970px) {
   #ownerNratings {
     flex-direction: row-reverse;
     align-items: center;
@@ -294,24 +294,6 @@
   line-height: 145%;
 }
 
-@media screen and (max-width: 600px) {
-  .rental-heading,
-  .apropos-heading {
-    font-size: 16px;
-    height: 40px;
-  }
-
-  .rental-heading img,
-  .apropos-heading img {
-    height: 12px;
-  }
-
-  .rental-body,
-  .apropos-body {
-    font-size: 14px;
-  }
-}
-
 @media screen and (max-width: 1320px) {
   .main-rental {
     padding: 0 40px;
@@ -325,12 +307,6 @@
 
   .main-rental {
     padding: 0 20px 35px 20px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .main-rental {
-    padding: 0 20px 20px 20px;
   }
 }
 
@@ -361,9 +337,75 @@
   #rentalDetails p {
     margin-top: 7px;
   }
+
+  .collapse__heading {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .collapse__heading img {
+    height: 12px;
+  }
+
+  .collapse__body {
+    font-size: 14px;
+  }
+
+  .rental-heading,
+  .apropos-heading {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .rental-heading img,
+  .apropos-heading img {
+    height: 12px;
+  }
+
+  .rental-body,
+  .apropos-body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-rental {
+    padding: 0 20px 20px 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
+  .collapse {
+    margin-top: 20px;
+  }
+  .collapse__heading {
+    font-size: 13px;
+    height: 30px;
+  }
+
+  .collapse__heading img {
+    width: 15px;
+    height: 9px;
+  }
+
+  .collapse__body {
+    font-size: 12px;
+  }
+
+  .redstar,
+  .greystar {
+    width: 15px;
+    height: 15px;
+  }
+
+  .tagsContainer {
+    margin-top: 15px;
+  }
+  .tag {
+    height: 25px;
+    font-size: 10px;
+  }
+
   .slideshow {
     height: 255px;
     border-radius: 10px;
@@ -382,79 +424,3 @@
     width: 40px;
   }
 }
-
-@media screen and (max-width: 400px) {
-  .tagsContainer {
-    margin-top: 15px;
-  }
-  .tag {
-    height: 25px;
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .redstar,
-  .greystar {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .collapse__heading {
-    font-size: 16px;
-    height: 40px;
-  }
-
-  .collapse__heading img {
-    height: 12px;
-  }
-
-  .collapse__body {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .collapse {
-    margin-top: 20px;
-  }
-  .collapse__heading {
-    font-size: 13px;
-    height: 30px;
-  }
-
-  .collapse__heading img {
-    width: 15px;
-    height: 9px;
-  }
-
-  .collapse__body {
-    font-size: 12px;
-  }
-}
-
-/*
-@media screen and (max-width: 400px) {
-  .collapse {
-    margin-top: 20px;
-  }
-  .rental-heading,
-  .apropos-heading {
-    font-size: 13px;
-    height: 30px;
-  }
-
-  .rental-heading img,
-  .apropos-heading img {
-    width: 15px;
-    height: 9px;
-  }
-
-  .rental-body,
-  .apropos-body {
-    font-size: 12px;
-  }
-}
-*/
