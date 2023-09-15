@@ -89,6 +89,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-top: -5px;
 }
 
 #headingsNtags p {
@@ -99,33 +100,6 @@
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-}
-
-@media screen and (max-width: 970px) {
-  #ownerNratings {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  #ownerNratings {
-    height: 34px;
-  }
-
-  #rentalDetails {
-    margin-top: 13px;
-    row-gap: 15px;
-  }
-  #headingsNtags h1 {
-    font-size: 18px;
-  }
-
-  #headingsNtags p {
-    font-size: 14px;
-  }
 }
 
 /* end rentaldetails */
@@ -149,18 +123,6 @@
   height: 64px;
   object-fit: cover;
   border-radius: 32px;
-}
-
-@media screen and (max-width: 400px) {
-  .hostContainer img {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-  }
-
-  .hostContainer {
-    font-size: 12px;
-  }
 }
 
 /* end of host */
@@ -189,15 +151,6 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 400px) {
-  .tagsContainer {
-    margin-top: 15px;
-  }
-  .tag {
-    height: 25px;
-    font-size: 10px;
-  }
-}
 /* tags end */
 
 /* ratings */
@@ -210,15 +163,9 @@
   width: fit-content;
   display: flex;
   column-gap: 10px;
+  /*margin-top: auto;*/
 }
 
-@media screen and (max-width: 400px) {
-  .star-red,
-  .star-grey {
-    width: 15px;
-    height: 15px;
-  }
-}
 /* ratings end */
 
 /* collapses */
@@ -296,7 +243,16 @@
 
 @media screen and (max-width: 1320px) {
   .main-rental {
-    padding: 0 40px;
+    padding: 0 40px 45px 40px;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  #ownerNratings {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -375,6 +331,32 @@
 }
 
 @media screen and (max-width: 400px) {
+  #ownerNratings {
+    height: 34px;
+  }
+
+  #rentalDetails {
+    margin-top: 13px;
+    row-gap: 15px;
+  }
+  #headingsNtags h1 {
+    font-size: 18px;
+  }
+
+  #headingsNtags p {
+    font-size: 14px;
+  }
+
+  .hostContainer img {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+  }
+
+  .hostContainer {
+    font-size: 12px;
+  }
+
   .collapse {
     margin-top: 20px;
   }
@@ -424,3 +406,21 @@
     width: 40px;
   }
 }
+
+/*@media screen and (max-width: 400px) {
+  .star-red,
+  .star-grey {
+    width: 15px;
+    height: 15px;
+  }
+
+  @media screen and (max-width: 400px) {
+  .tagsContainer {
+    margin-top: 15px;
+  }
+  .tag {
+    height: 25px;
+    font-size: 10px;
+  }
+}
+}*/
