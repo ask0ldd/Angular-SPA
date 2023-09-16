@@ -72,3 +72,15 @@
   color: #58756fcc;
   border: 1px solid #58756f33;
 }
+
+@media screen and (max-width: 1320px) {
+  .main {
+    padding: 0 40px 45px 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    padding: 0 20px 35px 20px;
+  }
+}

@@ -130,12 +130,12 @@ footer span {
   }
 }
 
-@media screen and (max-width: 550px) {
+/*@media screen and (max-width: 550px) {
   header img {
     height: 47px;
     width: fit-content;
   }
-}
+}*/
 
 @media screen and (max-width: 500px) {
   footer {
