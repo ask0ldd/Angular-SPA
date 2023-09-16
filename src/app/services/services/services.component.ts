@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ServicesComponent {
 
+  collapsesOpenStatus : boolean[] = [true, false, false, false]
+
+  ngOnInit(): void {
+    
+  }
+
 }

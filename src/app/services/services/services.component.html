@@ -1,1 +1,39 @@
-<p>services works!</p>
+<main class="main">
+    <section class="banner"></section>
+    <article class="collapse">
+        <h3 (click)="collapsesOpenStatus[0] = !collapsesOpenStatus[0]" class="collapse__heading">
+            Fiabilité
+            <img [src]="collapsesOpenStatus[0] === true ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
+        </h3>
+        <div *ngIf="collapsesOpenStatus[0]" class="collapse__body">
+            Kasa possède une expérience solide dans le domaine de la location temporaire, ce qui nous permet de comprendre les besoins et les attentes de nos clients. Nous travaillons avec des propriétaires de biens locatifs du monde entier, ce qui lui confère une connaissance approfondie du marché.
+        </div>
+    </article>
+    <article class="collapse">
+        <h3 (click)="collapsesOpenStatus[1] = !collapsesOpenStatus[1]" class="collapse__heading">
+            Respect
+            <img [src]="collapsesOpenStatus[1] === true ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
+        </h3>
+        <div *ngIf="collapsesOpenStatus[1]" class="collapse__body">
+            La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.
+        </div>
+    </article>
+    <article class="collapse">
+        <h3 (click)="collapsesOpenStatus[2] = !collapsesOpenStatus[2]" class="collapse__heading">
+            Service
+            <img [src]="collapsesOpenStatus[2] === true ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
+        </h3>
+        <div *ngIf="collapsesOpenStatus[2]" class="collapse__body">
+            Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question.
+        </div>
+    </article>
+    <article class="collapse">
+        <h3 (click)="collapsesOpenStatus[3] = !collapsesOpenStatus[3]" class="collapse__heading">
+            Sécurité
+            <img [src]="collapsesOpenStatus[3] === true ? 'assets/collapse-up.svg' : 'assets/collapse-down.svg'" alt="arrow" />
+        </h3>
+        <div *ngIf="collapsesOpenStatus[3]" class="collapse__body">
+            La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.
+        </div>
+    </article>
+</main>
