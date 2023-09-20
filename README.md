@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/static/v1?label=&message=Typescript&color=0088CC&logo=Typescript&logoColor=white&style=flat-square">
     <img src="https://img.shields.io/static/v1?label=&message=Express&color=7BB661&logo=Express&logoColor=white&style=flat-square">
     <img src="https://img.shields.io/static/v1?label=&message=Sequelize&color=004B49&logo=Sequelize&logoColor=white&style=flat-square">
-    <img src="https://img.shields.io/static/v1?label=&message=SQLite&color=FFFDD0&logo=SQLite&logoColor=white&style=flat-square">
+    <img src="https://img.shields.io/static/v1?label=&message=SQLite&color=8C92AC&logo=SQLite&logoColor=white&style=flat-square">
     <img src="https://img.shields.io/static/v1?label=&message=Docker&color=086DD7&logo=Docker&logoColor=white&style=flat-square">
 </div><br>
 
