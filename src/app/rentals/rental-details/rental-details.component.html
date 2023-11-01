@@ -2,8 +2,8 @@
     <section class='slideshow'>
         <img data-testid="slideshowImg" [src]="APIAsSource ? serverBaseUrl+'pics/locs/'+activeRental.pictures[activeImg] : 'assets/'+activeRental.pictures[activeImg]" alt="temp" [crossOrigin]="APIAsSource ? 'anonymous' : ''"/>
         <div class="buttons-container"> 
-            <div *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="assets/arrow-right.svg" alt="arrow previous" /></div>
-            <div *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="assets/arrow-right.svg" alt="arrow next" /></div>
+            <div role="button" *ngIf="activeRental.pictures.length>1" (click)="prevImg()" data-testid="slideshowLeftArrow"><img id="prevArrow" src="assets/arrow-right.svg" alt="arrow previous" /></div>
+            <div role="button" *ngIf="activeRental.pictures.length>1" (click)="nextImg()" data-testid="slideshowRightArrow"><img src="assets/arrow-right.svg" alt="arrow next" /></div>
             <span class="index">{{activeImg+1}}/{{activeRental.pictures.length}}</span>
         </div>
     </section>

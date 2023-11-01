@@ -40,3 +40,9 @@
     </div>
     
 </main>
+
+<main class="main" *ngIf="!rentals"><!-- design the error -->
+<span style="display:flex;justify-content: center; align-items: center; font-size: 24px; font-weight: 600;">
+  Can't connect to Database
+</span>
+</main>
