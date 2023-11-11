@@ -17,9 +17,7 @@ The Backend, using Express, SQLite & Sequelize can be launched using Docker. Lin
 
 <b>--- THE HOME PAGE ---</b>
 
-<img src="docs/screen1.jpg"><hr>
-
-<img src="/public/screenshots/screen2n3.jpg"><hr>
+<img src="docs/screen1b.jpg"><hr>
 
 <img src="docs/screen2.jpg"><hr>
 
