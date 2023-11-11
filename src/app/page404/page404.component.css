@@ -25,6 +25,30 @@
   text-align: center;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #58756f;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #364643;
+  text-underline-offset: 5px;
+}
+
+a:active {
+  text-decoration: underline;
+  color: #58756f;
+  text-underline-offset: 5px;
+}
+
+a.active-link {
+  text-decoration: underline;
+  color: #58756f;
+  text-underline-offset: 5px;
+}
+
 @media screen and (max-width: 800px) {
   #h404 {
     font-size: 168px;
