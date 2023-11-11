@@ -14,3 +14,5 @@ Some REAL ESTATE App I'm currently developping using Angular. Based on some UI p
 The working app can be seen here : https://ask0ldd.github.io/Angular-SPA/<br><br>
 
 The Backend, using Express, SQLite & Sequelize can be launched using Docker. Link : https://github.com/ask0ldd/SQLite-RealEstate
+
+<img src="docs/screen1.jpg">
