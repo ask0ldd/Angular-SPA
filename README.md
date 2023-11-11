@@ -15,8 +15,16 @@ The working app can be seen here : https://ask0ldd.github.io/Angular-SPA/<br><br
 
 The Backend, using Express, SQLite & Sequelize can be launched using Docker. Link : https://github.com/ask0ldd/SQLite-RealEstate
 
-<img src="docs/screen1.jpg">
-<img src="docs/screen2.jpg">
-<img src="docs/screen3.jpg">
-<img src="docs/screen4.jpg">
-<img src="docs/screen5.jpg">
+<b>--- THE HOME PAGE ---</b>
+
+<img src="docs/screen1.jpg"><hr>
+
+<img src="/public/screenshots/screen2n3.jpg"><hr>
+
+<img src="docs/screen2.jpg"><hr>
+
+<img src="docs/screen3.jpg"><hr>
+
+<img src="docs/screen4.jpg"><hr>
+
+<img src="docs/screen5.jpg"><hr>
