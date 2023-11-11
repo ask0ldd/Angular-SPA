@@ -17,3 +17,5 @@ The Backend, using Express, SQLite & Sequelize can be launched using Docker. Lin
 
 <img src="docs/screen1.jpg">
 <img src="docs/screen2.jpg">
+<img src="docs/screen3.jpg">
+<img src="docs/screen4.jpg">
