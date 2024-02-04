@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IHost, IRental, Rental } from '../models/rental';
-import { HttpClient, HttpErrorResponse, HttpEvent } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { IHost, IRental } from '../models/rental';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { serverBaseUrl } from 'src/main';
 import { CookiesService } from '../auth/cookies.service';
 

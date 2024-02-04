@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Page404Component } from './page404/page404.component';
-import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   /*{path: 'gallery', component: RentalsGalleryComponent},

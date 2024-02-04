@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { rentalsList } from '../../mockdatas/mock-rentals-list';
 import { IRental, Rental } from '../../models/rental';
 import { Router } from '@angular/router';
 import { RentalsService } from '../rentals.service';

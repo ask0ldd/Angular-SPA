@@ -5,9 +5,7 @@ import { AppComponent } from './app.component';
 import { Page404Component } from './page404/page404.component';
 import { RentalsModule } from './rentals/rentals.module';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
-import { ServicesComponent } from './services/services/services.component';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({

@@ -1,9 +1,8 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { RentalsService, capitalizeFirstLetter } from '../rentals.service';
 import { IRental, Rental } from 'src/app/models/rental';
 import { ApiService } from '../api.service';
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-rental-form',
