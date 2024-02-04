@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IHost, Rental } from '../models/rental';
+import { Rental } from '../models/rental';
 import { rentalsList } from '../mockdatas/mock-rentals-list';
 
 const APIBaseUrl =  "http://127.0.0.1:5678/"
